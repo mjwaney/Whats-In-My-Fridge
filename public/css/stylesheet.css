@@ -1,0 +1,295 @@
+@font-face {
+	font-family: 'fourHand';
+	src: url('fonts/fourHand.ttf');
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	background: #DDD;
+	font-family: fourHand;
+	font-size: 20px;
+}
+
+.page {
+	position: fixed;
+	top: 0;
+	width: 80%;
+	min-width: 700px;
+	height: 100%;
+	background: #FFF;
+	overflow: auto;
+}
+
+hr {
+	border: 0px;
+	border-bottom: 1px solid #5C4032;
+}
+
+/* Links */
+
+a {
+	text-decoration: none;
+}
+
+/* Unvisited */
+a:link {
+	color: #5C4032;
+}
+
+/* Visited */
+a:visited {
+	color: #5C4032;
+}
+
+a:visited.headerButton {
+	color: #EEE;
+}
+
+/* Hover */
+a:hover {
+	color: #333;
+}
+
+a:hover.headerButton {
+	color: #5C4032;
+}
+
+/* Selected */
+a:active {
+	color: #5C4032;
+}
+
+/* Index */
+
+.indexContainer {
+	position: fixed;
+	bottom: 15%;
+	left: 35%;
+	right: 35%;
+	font-size: 30px;
+}
+
+.indexImage {
+	display: flex;
+	justify-content: center;
+	margin-top: 15vh;
+}
+
+
+/* Header */
+
+.headerContainer {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	overflow: auto;
+	background-color: #5C4032;
+	font-size: 20px;
+	color: #EEE;
+}
+
+.headerFiller {
+	min-width: 250px;
+	width: 20%;
+}
+
+.headerButton {
+	display: inline;
+	line-height: 47px;
+	padding-top: 3px;
+	text-align: center;
+	border-left: 1px solid #7D665B;
+	color: #EEE;
+}
+
+.headerButton:hover {
+	background: #FFF;
+	color: #5C4032;
+}
+
+.headerLogin {
+	width: 125px;
+}
+
+.headerOptions {
+	width: 50px;
+	overflow: hidden;
+	background: #5C4032 url("images/optionsWhite.png") no-repeat;
+}
+
+.headerOptions:hover {
+	background: #FFF url("images/optionsBrown.png") no-repeat;
+}
+
+.headerImage {
+	background-color: #CCC;
+	width: 100%;
+	min-width: 500px;
+}
+
+
+/* Header clickmenu */
+
+.onclick-menu {
+#    position: relative;
+#    display: inline-block;
+}
+
+.onclick-menu:focus {
+    /* clicking on label should toggle the menu */
+    pointer-events: none;
+}
+
+.onclick-menu:focus .onclick-menu-content {
+    /*  opacity is 1 in opened state (see below) */
+    opacity: 1;
+    visibility: visible;
+
+    /* don't let pointer-events affect descendant elements */
+    pointer-events: auto;
+}
+
+.onclick-menu-content {
+    position: absolute;
+    z-index: 1;
+
+    /* use opacity to fake immediate toggle */
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.5s;
+}
+
+
+/* Menu */
+
+.menuContainer {
+	display: flex;
+	justify-content: center;
+	font-size: 32px;
+}
+
+.menuButton {
+	display: inline;
+	width: 125px;
+	height: 45px;
+	margin: 0px 2% 5px;
+	margin-bottom: 5px;
+	padding-top: 15px;
+	text-align: center;
+	color: #333;
+	#border: 1px solid #999;
+}
+
+.menuButton:hover {
+	border-bottom: 5px solid #5C4032;
+	margin-bottom: 0px;
+}
+
+
+/* Content */
+
+.content {
+    display: flex;
+    #border: 1px solid #CCC;
+}
+
+.column {
+	display: inline;
+	padding: 25px 10px;
+}
+
+/* Left */
+
+.left {
+	width: 20%;
+	min-width: 100px;
+}
+
+.ingredients {
+	width: 100%;
+	border-spacing: 0;
+}
+
+.ingredients .header {
+	background: #5C4032;
+	padding: 10px;
+	font-size: 27px;
+	color: #EEE;
+}
+
+.ingredients .content {
+	border: 1px solid #DDD;
+	border-top: 0;
+	padding: 10px;
+	font-size: 16px;
+	color: #222;
+	font-family: Verdana;
+}
+
+
+/* Center */
+
+.center {
+	width: 60%;
+	min-width: 300px;
+	font-family: Verdana;
+	font-size: 15px;
+}
+
+h1.center {
+    width: 100%;
+    font-family: fourHand;
+    font-size: 40px;
+    color: #5C4032;
+}
+
+.contentImage {
+	width: 500px;
+	margin: 0px auto 10px;
+}
+
+
+/* Register */
+
+.registerInput {
+	width: 20vw;
+	margin-left: 15px;
+    padding: 8px;
+	font-family: Verdana;
+	font-size: 15px;
+	resize: none;
+	border: 1px solid #CCC;
+}
+
+.registerInput:focus {
+	outline: none;
+	box-shadow: 0px 0px 0px 1px #5C4032;
+}
+
+.registerSubmit {
+	margin-left: 15px;
+	padding-top: 5px;
+	width: 20vw;
+	height: 45px;
+	border: 0px;
+	background: #5C4032;
+	font-family: fourHand;
+	font-size: 25px;
+	color: #EEE;
+	outline: none;
+}
+
+.registerSubmit:hover {
+	background: #FFF;
+	color: #5C4032;
+	box-shadow: inset 0px 0px 0px 1px #CCC;
+}
+
+
+/* Right */
+
+.right {
+	width: 20%;
+	min-width: 100px;
+}
