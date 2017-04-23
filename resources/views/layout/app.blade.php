@@ -2,6 +2,10 @@
 
 <head>
     <title>@yield('title')</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="{{ elixir('css/stylesheet.css') }}"" rel="stylesheet" type="text/css" />
 </head>
 
@@ -13,41 +17,83 @@
             <div>
 
             </div>
-            <div class="headerButton headerLogin"><a href="/register">Register</a></div>
-            
-            <div class="headerButton headerOptions"></div>
         </div>
         <div><img src="{{asset('images/headerImage.jpg')}}" class="headerImage" /></div>
-        <br />
-        <div class="menuContainer">
-            <a href="/" class="menuButton">Home</a>
-            <a href="/ingredients" class="menuButton">Ingredients</a>
-            <a href="/recipes" class="menuButton">Recipe List</a>
-            <a href="/findrecipes" class="menuButton">Find Recipes</a>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">News |</a>
+          <a class="navbar-brand" href="/recipes">Recipes |</a>
+          <a class="navbar-brand" href="/findrecipes">Find Recipe |</a>
+          <a class="navbar-brand" href="/createrecipe">Add Recipe |</a>
         </div>
-        <div class="content">
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input class="form-control" placeholder="Search" type="text">
+            </div>
+            <button type="submit" class="btn btn-default">Find Recipe</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+           <div class="content">
             <div class="column left">
-                <table border="0" class="ingredients">
-                    <tr><td class="header">Ingredients</td><td></td></tr>
-                    <tr><td class="content">1/2 cup mayonnaise</td></tr>
-                    <tr><td class="content">1 teaspoon Cajun seasoning</td></tr>
-                    <tr><td class="content">1 1/3 pounds ground beef sirloin</td></tr>
-                    <tr><td class="content">1 jalapeno pepper, seeded and chopped</td></tr>
-                    <tr><td class="content">1/2 cup diced white onion</td></tr>
-                    <tr><td class="content">1 clove garlic, minced</td></tr>
-                    <tr><td class="content">1 tablespoon Cajun seasoning</td></tr>
-                    <tr><td class="content">1 teaspoon Worcestershire sauce</td></tr>
-                    <tr><td class="content">4 slices pepperjack cheese</td></tr>
-                    <tr><td class="content">4 hamburger buns, split</td></tr>
-                    <tr><td class="content">4 leaves lettuce</td></tr>
-                    <tr><td class="content">4 slices tomato</td></tr>
-                </table>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">Top Rated</div>
+                  <div class="panel-body">
+                    Recipe 1
+                  </div>
+                  <div class="panel-body">
+                    Recipe 2
+                  </div>
+                  <div class="panel-body">
+                    Recipe 3
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">Top Ingredients</div>
+                  <div class="panel-body">
+                    Butter
+                  </div>
+                  <div class="panel-body">
+                    Cheese
+                  </div>
+                  <div class="panel-body">
+                    Eggs
+                  </div>
+                </div>
             </div>
             <div class="column center"> 
-                <h1 class="center">
-                @section('h1title')
-                    @show
-              </h1>
                 <p>
                     @section('p1')
                         @show
@@ -60,17 +106,6 @@
                     @section('p3')
                         @show
                 </p>
-            </div>
-            <div class="column right">
-                <table border="0" class="ingredients">
-                    <tr><td class="header">Suggested recipes</td><td></td></tr>
-                    <tr><td class="content">Slider-style Mini Burgers</td></tr>
-                    <tr><td class="content">Big Smokey Burgers</td></tr>
-                    <tr><td class="content">Garlic and Onion Burgers</td></tr>
-                    <tr><td class="content">Game Day Hamburgers</td></tr>
-                    <tr><td class="content">Bacon Wrapped Hamburgers</td></tr>
-                </table>
-
             </div>
         </div>
     </div>

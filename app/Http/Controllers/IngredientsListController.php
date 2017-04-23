@@ -4,19 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use \App\recipe;
+use \App\ingredient;
 
-class RecipesController extends Controller
+class IngredientsListController extends Controller
 {
     /**
-     * Default Recipe Page. Gets recipes from database, and passes them on to the default recipe view
-     *@param Recipe model data
-     * @return show the default recipe page, pass it recipe database collection
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function index(Recipe $recipe)
-    {   
-        $rec = recipe::all();
-        return view('recipes_default', compact('rec'));
+    public function index(Ingredient $ingredient)
+    {
+        $ing = ingredient::all();
+        return view('createrecipe', compact('ing'));
     }
 
     /**
@@ -26,7 +26,7 @@ class RecipesController extends Controller
      */
     public function create()
     {
-        return view('recipe.create');   
+        //
     }
 
     /**
@@ -46,21 +46,21 @@ class RecipesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Recipe $recipe)
+    public function show($id)
     {
-        return view('recipes', compact('recipe'));
+        $ing = ingredient::find($id);
+        return $ing->name;
     }
 
     /**
-     * Get the corresponding id
+     * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $recipe = recipe::find($id);
-        return $recipe;
+        //
     }
 
     /**

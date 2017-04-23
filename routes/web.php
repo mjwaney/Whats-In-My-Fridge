@@ -39,9 +39,22 @@ Route::get('/findrecipes', function () {
     return view('findrecipes');
 });
 
+Route::get('/createrecipe', function () {
+    return view('createrecipe');
+});
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
 Route::get('register/verify/{token}', 'Auth\RegisterController@verify'); 
 
 Route::resource('recipes', 'RecipesController');
+
+Route::resource('createrecipe', 'IngredientsListController');
+
+Route::resource('findrecipes', 'FindIngredientController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

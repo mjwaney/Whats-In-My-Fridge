@@ -3,6 +3,7 @@
 	src: url('fonts/fourHand.ttf');
 }
 
+
 body {
 	display: flex;
 	justify-content: center;
@@ -231,7 +232,7 @@ a:active {
 /* Center */
 
 .center {
-	width: 60%;
+	max-width: 60%;
 	min-width: 300px;
 	font-family: Verdana;
 	font-size: 15px;
@@ -292,4 +293,10 @@ h1.center {
 .right {
 	width: 20%;
 	min-width: 100px;
+}
+
+/* Added Shizzle */
+
+.containerN{
+	min-width: 800px;
 }
