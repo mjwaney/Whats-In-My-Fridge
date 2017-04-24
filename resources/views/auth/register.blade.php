@@ -67,9 +67,22 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form><br>
                 </div>
             </div>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Login with Social Media</div>
+        <div class="panel-body">         
+            <center><a href="{{ action('LoginController@auth', ['provider' => 'google']) }}" class="btn btn-block btn-lg btn-social btn-google social-button"><span class="fa fa-google"></span>Login with Google+</a></center>
+                   
+            <center><a href="#" class="btn btn-block btn-lg btn-social btn-twitter social-button"><span class="fa fa-twitter"></span>Login with Twitter</a></center>
+             
+            <center><a href="#" class="btn btn-block btn-lg btn-social btn-facebook social-button"><span class="fa fa-facebook"></span>Login with Facebook</a></center>
+        </div>
+</div>
+
         </div>
     </div>
 </div>

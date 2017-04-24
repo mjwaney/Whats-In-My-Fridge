@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\LoginUser;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Exceptions\SocialAuthException;
 
 class LoginController extends Controller
 {
@@ -25,15 +28,59 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    protected $loginUser;
+ 
+    public function __construct(LoginUser $loginUser)
     {
-        $this->middleware('guest')->except('logout');
+        $this->loginUser = $loginUser;
+        $this->middleware('guest', ['except' => 'logout']);
+    }
+
+    public function credentials(Request $request)
+    {
+        return [
+            'email' => $request->email,
+            'password' => $request->password,
+            'verified' => 1,
+        ];
+    }
+
+    public function showLoginPage()
+    {
+       return view('login');
+    }
+
+    public function showDashboard()
+    {
+        return view('dashboard');
+    }
+
+    public function auth($provider)
+    {
+        return $this->loginUser->authenticate($provider);
+    }
+ 
+    public function login($provider)
+    {
+        try {
+            $this->loginUser->login($provider);
+            return redirect()->action('LoginController@showDashBoard');
+        } catch (SocialAuthException $e) {
+            return redirect()->action('LoginController@showLoginPage')
+                ->with('flash-message', $e->getMessage());
+        }
+    }
+ 
+    public function logout()
+    {
+       auth()->logout();
+       return redirect()->to('/'); 
     }
 }

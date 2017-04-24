@@ -60,6 +60,7 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
-        return redirect()->guest(route('login'));
+        //Return to login page if not logged in
+        return redirect()->guest(action('LoginController@showLoginPage'));
     }
 }

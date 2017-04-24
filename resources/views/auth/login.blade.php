@@ -1,5 +1,5 @@
 @extends('layout.app')
-
+Hello
 @section('p1')
 <div class="containerN">
     <div class="row">
@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+                    <form class="form-horizontal" role="form" method="POST" action=""> 
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -50,7 +50,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" action="">
                                     Login
                                 </button>
 
@@ -65,4 +65,22 @@
         </div>
     </div>
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Login with Social Media</div>
+        <div class="panel-body">
+        <div class="col-md-7 col-md-offset-2">
+                        @include('partials.flash-messages')
+                    </div>         
+            <center><a href="{{ action('LoginController@auth', ['provider' => 'google']) }}" class="btn btn-block btn-lg btn-social btn-google social-button"><span class="fa fa-google"></span>Login with Google+</a></center>
+
+                    
+                   
+            <center><a href="#" class="btn btn-block btn-lg btn-social btn-twitter social-button"><span class="fa fa-twitter"></span>Login with Twitter</a></center>
+             
+            <center><a href="#" class="btn btn-block btn-lg btn-social btn-facebook social-button"><span class="fa fa-facebook"></span>Login with Facebook</a></center>
+        </div>
+</div>
 @endsection
+
+

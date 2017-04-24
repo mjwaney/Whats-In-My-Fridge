@@ -35,12 +35,12 @@ a {
 
 /* Unvisited */
 a:link {
-	color: #5C4032;
+	color: black;
 }
 
 /* Visited */
 a:visited {
-	color: #5C4032;
+	color: black;
 }
 
 a:visited.headerButton {

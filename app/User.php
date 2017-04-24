@@ -27,6 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function socialProfile()
+    {
+        return $this->hasOne(SocialLoginProfile::class);
+    }
+    
     // Set the verified status to true and make the email token null
     public function verified()
     {
