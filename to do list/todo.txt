@@ -1,0 +1,16 @@
+To Do List
+
+Must:
+
+Login Authentication
+User Account Page
+Recipe Add - Store functionality
+
+Should:
+
+Store recipes as favorite
+Fix Design/CSS
+Comment All Functionality
+
+Could:
+User Info

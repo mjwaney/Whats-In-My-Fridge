@@ -17,6 +17,7 @@ class IngredientsListController extends Controller
     {
         $ing = ingredient::all();
         return view('createrecipe', compact('ing'));
+
     }
 
     /**
@@ -26,7 +27,7 @@ class IngredientsListController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**

@@ -39,6 +39,8 @@ Route::get('/recipes', function () {
     return view('recipes_default');
 });
 
+Route::post('/findrecipes', 'IngredienstListController@create');
+
 Route::get('/findrecipes', function () {
     return view('findrecipes');
 });
@@ -79,4 +81,5 @@ Route::get('login/{provider}', 'LoginController@auth')
  
 Route::get('login/{provider}/callback', 'LoginController@login')
     ->where(['provider' => 'facebook|google|twitter']);
+
 
