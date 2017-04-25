@@ -34,20 +34,21 @@
         <h4 class="modal-title">Add Ingredients</h4>
       </div><!-- Close Modal Header -->
 
+      <form action="" method="post">
       <div class="modal-body"><!-- Modal Body -->
         <form action="" method="post">
           <p class="checkbox">
               @foreach($ing as $key=>$r)
                 <label><input type="checkbox"> {{  $ing[$key]->name }}</label>
-              @endforeach  
+              @endforeach 
           </p>
       </div><!-- Close Modal Body -->
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <input type="submit" name="fridgecontents" class="btn btn-default" value="Add" data-dismiss="modal">
-       
+        <input type="submit" name="fridgecontents" class="btn btn-default" value="Add" data-dismiss="modal">       
       </div><!-- Close Modal Footer -->
+      </form>
 
     </div><!-- Close Modal Content -->
   </div><!-- Close Modal Dialog -->
