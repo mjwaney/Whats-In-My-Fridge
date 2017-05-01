@@ -1,5 +1,4 @@
 @extends('layout.app')
-Hello
 @section('p1')
 <div class="containerN">
     <div class="row">
@@ -73,7 +72,7 @@ Hello
                         @include('partials.flash-messages')
                     </div>         
             <center><a href="{{ action('LoginController@auth', ['provider' => 'google']) }}" class="btn btn-block btn-lg btn-social btn-google social-button"><span class="fa fa-google"></span>Login with Google+</a></center>
-            
+
             <center><a href="#" class="btn btn-block btn-lg btn-social btn-twitter social-button"><span class="fa fa-twitter"></span>Login with Twitter</a></center>
              
             <center><a href="#" class="btn btn-block btn-lg btn-social btn-facebook social-button"><span class="fa fa-facebook"></span>Login with Facebook</a></center>

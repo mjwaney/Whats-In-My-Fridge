@@ -4,7 +4,7 @@
 
 @section('h1title')
     Ingredients
-<img src="images/ingredients_banner.png" class="contentImage" />
+<img src="contentImages/ingredients_banner.png" class="contentImage" />
 @endsection
 
 @section('p1')

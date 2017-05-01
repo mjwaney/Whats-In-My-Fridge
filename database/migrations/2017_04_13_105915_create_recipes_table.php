@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use App\Models\Kitchen;
 
-class CreateRecipeTableMysql extends Migration
+class CreateRecipesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +14,14 @@ class CreateRecipeTableMysql extends Migration
      */
     public function up()
     {
-        
-
         Schema::create('recipes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->enum('ingredients', array('Tomatoes', 'Chicken', 'Lettuce', 'Salt', 'Pepper', 'Vinnegar', 'Potatoes', 'Rice', 'Water', 'Milk', 'Red Wine')); //array
             $table->string('author');
-            $table->enum('kitchen', array('Italian', 'American', 'Chinese', 'Japanese', 'Greek', 'French', 'Mexican', 'British', 'Indonesian', 'Other', 'Thai', 'Arabic', 'African', 'South-American', 'Turkish')); //array
-            $table->enum('type', array('Breakfast', 'Snack', 'Dinner', 'Low Carb', 'Vegan', 'Vegetarian', 'Gluten-Free', 'Lunch', 'Low Fat', 'Low Calorie')); //array
+            $table->enum('kitchen', array('italian', 'british', 'indonesian', 'middle_eastern', 'american', 'chinese', 'japanese', 'russian', 'greek', 'french', 'mexican', 'other', 'thai', 'african', 'south_american', 'turkish')); //array
+            $table->enum('type', array('breakfast', 'snack', 'dinner', 'lowcarb', 'vegan', 'dessert', 'sidedish', 'fastfood', 'vegetarian', 'glutenfree', 'lunch', 'lowfat', 'lowcalorie')); //array
             $table->string('serving_size');
             $table->dateTime('date_added');
-            $table->time('time_needed');
             $table->text('instructions');
             $table->timestamps();
         });

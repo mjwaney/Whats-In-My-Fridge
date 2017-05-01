@@ -3,6 +3,19 @@
 	src: url('../fonts/fourHand.ttf');
 }
 
+.ingredientstable{
+	vertical-align: top;
+}
+
+.ingredientstable td{
+	vertical-align: top;
+    	padding: 5px;
+}
+
+.nowrap {
+  white-space: nowrap ;
+  padding: 5px;
+}
 
 body {
 	display: flex;

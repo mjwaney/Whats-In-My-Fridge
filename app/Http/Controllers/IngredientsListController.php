@@ -53,6 +53,12 @@ class IngredientsListController extends Controller
         return $ing->name;
     }
 
+    public function veggies($id)
+    {
+        $ing = ingredient::find($id);
+        return $ing->name;
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

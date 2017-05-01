@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ingredient extends Model
 {
-    //
+    public $fillable = ['name','category'];
+
+    public function recipes()
+    {
+    	return $this->belongsToMany('App\Recipe')
+      		->withTimestamps();
+    }
 }

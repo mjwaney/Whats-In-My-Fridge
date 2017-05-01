@@ -1,0 +1,521 @@
+name,category
+Butter,Dairy
+Eggs,Dairy
+Milk,Dairy
+Parmesan,Dairy
+Cheddar,Dairy
+Cream,Dairy
+Sour Cream,Dairy
+Cream Cheese,Dairy
+Mozzarella,Dairy
+American Cheese,Dairy
+Yogurt,Dairy
+Evaporated Milk,Dairy
+Condensed Milk,Dairy
+Whipped Cream,Dairy
+Half and Half,Dairy
+Monterey Jack Cheese,Dairy
+Feta,Dairy
+Cottage Cheese,Dairy
+Ice Cream,Dairy
+Goat Cheese,Dairy
+Frosting,Dairy
+Swiss Cheese,Dairy
+Buttermilk,Dairy
+Velveeta,Dairy
+Ricotta,Dairy
+Powdered Milk,Dairy
+Blue Cheese,Dairy
+Provolone,Dairy
+Colby Cheese,Dairy
+Gouda,Dairy
+Pepper Jack,Dairy
+Italian Cheese,Dairy
+Soft Cheese,Dairy
+Romano,Dairy
+Brie,Dairy
+Pepperjack Cheese,Dairy
+Custard,Dairy
+Cheese Soup,Dairy
+Pizza Cheese,Dairy
+Ghee,Dairy
+Pecorino Cheese,Dairy
+Gruyere,Dairy
+Creme Fraiche,Dairy
+Neufchatel,Dairy
+Muenster,Dairy
+Asiago,Dairy
+Queso Fresco Cheese,Dairy
+Hard Cheese,Dairy
+Havarti Cheese,Dairy
+Mascarpone,Dairy
+Chicken Breast,Meats
+Ground Beef,Meats
+Bacon,Meats
+Sausage,Meats
+Cooked Chicken,Meats
+Ham,Meats
+Veal,Meats
+Beef Steak,Meats
+Hot Dog,Meats
+Pork Chops,Meats
+Chicken Thighs,Meats
+Ground Turkey,Meats
+Pork,Meats
+Turkey,Meats
+Pepperoni,Meats
+Whole Chicken,Meats
+Chicken Leg,Meats
+Ground Pork,Meats
+Chicken Wings,Meats
+Chorizo,Meats
+Polish Sausage,Meats
+Salami,Meats
+Pork Roast,Meats
+Ground Chicken,Meats
+Pork Ribs,Meats
+Venison,Meats
+Spam,Meats
+Lamb,Meats
+Pork Shoulder,Meats
+Beef Roast,Meats
+Bratwurst,Meats
+Prosciutto,Meats
+Chicken Roast,Meats
+Bologna,Meats
+Corned Beef,Meats
+Lamb Chops,Meats
+Ground Lamb,Meats
+Beef Ribs,Meats
+Duck,Meats
+Pancetta,Meats
+Beef Liver,Meats
+Leg of Lamb,Meats
+Chicken Giblets,Meats
+Beef Shank,Meats
+Pork Belly,Meats
+Cornish Hen,Meats
+Lamb Shoulder,Meats
+Lamb Shank,Meats
+Garlic,Vegetables
+Onion,Vegetables
+Olive,Vegetables
+Tomato,Vegetables
+Potato,Vegetables
+Salad Greens,Vegetables
+Carrot,Vegetables
+Basil,Vegetables
+Parsley,Vegetables
+Rosemary,Vegetables
+Bell Pepper,Vegetables
+Chili Pepper,Vegetables
+Corn,Vegetables
+Ginger,Vegetables
+Mushroom,Vegetables
+Broccoli,Vegetables
+Spinach,Vegetables
+Green Beans,Vegetables
+Celery,Vegetables
+Red Onion,Vegetables
+Cilantro,Vegetables
+Cucumber,Vegetables
+Pickle,Vegetables
+Dill,Vegetables
+Avocado,Vegetables
+Sweet Potato,Vegetables
+Zucchini,Vegetables
+Shallot,Vegetables
+Mixed Vegetables,Vegetables
+Cabbage,Vegetables
+Asparagus,Vegetables
+Cauliflower,Vegetables
+Mint,Vegetables
+Pumpkin,Vegetables
+Kale,Vegetables
+Frozen Vegetables,Vegetables
+Scallion,Vegetables
+Squash,Vegetables
+Sun Dried Tomato,Vegetables
+Horseradish,Vegetables
+Sweet Corn,Vegetables
+Beet,Vegetables
+Lemon,Fruits
+Banana,Fruits
+Apple,Fruits
+Coconut,Fruits
+Mango,Fruits
+Lime,Fruits
+Orange,Fruits
+Pineapple,Fruits
+Strawberries,Fruits
+Raisin,Fruits
+Blueberries,Fruits
+Grapefruit,Fruits
+Grape,Fruits
+Prunes,Fruits
+Nectarine,Fruits
+Fig,Fruits
+Peach,Fruits
+Cranberries,Fruits
+Raspberries,Fruits
+Pear,Fruits
+Cherry,Fruits
+Apricot,Fruits
+Blackberries,Fruits
+Berries,Fruits
+Date,Fruits
+Watermelon,Fruits
+Kiwi,Fruits
+Craisins,Fruits
+Mandarin,Fruits
+Cantaloupe,Fruits
+Plum,Fruits
+Papaya,Fruits
+Pomegranate,Fruits
+Apple Butter,Fruits
+Clementine,Fruits
+Rhubarb,Fruits
+Tangerine,Fruits
+Sultanas,Fruits
+Currant,Fruits
+Plantain,Fruits
+Passion Fruit,Fruits
+Persimmons,Fruits
+Quince,Fruits
+Lychee,Fruits
+Tangelos,Fruits
+Lingonberry,Fruits
+Kumquat,Fruits
+Boysenberry,Fruits
+Star Fruit,Fruits
+Guava,Fruits
+Red Pepper Flake,Spices
+Cinnamon,Spices
+Chive,Spices
+Vanilla,Spices
+Garlic Powder,Spices
+Oregano,Spices
+Paprika,Spices
+Cayenne,Spices
+Chili Powder,Spices
+Cumin,Spices
+Italian Seasoning,Spices
+Thyme,Spices
+Peppercorn,Spices
+Nutmeg,Spices
+Onion Powder,Spices
+Curry Powder,Spices
+Clove,Spices
+Bay Leaf,Spices
+Taco Seasoning,Spices
+Sage,Spices
+Ground Nutmeg,Spices
+Chinese Five Spice,Spices
+Allspice,Spices
+Turmeric,Spices
+Ground Coriander,Spices
+Coriander,Spices
+Cajun Seasoning,Spices
+Steak Seasoning,Spices
+Herbs,Spices
+Celery Salt,Spices
+Vanilla Essence,Spices
+Poultry Seasoning,Spices
+Marjoram,Spices
+Tarragon,Spices
+Cardamom,Spices
+Celery Seed,Spices
+Garam Masala,Spices
+Mustard,Spices
+Seed,Spices
+Chile Powder,Spices
+Italian Herbs,Spices
+Saffron,Spices
+Caraway,Spices
+Herbes de Provence,Spices
+Italian Spice,Spices
+Star Anise,Spices
+Savory,Spices
+Dill Seed,Spices
+Aniseed,Spices
+Cacao,Spices
+Tamarind,Spices
+Canned Tuna,Fish
+Salmon,Fish
+Fish Fillets,Fish
+Tilapia,Fish
+Haddock,Fish
+Grouper,Fish
+Cod,Fish
+Flounder,Fish
+Anchovies,Fish
+Tuna Steak,Fish
+Rockfish,Fish
+Sardines,Fish
+Smoked Salmon,Fish
+Monkfish,Fish
+Canned Salmon,Fish
+Whitefish,Fish
+Halibut,Fish
+Trout,Fish
+Mahi Mahi,Fish
+Catfish,Fish
+Sea Bass,Fish
+Mackerel,Fish
+Swordfish,Fish
+Sole,Fish
+Red Snapper,Fish
+Pollock,Fish
+Herring,Fish
+Perch,Fish
+Caviar,Fish
+Pike,Fish
+Bluefish,Fish
+Lemon Sole,Fish
+Eel,Fish
+Carp,Fish
+Cuttlefish,Fish
+Barramundi,Fish
+Wheat Germ,Baking & Grains
+Flour,Baking & Grains
+Rice,Baking & Grains
+Pasta,Baking & Grains
+Bread,Baking & Grains
+Baking Powder,Baking & Grains
+Bread Flour,Baking & Grains
+Baking Soda,Baking & Grains
+Bread Crumbs,Baking & Grains
+Cornstarch,Baking & Grains
+Semolina,Baking & Grains
+Noodle,Baking & Grains
+Rolled Oats,Baking & Grains
+Yeast,Baking & Grains
+Cracker,Baking & Grains
+Quinoa,Baking & Grains
+Pancake Mix,Baking & Grains
+Flour Tortillas,Baking & Grains
+Cornmeal,Baking & Grains
+Chips,Baking & Grains
+Saltines,Baking & Grains
+Brown Rice,Baking & Grains
+Popcorn,Baking & Grains
+Self Rising Flour,Baking & Grains
+Macaroni Cheese Mix,Baking & Grains
+Corn Tortillas,Baking & Grains
+Stuffing Mix,Baking & Grains
+Biscuits,Baking & Grains
+Couscous,Baking & Grains
+Pie Crust,Baking & Grains
+Pita,Baking & Grains
+Bisquick,Baking & Grains
+Cereal,Baking & Grains
+Angel Hair,Baking & Grains
+Croutons,Baking & Grains
+Lasagne,Baking & Grains
+Ramen,Baking & Grains
+Baguette,Baking & Grains
+Pizza Dough,Baking & Grains
+Barley,Baking & Grains
+Puff Pastry,Baking & Grains
+Cake Mix,Baking & Grains
+Bagel,Baking & Grains
+Pretzel,Baking & Grains
+Cream of Wheat,Baking & Grains
+Multigrain Bread,Baking & Grains
+Crescent Roll Dough,Baking & Grains
+Pierogi,Baking & Grains
+Hot Dog Bun,Baking & Grains
+Filo Dough,Baking & Grains
+Wheat,Baking & Grains
+Ravioli,Baking & Grains
+Muffin Mix,Baking & Grains
+Gnocchi,Baking & Grains
+Bread Dough,Baking & Grains
+Potato Flakes,Baking & Grains
+Rye,Baking & Grains
+Croissants,Baking & Grains
+Matzo Meal,Baking & Grains
+Shortcrust Pastry,Baking & Grains
+Ciabatta,Baking & Grains
+Breadsticks,Baking & Grains
+Angel Food,Baking & Grains
+Risotto,Baking & Grains
+Spelt,Baking & Grains
+Vegetable Oil,Oils
+Olive Oil,Oils
+Peanut Oil,Oils
+Cooking Spray,Oils
+Shortening,Oils
+Lard,Oils
+Almond Oil,Oils
+Grape Seed Oil,Oils
+Shrimp,Seafood
+Cockle,Seafood
+Crawfish,Seafood
+Crab,Seafood
+Scallop,Seafood
+Prawns,Seafood
+Clam,Seafood
+Lobster,Seafood
+Octopus,Seafood
+Calamari,Seafood
+Squid,Seafood
+Oyster,Seafood
+Mussel,Seafood
+Sugar,Added sweeteners
+Honey,Added sweeteners
+Confectioners Sugar,Added sweeteners
+Maple Syrup,Added sweeteners
+Syrup,Added sweeteners
+Molasses,Added sweeteners
+Corn Syrup,Added sweeteners
+Cream of Tartar,Seasonings
+Bouillon,Seasonings
+Ground Ginger,Seasonings
+Sesame Seed,Seasonings
+Apple Cider,Seasonings
+Chili Sauce,Seasonings
+Liquid Smoke,Seasonings
+Balsamic Glaze,Seasonings
+Hoisin Sauce,Seasonings
+Vegetable Bouillon,Seasonings
+Soya Sauce,Seasonings
+Rice Wine,Seasonings
+Rose Water,Seasonings
+Fish Stock,Seasonings
+Champagne Vinegar,Seasonings
+Peanut Butter,Nuts
+Chestnut,Nuts
+Almond,Nuts
+Cashew,Nuts
+Walnut,Nuts
+Peanut,Nuts
+Pecan,Nuts
+Flax,Nuts
+Pine Nut,Nuts
+Pistachio,Nuts
+Almond Meal,Nuts
+Praline,Nuts
+Hazelnut,Nuts
+Macadamia,Nuts
+Almond Paste,Nuts
+Macaroon,Nuts
+Mayonnaise,Condiments
+Mustard,Condiments
+Ketchup,Condiments
+Vinegar,Condiments
+Balsamic Vinegar,Condiments
+Wine Vinegar,Condiments
+Cider Vinegar,Condiments
+Rice Vinegar,Condiments
+Mirin,Condiments
+Apple Cider Vinegar,Condiments
+Fish Sauce,Condiments
+Blue Cheese Dressing,Condiments
+Chocolate,Desert & snacks
+Apple Sauce,Desert & snacks
+Graham Cracker,Desert & snacks
+Marshmallow,Desert & snacks
+Potato Chips,Desert & snacks
+Pudding Mix,Desert & snacks
+Chocolate Morsels,Desert & snacks
+Bittersweet Chocolate,Desert & snacks
+Cookie Dough,Desert & snacks
+Chocolate Syrup,Desert & snacks
+Nutella,Desert & snacks
+Apple Juice,Beverages
+Coffee,Beverages
+Orange Juice,Beverages
+Tea,Beverages
+Espresso,Beverages
+Tomato Juice,Beverages
+Green Tea,Beverages
+Cranberry Juice,Beverages
+Coke,Beverages
+Lemonade,Beverages
+Ginger Ale,Beverages
+Pineapple Juice,Beverages
+Fruit Juice,Beverages
+Club Soda,Beverages
+Sprite,Beverages
+Grenadine,Beverages
+Margarita Mix,Beverages
+Chicken Broth,Soups
+Mushroom Soup,Soups
+Beef Broth,Soups
+Tomato Soup,Soups
+Vegetable Stock,Soups
+Chicken Soup,Soups
+Celery Soup,Soups
+Onion Soup,Soups
+Vegetable Soup,Soups
+Dashi,Soups
+Soy Milk,Dairy alternatives
+Almond Milk,Dairy alternatives
+Coconut Milk,Dairy alternatives
+Hemp Milk,Dairy alternatives
+Peas,Peas
+Black Beans,Peas
+Chickpea,Peas
+Lentil,Peas
+Hummus,Peas
+Soybeans,Peas
+Pinto Beans,Peas
+Cannellini Beans,Peas
+Navy Beans,Peas
+Kidney Beans,Peas
+Lima Beans,Peas
+Green Beans,Peas
+French Beans,Peas
+Tomato Sauce,Sauce
+Tomato Paste,Sauce
+Chicken Gravy,Sauce
+Pesto,Sauce
+Beef Gravy,Sauce
+Alfredo Sauce,Sauce
+Curry Paste,Sauce
+Liqueur,Alcohol
+Whiskey,Alcohol
+Beer,Alcohol
+White Wine,Alcohol
+Red Wine,Alcohol
+Champagne,Alcohol
+Rum,Alcohol
+Frangelico,Alcohol
+Brandy,Alcohol
+Vodka,Alcohol
+Tequila,Alcohol
+Sherry,Alcohol
+Bitters,Alcohol
+Cooking Wine,Alcohol
+Bourbon,Alcohol
+Kahlua,Alcohol
+Gin,Alcohol
+Whisky,Alcohol
+Irish Cream,Alcohol
+Sake,Alcohol
+Amaretto,Alcohol
+Vermouth,Alcohol
+Triple Sec,Alcohol
+Grappa,Alcohol
+Masala,Alcohol
+Grand Marnier,Alcohol
+Cabernet Sauvignon,Alcohol
+Dessert Wine,Alcohol
+Schnapps,Alcohol
+Port Wine,Alcohol
+Burgundy Wine,Alcohol
+Sparkling Wine,Alcohol
+Cognac,Alcohol
+Chocolate Liqueur,Alcohol
+Curacao,Alcohol
+Creme De Menthe,Alcohol
+Limoncello,Alcohol
+Raspberry Liquor,Alcohol
+Bloody Mary,Alcohol
+Shaoxing Wine,Alcohol
+Madeira Wine,Alcohol
+Absinthe,Alcohol
+Ciclon,Alcohol
+Ouzo,Alcohol
+Anisette,Alcohol

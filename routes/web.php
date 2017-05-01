@@ -1,5 +1,5 @@
-<?php
-
+  <?php
+use \App\ingredient;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,21 +11,54 @@
 |
 */
 
+//Home Page
 Route::get('/', function () {
     return view('recipes');
 });
 
-Route::get('/about', function () {
-    return view('about');
+/*
+|--------------------------------------------------------------------------
+| Recipe Pages
+|--------------------------------------------------------------------------
+*/
+
+//Default
+Route::get('/recipes', function () {
+    return view('recipes_default');
 });
 
-Route::get('/ingredients', function () {
-    return view('ingredients');
+Route::resource('recipes', 'RecipesController');
+
+//Add Recipe
+Route::get('/createrecipe', function () {
+    return view('createrecipe');
 });
 
+Route::resource('createrecipe', 'CreateRecipeController');
+
+Route::post('createrecipe', 
+  ['as' => 'recipe_store', 'uses' => 'CreateRecipeController@store']);
+
+//Find Recipes
+Route::get('findrecipes', function () {
+    return view('findrecipes');
+});
+
+Route::resource('findrecipes', 'FindIngredientController');
+
+Route::post('findrecipes', 
+  ['as' => 'recipe_query', 'uses' => 'FindIngredientController@queryRecipes']);
+
+/*
+|--------------------------------------------------------------------------
+| //Register, Login & Activation Pages
+|--------------------------------------------------------------------------
+*/
 Route::get('/activationmail', function () {
     return view('activationmail');
 });
+
+Route::get('/home', 'HomeController@index');
 
 Route::get('/login', function () {
     return view('login');
@@ -35,42 +68,16 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/recipes', function () {
-    return view('recipes_default');
-});
-
-Route::post('/findrecipes', 'IngredienstListController@create');
-
-Route::get('/findrecipes', function () {
-    return view('findrecipes');
-});
-
-Route::get('/createrecipe', function () {
-    return view('createrecipe');
-});
-
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-
 Route::get('register/verify/{token}', 'Auth\RegisterController@verify'); 
-
-Route::resource('recipes', 'RecipesController');
-
-Route::resource('createrecipe', 'IngredientsListController');
-
-Route::resource('findrecipes', 'FindIngredientController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-
 /* Google API */
-Route::get('glogin',array('as'=>'glogin','uses'=>'UserController@googleLogin')) ;
-Route::get('google-user',array('as'=>'user.glist','uses'=>'UserController@listGoogleUser')) ;
+// Route::get('glogin',array('as'=>'glogin','uses'=>'UserController@googleLogin')) ;
+// Route::get('google-user',array('as'=>'user.glist','uses'=>'UserController@listGoogleUser')) ;
 
 Route::get('dashboard', 'LoginController@showDashBoard')
-	->middleware(['auth']); //protect the dashboard page using this middleware
+  ->middleware(['auth']); //protect the dashboard page using this middleware
 
 Route::get('login', 'LoginController@showLoginPage');
 
@@ -82,4 +89,41 @@ Route::get('login/{provider}', 'LoginController@auth')
 Route::get('login/{provider}/callback', 'LoginController@login')
     ->where(['provider' => 'facebook|google|twitter']);
 
+/*
+|--------------------------------------------------------------------------
+| Imort textfile to populate the Ingredient database
+|--------------------------------------------------------------------------
+*/
+Route::get('uploadIngredients',function(){
+      
+      //open textfile
+      $fileD = fopen(storage_path('ingredients.txt'),"r");
+      $column=fgetcsv($fileD);
+      
+      //while end of file hasn't been reached
+      while(!feof($fileD))
+      {
+          $rowData[] = fgetcsv($fileD);
+      }
 
+      //for every row
+      foreach ($rowData as $key => $value) 
+      {
+          //insert its name and category into a new Ingredient
+      	$inserted_data=array(
+      		'name'=>$value[0],
+                 'category'=>$value[1],
+            );          
+           Ingredient::create($inserted_data);
+      }
+      // print_r($rowData);
+});
+
+/*
+|--------------------------------------------------------------------------
+| Image Upload and Resizing
+|--------------------------------------------------------------------------
+*/
+Route::get('resizeImage', 'ImageController@resizeImage');
+
+Route::post('resizeImagePost',['as'=>'resizeImagePost','uses'=>'ImageController@resizeImagePost']);
