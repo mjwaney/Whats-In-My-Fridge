@@ -17,11 +17,6 @@ if(session_status() == PHP_SESSION_NONE)
 
 class CreateRecipeController extends Controller
 {
-	// public function index(Recipe $recipe)
-	// {   
-	// 	$rec = recipe::all();
-	// 	return view('recipes_default', compact('rec'));
-	// }
     public function index(Recipe $recipe, Ingredient $ingredient)
     {
         $ingredients = ingredient::all()->sortBy('name');
@@ -58,37 +53,33 @@ class CreateRecipeController extends Controller
     
     public static function store(Request $request)
     {
-            //Insert Recipe into table
-	$recipe = new Recipe;
-	$recipe->name = $request->input('title');
-	$recipe->author = $request->input('author');
-           $recipe->type = $request->input('type');
-	$recipe->kitchen = $request->input('kitchen');
-	$recipe->serving_size = $request->input('serving_size');
-	$recipe->instructions = $request->input('instructions');
-           $carbon = new Carbon();     
-           $recipe->date_added = $carbon::now();
-	$recipe->save();
+        //Insert Recipe into table
+        $recipe = new Recipe;
+        $recipe->name = $request->input('title');
+        $recipe->author = $request->input('author');
+        $recipe->type = $request->input('type');
+        $recipe->kitchen = $request->input('kitchen');
+        $recipe->serving_size = $request->input('serving_size');
+        $recipe->instructions = $request->input('instructions');
+        $carbon = new Carbon();     
+        $recipe->date_added = $carbon::now();
+        $recipe->save();
             
-            //Attach Ingredients to Recipe
-           $contents = $_SESSION['contents2'];
-           
-           foreach($contents as $cont)
-           {         
-           $ing = ingredient::all()->where('name', '=', $cont);
-           $recipe->ingredients()->attach($ing);
-           }
-           $recipe->save();
+        //Attach Ingredients to Recipe
+        $contents = $_SESSION['contents2'];
 
-           $returnMsg = 'Your recipe has been added to the database!';
-           return back();
-    }
-    
-    public static function showIngredientList($category)
-    {
+        foreach($contents as $cont)
+        {         
+            $ing = ingredient::all()->where('name', '=', $cont);
+            $recipe->ingredients()->attach($ing);
+        }
+        $recipe->save();
+
+        // $returnMsg = 'Your recipe has been added to the database!';
+        return back();
     }
      
-     public static function ingredientSession()
+    public static function ingredientSession()
     {
            
         if(session_status() == PHP_SESSION_NONE)
@@ -117,7 +108,7 @@ class CreateRecipeController extends Controller
                 $_SESSION['contents2'] = array_values($_SESSION['contents2'] );
             }  
         }
-          $c2 = $_SESSION['contents2'];
+        $c2 = $_SESSION['contents2'];
 
         //Echo out the list that is in the session if any
         foreach($_SESSION['contents2'] as $key => $a)

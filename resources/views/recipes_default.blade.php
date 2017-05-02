@@ -8,7 +8,7 @@
 	<ul class="list-group">
 		@foreach($rec as $key=>$r)
 			<li class="list-group-item">
-				<span class="badge">85</span><a color="blue" href="/recipes/{{ $r->id }}">{{  $r->name }}</a>
+				<span class="pull-right">{{$r->created_at->diffForHumans()}}</span><a color="blue" href="/recipes/{{ $r->id }}">{{  $r->name }}</a>
 			</li><br> 	
 		@endforeach  
 	</ul>

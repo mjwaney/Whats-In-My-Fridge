@@ -79,8 +79,17 @@ class FindIngredientController extends Controller
         // return $ing->name;
     }
 
+    /*  
+    |--------------------------------------------------------------------------
+    | Ingredient Session
+    |--------------------------------------------------------------------------
+    |
+    | Session for the list of ingredients the user selected
+    |
+    */
     public static function ingredientSession()
     {
+        //start session if there is none
         if(session_status() == PHP_SESSION_NONE)
         {
             session_start();
@@ -97,21 +106,25 @@ class FindIngredientController extends Controller
         {
             $_SESSION['contents'] = array();
         }
-
+        
         //Checked if x to close option has been pressed for any list item and remove it
+        // contents array = ingredients, key = index, a = value
         foreach($_SESSION['contents'] as $key => $a)
-        {
+        { 
             if(isset($_GET[$key]))
             {
+                //remove the session contents with the corresponding name/key
                 unset($_SESSION['contents'][$key]);
+                //set array back so indexes and values match
                 $_SESSION['contents'] = array_values($_SESSION['contents'] );
             }  
         }
-        
+
         //Echo out the list that is in the session if any
         foreach($_SESSION['contents'] as $key => $a)
         {
-            echo '<li class="list-group-item"><form action="" method="get">' . $a . '<input type="submit" class="close" data-dismiss="list-group" aria-hidden="true" name="' . $key . '" value="&times;"></form></li>';
+            //echo a block with $a as name of the ingredient and $key as its name attribute value
+            echo '<li class="list-group-item"><form action="" method="get">' . $a . '<input type="submit" class="close" data-dismiss="list-group" aria-hidden="true" name="' .  $key . '" value="&times;"></form></li>';
         }
 
         //Get submitted content from the modal with the ingredients list
@@ -131,7 +144,7 @@ class FindIngredientController extends Controller
         }
     }
 
-    /*
+    /*  
     |--------------------------------------------------------------------------
     | Show Ingredients
     |--------------------------------------------------------------------------
@@ -182,71 +195,59 @@ class FindIngredientController extends Controller
         $sauce = ingredient::all()->where('category', 'Sauce')->sortBy('name');
         $alcohol = ingredient::all()->where('category', 'Alcohol')->sortBy('name');
             
-           $contents = $_SESSION['contents'];
-           $_SESSION['findrecipeids'] = array();
-           $_SESSION['findrecipenames'] = array();
+        $contents = $_SESSION['contents'];
+        $_SESSION['findrecipeids'] = array();
+        $_SESSION['findrecipenames'] = array();
             
-          foreach($contents as $cont)
-          {  
-                    $id = ingredient::all()->where('name', '=', $cont);
+        foreach($contents as $cont)
+        {  
+            $id = ingredient::all()->where('name', '=', $cont);
 
-                    $ingredient = ingredient::find($id);
+            $ingredient = ingredient::find($id);
 
-                    $recipeResult = $ingredient->recipes;
+            $recipeResult = $ingredient->recipes;
 
-                     foreach($recipeResult as $key => $r)
-                     {
-                        array_push($_SESSION['findrecipeids'], $r->id);
-                        array_push($_SESSION['findrecipenames'], $r->name);
-                     }
+             foreach($recipeResult as $key => $r)
+             {
+                array_push($_SESSION['findrecipeids'], $r->id);
+                array_push($_SESSION['findrecipenames'], $r->name);
+             }
 
-                     // $_SESSION['findrecipes'] = $recipeResult;
-                     return view('findrecipes', compact('recipeResult', 'ingredients', 'dairy', 'meats',  'vegetables', 'fruits', 'spices', 'fish', 'bakingGrains', 'oils', 'seafood', 'addedSweeteners', 'seasonings', 'nuts', 'condiments', 'desertSnacks', 'beverages', 'soups', 'dairyAlternatives', 'peas', 'sauce', 'alcohol'));
-                      // dd($recipeResult);
-                      // return back()->with('recipeResult', $recipeResult);
-           }
+             return view('findrecipes', compact('recipeResult', 'ingredients', 'dairy', 'meats',  'vegetables', 'fruits', 'spices', 'fish', 'bakingGrains', 'oils', 'seafood', 'addedSweeteners', 'seasonings', 'nuts', 'condiments', 'desertSnacks', 'beverages', 'soups', 'dairyAlternatives', 'peas', 'sauce', 'alcohol'));
+         }
+      }
+      
+      /**
+       * Show the form for editing the specified resource.
+       *
+       * @param  int  $id
+       * @return \Illuminate\Http\Response
+       */
+      public function edit($id)
+      {
+          //
       }
 
-     public function clear()
-     {      
-            if(isset($_SESSION['contents']))
-            {
-               unset($_SESSION['contents']);
-               unset($_SESSION['findrecipes']);
-            }
-     }
+      /**
+       * Update the specified resource in storage.
+       *
+       * @param  \Illuminate\Http\Request  $request
+       * @param  int  $id
+       * @return \Illuminate\Http\Response
+       */
+      public function update(Request $request, $id)
+      {
+          //
+      }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+      /**
+       * Remove the specified resource from storage.
+       *
+       * @param  int  $id
+       * @return \Illuminate\Http\Response
+       */
+      public function destroy($id)
+      {
+          //
+      }
 }

@@ -5,7 +5,6 @@
 
 @section('p1')
 {!! Form::open(array('route' => 'recipe_query', 'class' => 'form'))  !!}
-<div class="containerN"> <!-- Container for Panel -->
   <div class="panel panel-default"><!-- Panel -->
     <div class="panel-heading">Find recipes </div>  
       <div class="panel-body"><!-- Panel Body-->
@@ -25,12 +24,10 @@
         </div><!-- Close Form-Group-->
       </div><!-- Close Panel Body-->
   </div> <!-- Close Panel -->
-</div><!-- Close Container for Panel -->
 {!! Form::close() !!}
 @endsection
 
 @section('p2')
-<div class="containerN"> <!-- Container for Panel -->
   <div class="panel panel-default"><!-- Panel -->
     <div class="panel-heading">Search Results </div>  
       <div class="panel-body"><!-- Panel Body-->
@@ -47,5 +44,4 @@
         </div>
       </div>
   </div>
-</div>
 @endsection

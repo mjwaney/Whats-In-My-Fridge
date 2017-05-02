@@ -7,23 +7,36 @@
 
 @section('p1')
 {!! Form::open(array('route' => 'recipe_store', 'class' => 'form')) !!}
-  <fieldset>
-    <legend>Create Recipe</legend>
+{{csrf_field()}}
+  <div class="panel panel-default"><!-- Panel -->
+    <div class="panel-heading">Create Recipe</div>  
+      <div class="panel-body"><!-- Panel Body-->
+
+    <!-- Add Ingredients (uses session and modal) -->
+    <div class="form-group">
+      <div class="col-lg-7 col-lg-offset-3">
+        {{ CreateRecipeController::ingredientSession() }}
+        <a data-toggle="modal" href="#myModal2" class="btn btn-default">Add Ingredients</a>
+        <!-- {{ Form::submit('Clear Ingredients', array('class' => 'btn btn-default')) }} -->
+            <input type="submit" class="btn btn-default" name="clear2" value="Clear Ingredients"><br><br>
+        @include('partials.modal') 
+      </div>
+    </div>
 
     @isset($returnMsg) {{ $returnMsg }} @endisset
     <!-- Title Input -->
     <div class="form-group">
       <label for="title" class="col-lg-3 control-label">Title</label>
       <div class="col-lg-7">
-        {{ Form::text('title', '', array('class' => 'form-control', 'placeholder' => 'Recipe Title')) }}
-      </div><br><br>
+        {{ Form::text('title', '', array('class' => 'form-control', 'placeholder' => 'Recipe Title', 'required' => 'required')) }}
+      </div><br><br><br><br>
     </div>
 
     <!--  Author Input -->
     <div class="form-group">
       <label for="author" class="col-lg-3 control-label">Author</label>
       <div class="col-lg-7">
-        {{ Form::text('author', '', array('class' => 'form-control', 'placeholder' => 'Author Name')) }}
+        {{ Form::text('author', '', array('class' => 'form-control', 'placeholder' => 'Author Name', 'required' => 'required')) }}
       </div><br><br>
     </div>
 
@@ -61,45 +74,40 @@
       <label for="serving_size" class="col-lg-3 control-label">Serving Size</label>
       <div class="col-lg-7">
         {{ Form::select('serving_size', ['1 Person', '1-2 Persons', '3-4 Persons', '5-8 Persons', 'More'], 2) }}<br><br>
-      </div>
+      </div><br><br>
     </div>
 
     <!-- Kitchen Origin -->
     <div class="form-group">
       <label for="kitchen" class="col-lg-3 control-label">Kitchen</label>
-      <div class="col-lg-7">
-        <div class="radio"><label>{{ Form::radio('kitchen', 'african', true) }}African</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'american') }}American</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'british') }}British</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'chinese') }}Chinese</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'french') }}French</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'greek') }}Greek</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'indonesian') }}Indonesian</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'italian') }}Italian</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'japanese') }}Japanese</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'middle_eastern') }}Middle-Eastern</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'russian') }}Russian</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'south_american') }}South-American</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'thai') }}Thai</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'turkish') }}Turkish</label></div>
-        <div class="radio"><label>{{ Form::radio('kitchen', 'other') }}Other</label></div>
-      </div><br><br>
-    </div>
-
-    <!-- Add Ingredients (uses session and modal) -->
-    <div class="form-group">
-      <div class="col-lg-7 col-lg-offset-3">
-        {{ CreateRecipeController::ingredientSession() }}
-        <a data-toggle="modal" href="#myModal2" class="btn btn-default">Add Ingredients</a>
-        <!-- {{ Form::submit('Clear Ingredients', array('class' => 'btn btn-default')) }} -->
-        <form action="" method="get" >
-            <input type="submit" class="btn btn-default" name="clear2" value="Clear Ingredients">
-        </form><br><br>
-        @include('partials.modal') 
+      <div class="col-lg-7"><table class="kitchen">
+        <tr>
+          <label><td>{{ Form::radio('kitchen', 'african', true) }} African</td></label>
+          <label><td>{{ Form::radio('kitchen', 'american') }} American</td></label>
+          <label><td>{{ Form::radio('kitchen', 'other') }} Other</td></label>
+        </tr><tr>
+          <label><td>{{ Form::radio('kitchen', 'british') }} British</td></label>
+          <label><td>{{ Form::radio('kitchen', 'chinese') }} Chinese</td></label>
+        </tr><tr>
+          <label><td>{{ Form::radio('kitchen', 'french') }} French</td></label>
+          <label><td>{{ Form::radio('kitchen', 'greek') }} Greek</td></label>
+        </tr><tr>
+          <label><td>{{ Form::radio('kitchen', 'indonesian') }} Indonesian</td></label>
+          <label><td>{{ Form::radio('kitchen', 'italian') }} Italian</td></label>
+        </tr><tr>
+          <label><td>{{ Form::radio('kitchen', 'japanese') }} Japanese</td></label>
+          <label><td>{{ Form::radio('kitchen', 'middle_eastern') }} Middle-Eastern</td></label>
+        </tr><tr>
+          <label><td>{{ Form::radio('kitchen', 'russian') }} Russian</td></label>
+          <label><td>{{ Form::radio('kitchen', 'south_american') }} South-American</td></label>
+        </tr><tr>
+          <label><td>{{ Form::radio('kitchen', 'thai') }} Thai</td></label>
+          <label><td>{{ Form::radio('kitchen', 'turkish') }} Turkish</td></label>
+        </tr></table><br><br>
       </div>
     </div>
 
-    <!-- Instructions input -->
+    <!-- Instructions input --><br><br>
     <div class="form-group">
       <label for="instructions" class="col-lg-3 control-label" >Instructions</label>
       <div class="col-lg-7">
@@ -114,7 +122,8 @@
         {{ Form::submit('Submit Recipe', array('class' => 'btn btn-default')) }}
       </div>
     </div>
+    </div>
+    </div>
 
-  </fieldset>
 {!! Form::close() !!}
 @endsection
