@@ -1,18 +1,19 @@
 <!-- Base Layout of the website -->
 <!DOCTYPE HTML>
 <head>
+
 @section('scripts')
   @show
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Stylesheets -->
     <link href="{{ elixir('css/stylesheet.css') }}" rel="stylesheet" type="text/css" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -35,9 +36,9 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/">News |</a>
-          <a class="navbar-brand" href="/recipes">Recipes |</a>
-          <a class="navbar-brand" href="/findrecipes">Find Recipe |</a>
-          <a class="navbar-brand" href="/createrecipe">Create Recipe |</a>
+          <a class="navbar-brand" href="recipes">Recipes |</a>
+          <a class="navbar-brand" href="findrecipes">Find Recipe |</a>
+          <a class="navbar-brand" href="createrecipe">Create Recipe |</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
           <ul class="nav navbar-nav navbar-right">
@@ -109,10 +110,84 @@
     </div>
     <!-- Column Right End -->
   </div> <!-- End Content -->
-</div><!-- End Body/Page Div -->    
+</div><!-- End Body/Page Div -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Scripts -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src='//code.jquery.com/jquery-1.10.2.min.js'></script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script> -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#searchbox').selectize({
+        valueField: 'url',
+        labelField: 'name',
+        searchField: ['name'],
+        maxOptions: 10,
+        options: [],
+        create: false,
+        optgroups: [
+            {value: 'ingredients', label: 'ingredients'},
+            {value: 'category', label: 'Categories'}
+        ],
+        optgroupField: 'class',
+        optgroupOrder: ['ingredients','category'],
+        load: function(query, callback) {
+            if (!query.length) return callback();
+            $.ajax({
+                url: root+'/api/search',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    q: query
+                },
+                error: function() {
+                    callback();
+                },
+                success: function(res) {
+                    callback(res.data);
+                }
+            });
+        },
+        onChange: function(){
+            window.location = this.items[0];
+        }
+    });
+});
+</script>
+<!-- <script type="text/javascript">
+    var root = '{{url("/")}}';
+</script> -->
 
+<!-- <script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("POST", "", true);
+  xhttp.send();
+}
+</script>
+<script>
+function showHint(str) {
+    if (str.length == 0) {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "gethint?" +str, true);
+        xmlhttp.send();
+    }
+}
+</script> -->
 </body>
 </html>

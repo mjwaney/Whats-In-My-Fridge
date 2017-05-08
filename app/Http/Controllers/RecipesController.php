@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use \App\recipe;
+use \App\Recipe;
 
 class RecipesController extends Controller
 {
@@ -15,7 +15,7 @@ class RecipesController extends Controller
      */
     public function index(Recipe $recipe)
     {   
-        $rec = recipe::all();
+        $rec = Recipe::all();
         return view('recipes_default', compact('rec'));
     }
        

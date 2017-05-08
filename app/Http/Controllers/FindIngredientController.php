@@ -158,7 +158,7 @@ class FindIngredientController extends Controller
           echo '<table class="ingredientstable"><tr>'; 
           foreach($category as $key=>$cat)
           {
-              echo '<td><label><input type="checkbox" name="fridgecontents[]" value="' . $category[$key]->name . '">' . $category[$key]->name . '</label></td>';
+              echo '<td><input type="checkbox" class="addIngredient" name="fridgecontents[]" value="' . $category[$key]->name . '"> ' . $category[$key]->name . '</td>';
               
               $n++;
 
@@ -216,7 +216,7 @@ class FindIngredientController extends Controller
              return view('findrecipes', compact('recipeResult', 'ingredients', 'dairy', 'meats',  'vegetables', 'fruits', 'spices', 'fish', 'bakingGrains', 'oils', 'seafood', 'addedSweeteners', 'seasonings', 'nuts', 'condiments', 'desertSnacks', 'beverages', 'soups', 'dairyAlternatives', 'peas', 'sauce', 'alcohol'));
          }
       }
-      
+
       /**
        * Show the form for editing the specified resource.
        *

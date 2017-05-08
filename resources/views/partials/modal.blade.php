@@ -1,7 +1,7 @@
 <?php use App\Http\Controllers\FindIngredientController; ?>
 
 <!-- Modal Start -->  
-<div id="myModal2" class="modal" data-backdrop="false">
+<div id="myModal2" class="modal fade"  data-backdrop="true">
   <div class="modal-dialog"><!-- Modal Dialog -->
     <div class="modal-content"><!-- Modal Content -->
 
@@ -39,109 +39,68 @@
                       </ul>
                  <div class="tab-content">     
                      <div id="all" class="tab-pane fade in active">
-                       <p class="checkbox">
                            {{ FindIngredientController::showIngredientList($ingredients) }}
-                       </p> 
                      </div>
                       <div id="dairy" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($dairy) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($dairy) }} 
                       </div> 
                       <div id="meats" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($meats) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($meats) }} 
                       </div> 
                      <div id="vegetables" class="tab-pane fade">
-                       <p class="checkbox">
                               {{ FindIngredientController::showIngredientList($vegetables) }}
-                       </p> 
                      </div>
                       <div id="fruits" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($fruits) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($fruits) }} 
                       </div> 
                       <div id="spices" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($spices) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($spices) }} 
                       </div> 
                       <div id="fish" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($fish) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($fish) }} 
                       </div> 
                       <div id="bakingGrains" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($bakingGrains) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($bakingGrains) }} 
                       </div> 
                       <div id="oils" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($oils) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($oils) }} 
                       </div> 
                       <div id="seafood" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($seafood) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($seafood) }} 
                       </div> 
                       <div id="addedSweeteners" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($addedSweeteners) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($addedSweeteners) }} 
                       </div> 
                       <div id="seasonings" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($seasonings) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($seasonings) }} 
                       </div> 
                       <div id="nuts" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($nuts) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($nuts) }} 
                       </div> 
                       <div id="condiments" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($condiments) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($condiments) }} 
                       </div> 
                       <div id="desertSnacks" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($desertSnacks) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($desertSnacks) }} 
                       </div> 
                       <div id="beverages" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($beverages) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($beverages) }} 
                       </div> 
                       <div id="soups" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($soups) }}
-                        </p> 
+
+                            {{ FindIngredientController::showIngredientList($soups) }} 
                       </div> 
                       <div id="dairyAlternatives" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($dairyAlternatives) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($dairyAlternatives) }} 
                       </div> 
                       <div id="peas" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($peas) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($peas) }} 
                       </div> 
                       <div id="sauce" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($sauce) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($sauce) }} 
                       </div> 
                       <div id="alcohol" class="tab-pane fade">
-                        <p class="checkbox">
-                            {{ FindIngredientController::showIngredientList($alcohol) }}
-                        </p> 
+                            {{ FindIngredientController::showIngredientList($alcohol) }} 
                       </div> 
                       
                </div><!-- Close tab-content    -->
@@ -149,7 +108,8 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <input type="submit" class="btn btn-default" name="submit" value="Add">
+            <button type="button" class="btn btn-default" onclick="loadDoc()" data-dismiss="modal">Add</button>
+            <!-- <input type="submit" class="btn btn-default" name="submit" value="Add"> -->
           </div><!-- Close Modal Footer -->
       </form>
 

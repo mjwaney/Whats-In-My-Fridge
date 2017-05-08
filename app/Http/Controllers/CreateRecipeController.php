@@ -56,6 +56,7 @@ class CreateRecipeController extends Controller
         //Insert Recipe into table
         $recipe = new Recipe;
         $recipe->name = $request->input('title');
+        $recipe->image = asset('thumbnails/'.Session::get('imagename'));
         $recipe->author = $request->input('author');
         $recipe->type = $request->input('type');
         $recipe->kitchen = $request->input('kitchen');
@@ -78,7 +79,15 @@ class CreateRecipeController extends Controller
         // $returnMsg = 'Your recipe has been added to the database!';
         return back();
     }
-     
+     public static function clear()
+    {
+        //Clear session if 'Clear All' is pressed
+        if(isset($_GET['clear2']))
+        {
+            unset($_SESSION['contents2']);
+        }
+        return back(); 
+    }   
     public static function ingredientSession()
     {
            
@@ -86,12 +95,6 @@ class CreateRecipeController extends Controller
         {
             session_start();
         }
-
-        //Clear session if 'Clear All' is pressed
-        if(isset($_GET['clear2']))
-        {
-            unset($_SESSION['contents2']);
-        } 
 
         //Start a new session if necessary
         if(!isset($_SESSION['contents2']))

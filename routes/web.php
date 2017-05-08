@@ -30,7 +30,7 @@ Route::get('/recipes', function () {
 Route::resource('recipes', 'RecipesController');
 
 //Add Recipe
-Route::get('/createrecipe', function () {
+Route::get('createrecipe', function () {
     return view('createrecipe');
 });
 
@@ -38,6 +38,12 @@ Route::resource('createrecipe', 'CreateRecipeController');
 
 Route::post('createrecipe', 
   ['as' => 'recipe_store', 'uses' => 'CreateRecipeController@store']);
+
+Route::post('createrecipe', 
+  ['as' => 'recipe_clear', 'uses' => 'CreateRecipeController@clear']);
+
+//hint/suggestion
+Route::get('gethint?'+'str', 'GetHintController@hint');
 
 //Find Recipes
 Route::get('findrecipes', function () {
@@ -59,14 +65,6 @@ Route::get('/activationmail', function () {
 });
 
 Route::get('/home', 'HomeController@index');
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
 
 Route::get('register/verify/{token}', 'Auth\RegisterController@verify'); 
 
@@ -124,6 +122,13 @@ Route::get('uploadIngredients',function(){
 | Image Upload and Resizing
 |--------------------------------------------------------------------------
 */
-Route::get('resizeImage', 'ImageController@resizeImage');
+Route::get('intervention-resizeImage',['as'=>'intervention.getresizeimage','uses'=>'FileController@getResizeImage']);
+Route::post('intervention-resizeImage',['as'=>'intervention.postresizeimage','uses'=>'FileController@postResizeImage']);
 
-Route::post('resizeImagePost',['as'=>'resizeImagePost','uses'=>'ImageController@resizeImagePost']);
+//search
+Route::get('createrecipe/api/search', 'SearchController@index');
+
+//test
+Route::get('/test', function () {
+    // return view('test');
+});

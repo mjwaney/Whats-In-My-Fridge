@@ -17,6 +17,7 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('image');
             $table->string('author');
             $table->enum('kitchen', array('italian', 'british', 'indonesian', 'middle_eastern', 'american', 'chinese', 'japanese', 'russian', 'greek', 'french', 'mexican', 'other', 'thai', 'african', 'south_american', 'turkish')); //array
             $table->enum('type', array('breakfast', 'snack', 'dinner', 'lowcarb', 'vegan', 'dessert', 'sidedish', 'fastfood', 'vegetarian', 'glutenfree', 'lunch', 'lowfat', 'lowcalorie')); //array

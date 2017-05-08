@@ -1,16 +1,9 @@
 @font-face {
 	font-family: 'fourHand';
-	src: url('../fonts/fourHand.ttf');
+	src: url('../fonts/fourHand.ttf') !important;
 }
 
-.ingredientstable{
-	vertical-align: top;
-}
 
-.ingredientstable td{
-	vertical-align: top;
-    	padding: 5px;
-}
 
 .nowrap {
   white-space: nowrap ;
@@ -25,11 +18,13 @@ body {
 	display: flex;
 	/*justify-content: center;*/
 	background: #DDD;
-	font-family: fourHand;
+	font-family: fourHand !important;
 	font-size: 20px;
 }
 
-
+.fa-plus{
+	color: white;
+}
 
 .page {
 	/*position: fixed;*/
@@ -181,7 +176,7 @@ a:active {
   color: #ffffff !important;
   background-color: #ffffff !important;
 }
-.navbar-default .navbar-nav > .open > a,
+/*navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   color: #ffffff !important;
@@ -206,7 +201,7 @@ a:active {
 }
 .navbar-default .navbar-link:hover {
   color: #ffffff !important;
-}
+}*/
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -416,4 +411,20 @@ h1.center {
 
 .containerN{
 	min-width: 800px;
+}
+
+.ingredientstable{
+	vertical-align: top;
+    	font-weight: normal !important;
+}
+
+.ingredientstable td{
+	vertical-align: top;
+    	padding: 5px;
+    	font-weight: normal !important;
+}
+
+.modal-header{
+	/*background-color: #5C4032;*/
+	color: #5C4032;
 }

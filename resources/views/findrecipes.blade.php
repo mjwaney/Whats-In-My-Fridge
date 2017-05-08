@@ -13,7 +13,7 @@
               <div class="col-lg-6">
                     {{ FindIngredientController::ingredientSession() }}
                 <ul class="list-group">
-                <a data-toggle="modal" href="#myModal2" class="btn btn-default">Add Ingredient</a><br><br>
+                <a data-toggle="modal" href="#myModal2" class="btn btn-default">Add Ingredients</a><br><br>
                         <form action="" method="get" >
                             <input type="submit" class="btn btn-default" name="clear" value="Clear Ingredients">
                         </form><br><br>
