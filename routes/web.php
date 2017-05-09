@@ -76,6 +76,8 @@ Route::get('dashboard', 'LoginController@showDashBoard')
 
 Route::get('login', 'LoginController@showLoginPage');
 
+Route::post('login', 'LoginController@credentials');
+
 Route::get('logout', 'LoginController@logout');
  
 Route::get('login/{provider}', 'LoginController@auth')
