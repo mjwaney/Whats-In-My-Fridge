@@ -48,9 +48,9 @@
     <!-- Navbar  -->
 		<div class="menuContainer">
 			<a href="/" class="menuButton">Home</a>
-			<a href="{{ '/recipes' }}" class="menuButton">Ingredients</a>
-			<a href="{{ '/findRecipes' }}" class="menuButton">Find Recipes</a>
-			<a href="{{ '/createRecipe' }}" class="menuButton">Add Recipes</a>
+			<a href="/recipes" class="menuButton">Ingredients</a>
+			<a href="/findrecipes" class="menuButton">Find Recipes</a>
+			<a href="/createrecipe" class="menuButton">Add Recipes</a>
 		</div>
     <!-- Navbar End -->
 

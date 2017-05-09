@@ -42,9 +42,6 @@ Route::post('createrecipe',
 Route::post('createrecipe', 
   ['as' => 'recipe_clear', 'uses' => 'CreateRecipeController@clear']);
 
-//hint/suggestion
-Route::get('gethint?'+'str', 'GetHintController@hint');
-
 //Find Recipes
 Route::get('findrecipes', function () {
     return view('findrecipes');
