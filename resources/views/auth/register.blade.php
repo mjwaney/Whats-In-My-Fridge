@@ -6,7 +6,7 @@
 	&nbsp
 @endsection
 
-@section('content')
+@section('p1')
 <h1 class="center" style="padding-left:5vw;">Register</h1>
 <form class="" style="display:flex;justify-content:center;" role="form" method="POST" action="">
 	<table border="0">
@@ -31,7 +31,7 @@
 		<tr>
 			<td>
 				<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-					<label for="email" class="col-md-4 control-label">E-Mail Address:</label>
+					<label for="email" class="col-md-4 control-label"><span>Email Address:</span></label>
 			</td>
 			<td>
 					<input id="email" type="email" class="registerInput" name="email" value="{{ old('email') }}" required> *
