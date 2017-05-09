@@ -14,4 +14,24 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
     ];
+
+    public function handle($request, \Closure $next)
+    {
+        if (
+            $this->isReading($request) ||
+            $this->runningUnitTests() ||
+            // $this->shouldPassThrough($request) ||
+            $this->tokensMatch($request)
+        ) {
+            return $this->addCookieToResponse($request, $next($request));
+        }
+
+        // Dumps and dies with tokens upon mismatch
+        dd(
+            $sessionToken = $request->session()->token(),
+            $request->input('_token') ?: $request->header('X-CSRF-TOKEN')
+        );
+
+        throw new TokenMismatchException;
+    }
 }

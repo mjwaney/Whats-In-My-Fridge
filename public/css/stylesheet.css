@@ -3,7 +3,9 @@
 	src: url('../fonts/fourHand.ttf') !important;
 }
 
-
+.setType{
+	padding: 0px 20px;
+}
 
 .nowrap {
   white-space: nowrap ;

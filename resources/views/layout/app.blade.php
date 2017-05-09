@@ -6,6 +6,8 @@
   @show
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    </script>
 
     <!-- Stylesheets -->
     <link href="{{ elixir('css/stylesheet.css') }}" rel="stylesheet" type="text/css" />
@@ -13,7 +15,13 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.min.css">
-
+    <script>
+       $.ajaxSetup({
+           headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           }
+       });
+    </script>
 </head>
 
 <body>

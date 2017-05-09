@@ -124,6 +124,7 @@ Route::get('uploadIngredients',function(){
 */
 Route::get('intervention-resizeImage',['as'=>'intervention.getresizeimage','uses'=>'FileController@getResizeImage']);
 Route::post('intervention-resizeImage',['as'=>'intervention.postresizeimage','uses'=>'FileController@postResizeImage']);
+Route::post('intervention-resize','FileController@postResizeImage');
 
 //search
 Route::get('createrecipe/api/search', 'SearchController@index');
