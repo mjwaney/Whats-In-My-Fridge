@@ -47,36 +47,36 @@ Temporary Items
 .apdisk
 
 # Things containing passwords
-.env
+#.env
 
 # Recommended by random internet users
-/bootstrap/compiled.php
-/vendor
-/build/logs
-/build/coverage
-/app/tests/_log
-composer.phar
-/.idea
-/_ide_helper.php
-/app/config/packages
-/public/packages
-/node_modules
-composer.lock
-app/config/local
-app/config/development
-.env.*.php
+#/bootstrap/compiled.php
+#/vendor
+#/build/logs
+#/build/coverage
+#/app/tests/_log
+#composer.phar
+#/.idea
+#/_ide_helper.php
+#/app/config/packages
+#/public/packages
+#/node_modules
+#composer.lock
+#app/config/local
+#app/config/development
+#.env.*.php
 
 # Created by https://www.gitignore.io/api/laravel (removed doubles)
 ### Laravel ###
-npm-debug.log
+#npm-debug.log
 # Laravel 5 & Lumen specific
-public/storage
-public/hot
-storage/*.key
-.env.php
-.env
-Homestead.yaml
-Homestead.json
+#public/storage
+#public/hot
+#storage/*.key
+#.env.php
+#.env
+#Homestead.yaml
+#Homestead.json
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
-.rocketeer/
+#.rocketeer/
 # End of https://www.gitignore.io/api/laravel
