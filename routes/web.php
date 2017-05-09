@@ -13,7 +13,7 @@ use \App\ingredient;
 
 //Home Page
 Route::get('/', function () {
-    return view('recipes');
+    return view('welcome');
 });
 
 /*
@@ -76,7 +76,7 @@ Route::get('dashboard', 'LoginController@showDashBoard')
 
 Route::get('login', 'LoginController@showLoginPage');
 
-Route::post('login', 'LoginController@credentials');
+Route::post('login', 'LoginController@login');
 
 Route::get('logout', 'LoginController@logout');
  

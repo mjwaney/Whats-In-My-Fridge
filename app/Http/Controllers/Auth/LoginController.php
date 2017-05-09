@@ -28,61 +28,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    protected $loginUser;
- 
-    public function __construct(LoginUser $loginUser)
+    public function __construct()
     {
-        $this->loginUser = $loginUser;
         $this->middleware('guest', ['except' => 'logout']);
     }
 
-    public function credentials(Request $request)
-    {
-        return [
-            'email' => $request->email,
-            'password' => $request->password,
-            'verified' => 1,
-        ];
-    }
-
-    public function showLoginPage()
-    {
-       return view('auth.login');
-    }
-
-    public function showDashboard()
-    {
-        return view('dashboard');
-    }
-
-    public function auth($provider)
-    {
-        return $this->loginUser->authenticate($provider);
-    }
- 
-    public function login($provider)
-    {
-        try {
-            $this->loginUser->login($provider);
-            return redirect()->action('LoginController@showDashBoard');
-        } catch (SocialAuthException $e) {
-            return redirect()->action('LoginController@showLoginPage')
-                ->with('flash-message', $e->getMessage());
-        }
-    }
-
-
- 
-    public function logout()
-    {
-       auth()->logout();
-       return redirect()->to('/'); 
+    public function showLoginPage() {
+    	return view('auth.login');
     }
 }
