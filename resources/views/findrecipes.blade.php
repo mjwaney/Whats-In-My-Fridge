@@ -1,6 +1,6 @@
 <?php use App\Http\Controllers\FindIngredientController; ?>
 
-@extends('layout.app')
+@extends('layouts.app')
 @section('title', 'Find Recipes') 
 
 @section('p1')

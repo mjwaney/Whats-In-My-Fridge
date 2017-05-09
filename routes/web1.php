@@ -89,7 +89,7 @@ Route::get('login/{provider}/callback', 'LoginController@login')
 
 /*
 |--------------------------------------------------------------------------
-| Import textfile to populate the Ingredient database
+| Imort textfile to populate the Ingredient database
 |--------------------------------------------------------------------------
 */
 Route::get('uploadIngredients',function(){
@@ -136,12 +136,29 @@ Route::get('/test', function () {
 
 
 
+
 // Sander edit
 
 Route::get('/viewEmail', function()
 {
     dd(Config::get('mail'));
 });
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/ingredients', function () {
+	return view('ingredients');
+});
+
+Route::get('/findRecipes', function () {
+	return view('findRecipes');
+});
+
+Route::get('/addRecipes', function () {
+	return view('addRecipes');
+});
+
+Auth::routes();
 
 Route::get('/account', function () {
 /*	if (Auth::check() {

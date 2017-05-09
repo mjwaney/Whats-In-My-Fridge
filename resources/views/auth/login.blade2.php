@@ -1,7 +1,14 @@
 @extends('layouts.app')
-@section('p1')
+
+@section('title','Login')
+
+@section('content-left')
+	&nbsp
+@endsection
+
+@section('content')
 <h1 class="center">Login</h1>
-<form class="" style="display:flex;justify-content:center;" role="form" method="POST" action="">
+<form class="" style="display:flex;justify-content:center;" role="form" method="POST" action="{{ route('login') }}">
 	<table border="0">
 	{{ csrf_field() }}
 
@@ -65,4 +72,7 @@
 </form>
 @endsection
 
+@section('content-right')
+	&nbsp
+@endsection
 

@@ -1,89 +1,194 @@
-<!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
+<!-- Base Layout of the website -->
+<!DOCTYPE HTML>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+@section('scripts')
+  @show
+    <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    </script>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>What's In My Fridge</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <!-- Scripts -->
+    <!-- Stylesheets -->
+    <link href="{{ elixir('css/stylesheet.css') }}" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.min.css">
     <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-
-        
+       $.ajaxSetup({
+           headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+           }
+       });
     </script>
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+    <div class="page">
+		<div class="headerContainer">
+			<div class="headerLogo">
+				<a href="/" class="menuButton"><img src="/images/logoWhite.png" height="50" /></a>
+			</div>
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+			@if (Auth::check())
+				<a href="{{ '/account' }}" class="headerButton headerLogin">Account</a>
+				<a href="{{ '/logout' }}" class="headerButton headerLogin">Logout</a>
+			@else
+				<a href="{{ '/login' }}" class="headerButton headerLogin">Login</a>
+				<a href="{{ '/register' }}" class="headerButton headerLogin">Register</a>
+			@endif
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('Whats In My Fridge', 'Whats In My Fridge') }}
-                    </a>
-                </div>
+			<div class="headerButton headerOptions"></div>
+		</div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+		<img src="/images/headerImage.jpg" class="headerImage" />
+		<br />
+		<br />
+    <!-- Navbar  -->
+		<div class="menuContainer">
+			<a href="/" class="menuButton">Home</a>
+			<a href="{{ '/recipes' }}" class="menuButton">Ingredients</a>
+			<a href="{{ '/findRecipes' }}" class="menuButton">Find Recipes</a>
+			<a href="{{ '/createRecipe' }}" class="menuButton">Add Recipes</a>
+		</div>
+    <!-- Navbar End -->
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+    <!-- Column Left -->
+   <div class="content">
+    <div class="column left">
+        <div class="panel panel-default">
+          <div class="panel-heading" id="ph1">Top Rated</div>
+          <div class="panel-body">Recipe 1</div>
+          <div class="panel-body">Recipe 2</div>
+          <div class="panel-body">Recipe 3</div>
+        </div>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        @yield('content')
+        <div class="panel panel-default">
+          <div class="panel-heading" id="ph2">Top Ingredients</div>
+          <div class="panel-body">Butter</div>
+          <div class="panel-body">Cheese</div>
+          <div class="panel-body">Eggs</div>
+        </div>
     </div>
+    <!-- Column Left End -->
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- Center Content -->
+    <div class="column center"> 
+        @section('p1') @show  
+        @section('p2') @show 
+        @section('p3') @show
+    </div><!--  End Center Content -->
+
+<!-- Column Right -->
+    <div class="column right">
+
+        <div class="panel panel-default">
+          <div class="panel-heading" id="ph1">Top Rated</div>
+          <div class="panel-body">
+            Recipe 1
+          </div>
+          <div class="panel-body">
+            Recipe 2
+          </div>
+          <div class="panel-body">
+            Recipe 3
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading" id="ph2">Top Ingredients</div>
+          <div class="panel-body">
+            Butter
+          </div>
+          <div class="panel-body">
+            Cheese
+          </div>
+          <div class="panel-body">
+            Eggs
+          </div>
+        </div>
+    </div>
+    <!-- Column Right End -->
+  </div> <!-- End Content -->
+</div><!-- End Body/Page Div -->
+
+<!-- Scripts -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src='//code.jquery.com/jquery-1.10.2.min.js'></script> -->
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script> -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#searchbox').selectize({
+        valueField: 'url',
+        labelField: 'name',
+        searchField: ['name'],
+        maxOptions: 10,
+        options: [],
+        create: false,
+        optgroups: [
+            {value: 'ingredients', label: 'ingredients'},
+            {value: 'category', label: 'Categories'}
+        ],
+        optgroupField: 'class',
+        optgroupOrder: ['ingredients','category'],
+        load: function(query, callback) {
+            if (!query.length) return callback();
+            $.ajax({
+                url: root+'/api/search',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    q: query
+                },
+                error: function() {
+                    callback();
+                },
+                success: function(res) {
+                    callback(res.data);
+                }
+            });
+        },
+        onChange: function(){
+            window.location = this.items[0];
+        }
+    });
+});
+</script>
+<!-- <script type="text/javascript">
+    var root = '{{url("/")}}';
+</script> -->
+
+<!-- <script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("POST", "", true);
+  xhttp.send();
+}
+</script>
+<script>
+function showHint(str) {
+    if (str.length == 0) {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "gethint?" +str, true);
+        xmlhttp.send();
+    }
+}
+</script> -->
 </body>
 </html>

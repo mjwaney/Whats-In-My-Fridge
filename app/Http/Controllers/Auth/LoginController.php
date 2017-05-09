@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\LoginUser;
 use Illuminate\Http\Request;
@@ -54,7 +54,7 @@ class LoginController extends Controller
 
     public function showLoginPage()
     {
-       return view('login');
+       return view('auth.login');
     }
 
     public function showDashboard()
@@ -77,6 +77,8 @@ class LoginController extends Controller
                 ->with('flash-message', $e->getMessage());
         }
     }
+
+
  
     public function logout()
     {

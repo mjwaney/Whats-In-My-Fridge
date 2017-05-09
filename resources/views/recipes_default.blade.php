@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('title', 'Recipes - What\'s In My Fridge') 
 
 @section('p1')

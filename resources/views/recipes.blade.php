@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('title', 'Recipes') 
 @section('p1')
 <div class="panel panel-default">

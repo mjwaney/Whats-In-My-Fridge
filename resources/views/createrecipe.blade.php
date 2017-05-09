@@ -3,7 +3,7 @@
    use App\Http\Controllers\CreateRecipeController; 
 ?>
 
-@extends('layout.app')
+@extends('layouts.app')
 @section('title', 'Create Recipe')
 @section('p1')
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
