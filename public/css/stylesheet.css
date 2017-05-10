@@ -68,7 +68,12 @@ a:hover.headerButton {
 }
 
 a:hover.menuButton {
-	color: black;
+	color: #333;
+	text-decoration: none;
+}
+
+a:hover.resetPassword {
+	color: #333;
 	text-decoration: none;
 }
 

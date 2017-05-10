@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('p1')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -15,7 +15,6 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
