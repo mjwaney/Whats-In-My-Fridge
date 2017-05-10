@@ -1,7 +1,7 @@
 <?php use App\Http\Controllers\FindIngredientController; ?>
 
 <!-- Modal Start -->  
-<div id="myModal2" class="modal fade"  data-backdrop="true">
+<div id="myModal2" class="modal fade"  data-backdrop="false">
   <div class="modal-dialog"><!-- Modal Dialog -->
     <div class="modal-content"><!-- Modal Content -->
 

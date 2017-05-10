@@ -82,9 +82,7 @@ $(document).ready(function()
             <div class="panel-body"><!-- Panel Body-->
                {{ CreateRecipeController::ingredientSession() }}
                <div id="ingpanel"></div>
-               {!! Form::open(array('route' => 'recipe_clear', 'class' => 'form'))  !!}<br><br>
-                  <input type="submit" class="btn btn-default" name="clear2" value="Clear All">
-               {!! Form::close() !!}
+               <!-- Add Ingredients (uses session and modal) -->
                @include('partials.modal') 
             </div>
             </div>
@@ -96,9 +94,8 @@ $(document).ready(function()
       {{Session::get('imagename')}}
       <!-- Image upload -->
 
-      {!! Form::open(array('url' => '/recipe _store', 'class' => 'form')) !!}
-      {{csrf_field()}}
-      <!-- Add Ingredients (uses session and modal) -->
+      {!! Form::open(array('route' => 'recipe_store', 'class' => 'form')) !!}{{csrf_field()}}
+        {!! Form::open(array('route' => 'intervention.postresizeimage','files'=>true)) !!}
 
       <!-- Title Input -->
       <div class="form-group">

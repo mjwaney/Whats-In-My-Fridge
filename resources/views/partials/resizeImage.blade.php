@@ -10,20 +10,25 @@
         @if (Session::get('success'))
             <img src="{{asset('thumbnails/'.Session::get('imagename')) }}" />
         @endif
-        {!! Form::open(array('route' => 'intervention.postresizeimage','files'=>true)) !!}
+        {!! Form::open(array('route' => 'intervention.postresizeimage','files'=>true, 'id'=>'imageform')) !!}
         {!! Form::file('photo', array('class' => 'form-control', 'class' => 'bnt btn-default', 'id' => 'uploadImage')) !!}<br>
-        <button type="submit" class="btn btn-default">Upload Image</button><br><br>
+        <button type="submit" id="imagebutton" class="btn btn-default">Upload Image</button><br><br>
         {!! Form::close() !!}
     </div>
 </div>
-
+<!-- $(".pager-next a.active").click(function(event) {
+    if ($(this).text() != "1") {
+        event.preventDefault();
+    }           
+}); -->
 
 <script>
 $(function () 
 {
    $('form').on('submit', function (e) 
    {
-       e.preventDefault();
+      // e.preventDefault();
+     
        var formData = new FormData($(this)[0]);
 
        $.ajax

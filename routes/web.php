@@ -36,11 +36,7 @@ Route::get('createrecipe', function () {
 
 Route::resource('createrecipe', 'CreateRecipeController');
 
-Route::post('createrecipe', 
-  ['as' => 'recipe_store', 'uses' => 'CreateRecipeController@store']);
-
-Route::post('createrecipe', 
-  ['as' => 'recipe_clear', 'uses' => 'CreateRecipeController@clear']);
+Route::post('createrecipe',['as'=>'recipe_store','uses'=>'CreateRecipeController@store']);
 
 //Find Recipes
 Route::get('findrecipes', function () {
@@ -76,7 +72,9 @@ Route::get('dashboard', 'LoginController@showDashBoard')
 
 Route::get('login', 'LoginController@showLoginPage');
 
-Route::post('login', 'LoginController@credentials');
+// Route::post('login', 'LoginController@credentials');
+
+// ['as' => 'recipe_store', 'uses' => 'CreateRecipeController@store']);
 
 Route::get('logout', 'LoginController@logout');
  
