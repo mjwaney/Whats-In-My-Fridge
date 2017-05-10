@@ -11,7 +11,7 @@ use \App\ingredient;
 |
 */
 
-//Home Page
+// Home Page
 Route::get('/', function () {
     return view('welcome');
 });
@@ -67,7 +67,12 @@ Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
 
 Auth::routes();
 
-/* Google API */
+/*
+|--------------------------------------------------------------------------
+| Google API
+|--------------------------------------------------------------------------
+*/
+
 // Route::get('glogin',array('as'=>'glogin','uses'=>'UserController@googleLogin')) ;
 // Route::get('google-user',array('as'=>'user.glist','uses'=>'UserController@listGoogleUser')) ;
 
@@ -91,11 +96,11 @@ Route::get('login/{provider}/callback', 'LoginController@login')
 | Import textfile to populate the Ingredient database
 |--------------------------------------------------------------------------
 */
-Route::get('uploadIngredients',function(){
+Route::get('uploadIngredients', function(){
       
       //open textfile
       $fileD = fopen(storage_path('ingredients.txt'),"r");
-      $column=fgetcsv($fileD);
+      $column = fgetcsv($fileD);
       
       //while end of file hasn't been reached
       while(!feof($fileD))
@@ -135,26 +140,23 @@ Route::get('/test', function () {
 
 
 
-// Sander edit
+/*
+|--------------------------------------------------------------------------
+| Sander Edit
+|--------------------------------------------------------------------------
+*/
 
-Route::get('/viewEmail', function()
-{
+Route::get('/viewEmail', function() {
     dd(Config::get('mail'));
 });
 
 Route::get('/account', function () {
-/*	if (Auth::check() {
+	if (Auth::check()) {
 		return view('auth.account');
 	}
 	else {
-		return view('welcome');
-	}*/
-/*	@if (Auth::check())
-		return view('auth.account');
-	@else
-		return view('welcome');
-	@endif*/
-	return view('auth.account');
+		return redirect()->to('/');
+	}
 });
 
 Route::get('/logout', function () {

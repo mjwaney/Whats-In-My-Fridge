@@ -2,14 +2,14 @@
 
 @section('title','Profile')
 
-@section('content-left')
-	&nbsp
+@section('left')
+	&nbsp;
 @endsection
 
-@section('content')
+@section('p1')
 	<h1 class="center">Profile</h1>
 @endsection
 
-@section('content-right')
-	&nbsp
+@section('right')
+	&nbsp;
 @endsection

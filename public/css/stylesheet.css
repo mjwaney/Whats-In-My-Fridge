@@ -26,10 +26,14 @@ body {
 
 hr {
 	border: 0px;
-	border-bottom: 1px solid #5C4032;
+	border-bottom: 1px solid #5C4032 !important;
 }
 
-/* Links */
+/*
+--------------------------------------
+| Links
+--------------------------------------
+*/
 
 a {
 	text-decoration: none;
@@ -38,29 +42,24 @@ a {
 /* Unvisited */
 a:link {
 	color: #5C4032;
-	text-decoration: none;
 }
 
 a:link.headerButton {
 	color: #EEE;
-	text-decoration: none;
 }
 
 /* Visited */
 a:visited {
 	color: #5C4032;
-	text-decoration: none;
 }
 
 a:visited.headerButton {
 	color: #EEE;
-	text-decoration: none;
 }
 
 /* Hover */
 a:hover {
 	color: #333;
-	text-decoration: none;
 }
 
 a:hover.headerButton {
@@ -68,10 +67,14 @@ a:hover.headerButton {
 	text-decoration: none;
 }
 
+a:hover.menuButton {
+	color: black;
+	text-decoration: none;
+}
+
 /* Selected */
 a:active {
 	color: #5C4032;
-	text-decoration: none;
 }
 
 /* Index */
@@ -91,7 +94,11 @@ a:active {
 }
 
 
-/* Header */
+/*
+--------------------------------------
+| Header
+--------------------------------------
+*/
 
 .headerContainer {
 	display: flex;
@@ -144,7 +151,11 @@ a:active {
 }
 
 
-/* Header clickmenu */
+/*
+--------------------------------------
+| Header clickmenu
+--------------------------------------
+*/
 
 .onclick-menu {
 #    position: relative;
@@ -176,7 +187,11 @@ a:active {
 }
 
 
-/* Menu */
+/*
+--------------------------------------
+| Menu
+--------------------------------------
+*/
 
 .menuContainer {
 	display: flex;
@@ -188,10 +203,10 @@ a:active {
 .menuButton {
 	display: inline;
 	width: 135px;
-	height: 45px;
+	height: 60px;
 	margin: 0px 2% 5px;
 	margin-bottom: 5px;
-	padding-top: 0px;
+	padding-top: 10px;
 	text-align: center;
 	color: #333;
 	#border: 1px solid #999;
@@ -203,7 +218,11 @@ a:active {
 }
 
 
-/* Content */
+/*
+--------------------------------------
+| Content
+--------------------------------------
+*/
 
 .content {
 	display: flex;
@@ -266,8 +285,16 @@ h1.center {
 	margin: 0px auto 10px;
 }
 
+.right {
+	width: 20%;
+	min-width: 100px;
+}
 
-/* Register */
+/*
+--------------------------------------
+| Register
+--------------------------------------
+*/
 
 .registerInput {
 	width: 20vw;
@@ -306,7 +333,3 @@ h1.center {
 
 /* Right */
 
-.right {
-	width: 20%;
-	min-width: 100px;
-}
