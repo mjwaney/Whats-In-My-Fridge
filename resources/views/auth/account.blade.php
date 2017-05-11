@@ -32,5 +32,5 @@
 @endsection
 
 @section('right')
-	&nbsp;Test
+	&nbsp;
 @endsection
