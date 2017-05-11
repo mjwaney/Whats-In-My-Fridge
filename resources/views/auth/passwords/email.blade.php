@@ -6,7 +6,7 @@
 	&nbsp
 @endsection
 
-@section('content')
+@section('p1')
 	<div class="panel-heading"><h1 class="center" style="padding-left: 5vw;">Reset Password</h1></div>
 	<div class="panel-body">
 		@if (session('status'))
@@ -22,21 +22,21 @@
 				<tr>
 					<td>
 						<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-							<label for="email" class="col-md-4 control-label">E-Mail Address</label>
+							<label for="email" class="col-md-4 control-label">Email Address</label>
 					</td>
 					<td>
-						<input id="email" type="email" class="registerInput" name="email" value="{{ old('email') }}" required> *
+						<input id="email" type="email" class="registerInput" name="email" value="{{ old('email') }}" required autofocus> *
 					</td>
 				</tr>
 
 				<tr>
-					<td>
+					<td colspan="2">
 						@if ($errors->has('email'))
 							<span class="help-block">
 								<strong>{{ $errors->first('email') }}</strong>
 							</span>
 						@endif
-					</div>
+						</div>
 					</td>
 				</tr>
 
@@ -48,11 +48,11 @@
 					<td></td>
 					<td>
 						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="registerSubmit">
+							<!-- <div class="col-md-6 col-md-offset-4"> -->
+								<button type="submit" class="registerSubmit" style="margin-left: 30px;">
 									Send Password Reset Link
 								</button>
-							</div>
+							<!-- </div> -->
 						</div>
 					</td>
 				</tr>

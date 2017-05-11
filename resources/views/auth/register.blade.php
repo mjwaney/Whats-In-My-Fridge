@@ -16,6 +16,7 @@
 			<td>
 				<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 					<label for="name" class="col-md-4 control-label">Username:</label>
+				</div>
 			</td>
 			<td>
 				<input id="name" type="text" class="registerInput" name="name" value="{{ old('name') }}" required autofocus> *
@@ -23,8 +24,7 @@
 					<span class="help-block">
 						<strong>{{ $errors->first('name') }}</strong>
 					</span>
-					@endif
-				</div>
+					@endif				
 			</td>
 		</tr>
 

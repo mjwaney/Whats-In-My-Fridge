@@ -10,79 +10,41 @@ use App\Exceptions\SocialAuthException;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+	/*
+	|--------------------------------------------------------------------------
+	| Login Controller
+	|--------------------------------------------------------------------------
+	|
+	| This controller handles authenticating users for the application and
+	| redirecting them to your home screen. The controller uses a trait
+	| to conveniently provide its functionality to your applications.
+	|
+	*/
 
-    use AuthenticatesUsers;
+	use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
+	/**
+	 * Where to redirect users after login.
+	 *
+	 * @var string
+	 */
+	protected $redirectTo = '/home';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    protected $loginUser;
- 
-    public function __construct(LoginUser $loginUser)
-    {
-        $this->loginUser = $loginUser;
-        $this->middleware('guest', ['except' => 'logout']);
-    }
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct()
+	{
+		$this->middleware('guest', ['except' => 'logout']);
+	}
 
-    public function credentials(Request $request)
-    {
-        return [
-            'email' => $request->email,
-            'password' => $request->password,
-            'verified' => 1,
-        ];
-    }
+	public function showLoginPage() {
+		return view('auth.login');
+	}
 
-    public function showLoginPage()
-    {
-       return view('auth.login');
-    }
-
-    public function showDashboard()
-    {
-        return view('dashboard');
-    }
-
-    public function auth($provider)
-    {
-        return $this->loginUser->authenticate($provider);
-    }
- 
-    public function login($provider)
-    {
-        try {
-            $this->loginUser->login($provider);
-            return redirect()->action('LoginController@showDashBoard');
-        } catch (SocialAuthException $e) {
-            return redirect()->action('LoginController@showLoginPage')
-                ->with('flash-message', $e->getMessage());
-        }
-    }
-
-
- 
-    public function logout()
-    {
-       auth()->logout();
-       return redirect()->to('/'); 
-    }
+	public function username() {
+		return 'username';
+	}
 }
