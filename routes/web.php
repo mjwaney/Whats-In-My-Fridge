@@ -123,6 +123,8 @@ Route::get('intervention-resizeImage',['as'=>'intervention.getresizeimage','uses
 Route::post('intervention-resizeImage',['as'=>'intervention.postresizeimage','uses'=>'FileController@postResizeImage']);
 Route::post('intervention-resize','FileController@postResizeImage');
 
+Route::post('add_ingredients',['as'=>'add_ingredients','uses'=>'CreateRecipeController@store']);
+
 //search
 Route::get('createrecipe/api/search', 'SearchController@index');
 
