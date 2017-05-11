@@ -1,4 +1,7 @@
 @extends('layouts.app')
+
+@section('title','Login')
+
 @section('p1')
 <h1 class="center">Login</h1>
 <form class="" style="display:flex;justify-content:center;" role="form" method="POST" action="">
