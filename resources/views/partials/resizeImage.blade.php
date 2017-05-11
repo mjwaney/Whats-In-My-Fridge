@@ -8,6 +8,13 @@
             @endforeach
         @endif
         @if (Session::get('success'))
+            <?php 
+              if(!isset($_SESSION['imageUpload']))
+              {
+                  $_SESSION['imageUpload'] = "";
+              }
+              $_SESSION['imageUpload'] = asset('thumbnails/'.Session::get('imagename'));
+            ?>
             <img src="{{asset('thumbnails/'.Session::get('imagename')) }}" />
         @endif
         {!! Form::open(array('route' => 'intervention.postresizeimage','files'=>true, 'id'=>'imageform')) !!}

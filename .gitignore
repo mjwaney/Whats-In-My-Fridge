@@ -80,3 +80,5 @@ Temporary Items
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 #.rocketeer/
 # End of https://www.gitignore.io/api/laravel
+resources/views/layouts/app.blade.php
+routes/web.php

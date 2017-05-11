@@ -60,8 +60,7 @@ $(document).ready(function()
          list.push(value);
 
          document.getElementById("ingpanel").innerHTML += '<li class="list-group-item"><form action="" method="get">' + value + '<input type="submit" class="close" data-dismiss="list-group" aria-hidden="true" name="' + value + '" value="&times;">';
-
-         // alert(JSON.stringify(list));
+         
       }
    });
 });
@@ -81,7 +80,11 @@ $(document).ready(function()
             </div> 
             <div class="panel-body"><!-- Panel Body-->
                {{ CreateRecipeController::ingredientSession() }}
-               <div id="ingpanel"></div>
+
+               {!! Form::open(array('route' => 'add_ingredients', 'class' => 'form')) !!}
+                  <div id="ingpanel"></div>
+               {!! Form::close() !!}
+
                <!-- Add Ingredients (uses session and modal) -->
                @include('partials.modal') 
             </div>
@@ -95,7 +98,7 @@ $(document).ready(function()
       <!-- Image upload -->
 
       {!! Form::open(array('route' => 'recipe_store', 'class' => 'form')) !!}{{csrf_field()}}
-        {!! Form::open(array('route' => 'intervention.postresizeimage','files'=>true)) !!}
+        <!-- {!! Form::open(array('route' => 'intervention.postresizeimage','files'=>true)) !!} -->
 
       <!-- Title Input -->
       <div class="form-group">

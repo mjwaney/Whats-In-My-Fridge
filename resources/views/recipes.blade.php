@@ -7,7 +7,7 @@
     </div>
     @isset($recipe)
     <div class="panel-body">
-        <img height="auto" src="{{asset('images/recipes/texmex-burger.jpg')}}" class="contentImage" />  <br><br>
+        <img src="{{ $recipe->image }}"> <br><br>
         Author: {{$recipe->author}} <br><br>
         Ingredients: <br>@foreach($recipe->ingredients as $r) <br> {{$r->name}} @endforeach<br><br>
         Kitchen: {{$recipe->kitchen}} <br><br>
