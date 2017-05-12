@@ -1,9 +1,14 @@
 @extends('layouts.app')
+
+@section('title','Login')
+
 @section('p1')
 <h1 class="center">Login</h1>
 <form class="" style="display:flex;justify-content:center;" role="form" method="POST" action="">
-	<table border="0">
+<!-- {!! Form::open(array('route' => 'login', 'class' => 'form', 'method' => 'post')) !!} -->
 	{{ csrf_field() }}
+	<table border="0">
+
 
 		<tr>
 			<td>

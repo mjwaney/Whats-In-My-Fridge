@@ -1,12 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use App\LoginUser;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\Exceptions\SocialAuthException;
 
 class LoginController extends Controller
 {
@@ -42,9 +39,5 @@ class LoginController extends Controller
 
 	public function showLoginPage() {
 		return view('auth.login');
-	}
-
-	public function username() {
-		return 'username';
 	}
 }

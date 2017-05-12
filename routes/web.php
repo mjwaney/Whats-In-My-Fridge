@@ -63,27 +63,6 @@ Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
 
 Auth::routes();
 
-/* Google API */
-// Route::get('glogin',array('as'=>'glogin','uses'=>'UserController@googleLogin')) ;
-// Route::get('google-user',array('as'=>'user.glist','uses'=>'UserController@listGoogleUser')) ;
-
-Route::get('dashboard', 'LoginController@showDashBoard')
-  ->middleware(['auth']); //protect the dashboard page using this middleware
-
-Route::get('login', 'LoginController@showLoginPage');
-
-// Route::post('login', 'LoginController@credentials');
-
-// ['as' => 'recipe_store', 'uses' => 'CreateRecipeController@store']);
-
-Route::get('logout', 'LoginController@logout');
- 
-Route::get('login/{provider}', 'LoginController@auth')
-    ->where(['provider' => 'facebook|google|twitter']);
- 
-Route::get('login/{provider}/callback', 'LoginController@login')
-    ->where(['provider' => 'facebook|google|twitter']);
-
 /*
 |--------------------------------------------------------------------------
 | Import textfile to populate the Ingredient database
