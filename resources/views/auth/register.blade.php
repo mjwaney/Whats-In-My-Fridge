@@ -2,7 +2,7 @@
 
 @section('title','Register')
 
-@section('content-left')
+@section('left')
 	&nbsp
 @endsection
 
@@ -111,9 +111,9 @@
 		</tr>
 	</table>
 </form>
-<p style="float:right;">Fields marked with * are required.</p>
+<p style="float:right;padding-top:10px;">Fields marked with * are required.</p>
 @endsection
 
-@section('content-right')
+@section('right')
 	&nbsp
 @endsection

@@ -2,10 +2,6 @@
 
 @section('title','Profile')
 
-@section('left')
-	&nbsp;
-@endsection
-
 @section('p1')
 	<h1 class="center">Profile</h1>
 	<table border="0" style="padding-left: 50px;">
@@ -23,14 +19,9 @@
 		</tr>
 	</table>
 	<?php
-	$user = Auth::user();
-	echo '<pre>';
-	print_r($user);
-	echo '</pre>';
-	// echo $user[0];
+		$user = Auth::user();
+		echo '<pre>';
+		print_r($user);
+		echo '</pre>';
 	?>
-@endsection
-
-@section('right')
-	&nbsp;
 @endsection
