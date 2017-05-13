@@ -4,7 +4,7 @@
 
 @section('scripts')
   @show
-    <title>@yield('title')</title>
+    <title>@yield('title') - What's In My Fridge?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
