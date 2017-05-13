@@ -24,6 +24,10 @@ Route::get('/', function () {
 */
 
 //Default
+Route::get('/ingredients', function () {
+	return view('ingredients');
+});
+
 Route::get('/recipes', function () {
 	return view('recipes_default');
 });
