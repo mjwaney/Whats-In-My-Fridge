@@ -1,4 +1,4 @@
-	<?php
+<?php
 use \App\ingredient;
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +13,7 @@ use \App\ingredient;
 
 // Home Page
 Route::get('/', function () {
-		return view('welcome');
+	return view('welcome');
 });
 
 
@@ -25,14 +25,14 @@ Route::get('/', function () {
 
 //Default
 Route::get('/recipes', function () {
-		return view('recipes_default');
+	return view('recipes_default');
 });
 
 Route::resource('recipes', 'RecipesController');
 
 //Add Recipe
 Route::get('createrecipe', function () {
-		return view('createrecipe');
+	return view('createrecipe');
 });
 
 Route::resource('createrecipe', 'CreateRecipeController');
@@ -41,7 +41,7 @@ Route::post('createrecipe',['as'=>'recipe_store','uses'=>'CreateRecipeController
 
 //Find Recipes
 Route::get('findrecipes', function () {
-		return view('findrecipes');
+	return view('findrecipes');
 });
 
 Route::resource('findrecipes', 'FindIngredientController');
@@ -57,7 +57,7 @@ Route::post('findrecipes',
 */
 
 Route::get('/activationmail', function () {
-		return view('activationmail');
+	return view('activationmail');
 });
 
 Route::get('/home', 'HomeController@index');
@@ -73,7 +73,7 @@ Auth::routes();
 |--------------------------------------------------------------------------
 */
 
-Route::get('uploadIngredients',function(){
+Route::get('uploadIngredients', function(){
 
 	//open textfile
 	$fileD = fopen(storage_path('ingredients.txt'),"r");
@@ -146,8 +146,7 @@ Route::get('/logout', function () {
 });
 
 // View password reset mail
-Route::get('/viewEmail', function()
-{
-		dd(Config::get('mail'));
+Route::get('/viewEmail', function() {
+	dd(Config::get('mail'));
 });
 
