@@ -60,6 +60,7 @@
 			<a href="/ingredients" class="menuButton">Ingredients</a>
 			<a href="/findrecipes" class="menuButton">Find Recipes</a>
 			<a href="/createrecipe" class="menuButton">Add Recipes</a>
+			<a href="/about" class="menuButton">About</a>
 		</div>
 		<!-- Navbar End -->
 

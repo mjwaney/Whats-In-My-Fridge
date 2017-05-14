@@ -2,10 +2,6 @@
 
 @section('title','Reset password')
 
-@section('content-left')
-	&nbsp
-@endsection
-
 @section('p1')
 	<div class="panel-heading"><h1 class="center" style="padding-left: 5vw;">Reset Password</h1></div>
 	<div class="panel-body">
@@ -60,8 +56,4 @@
 			</table>
 		</form>
 	</div>
-@endsection
-
-@section('content-right')
-	&nbsp
 @endsection

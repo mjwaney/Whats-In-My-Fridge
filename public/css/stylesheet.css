@@ -6,7 +6,7 @@
 body {
 	display: flex;
 	justify-content: center;
-	background: #DDD;
+	background: #EEE !important;
 	font-family: fourHand;
 	font-size: 20px;
 	overflow: auto;

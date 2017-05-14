@@ -123,7 +123,7 @@ Route::get('createrecipe/api/search', 'SearchController@index');
 
 // Test
 Route::get('/test', function () {
-	// return view('test');
+	return view('register.verify');
 });
 
 
@@ -154,3 +154,7 @@ Route::get('/viewEmail', function() {
 	dd(Config::get('mail'));
 });
 
+// About page
+Route::get('/about', function () {
+	return view('about')
+;});
