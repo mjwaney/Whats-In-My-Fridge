@@ -19,8 +19,9 @@ class FindIngredientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Ingredient $ingredient)
+    public function index(Ingredient $ingredient, Recipe $recipe)
     {
+        $rec = Recipe::all()->sortByDesc('date_added');
         $ingredients = ingredient::all()->sortBy('name');
         $dairy = ingredient::all()->where('category', 'Dairy')->sortBy('name');
         $meats = ingredient::all()->where('category', 'Meats')->sortBy('name');
@@ -43,7 +44,7 @@ class FindIngredientController extends Controller
         $sauce = ingredient::all()->where('category', 'Sauce')->sortBy('name');
         $alcohol = ingredient::all()->where('category', 'Alcohol')->sortBy('name');
                 
-        return view('findrecipes', compact('ingredients', 'dairy', 'meats',  'vegetables', 'fruits', 'spices', 'fish', 'bakingGrains', 'oils', 'seafood', 'addedSweeteners', 'seasonings', 'nuts', 'condiments', 'desertSnacks', 'beverages', 'soups', 'dairyAlternatives', 'peas', 'sauce', 'alcohol'));
+        return view('findrecipes', compact('rec', 'ingredients', 'dairy', 'meats',  'vegetables', 'fruits', 'spices', 'fish', 'bakingGrains', 'oils', 'seafood', 'addedSweeteners', 'seasonings', 'nuts', 'condiments', 'desertSnacks', 'beverages', 'soups', 'dairyAlternatives', 'peas', 'sauce', 'alcohol'));
     }
 
     /**

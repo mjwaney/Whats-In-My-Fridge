@@ -1,13 +1,11 @@
 <?php use App\Http\Controllers\FindIngredientController; ?>
 
 <!-- Modal Start -->  
-<div id="myModal2" class="modal fade"  data-backdrop="false">
+<div id="myModal2" class="modal fade"  data-backdrop="true">
   <div class="modal-dialog"><!-- Modal Dialog -->
     <div class="modal-content"><!-- Modal Content -->
-
       <div class="modal-header"><!-- Modal Header -->
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          {{ csrf_field() }}
         <h4 class="modal-title">Add Ingredients</h4>
       </div><!-- Close Modal Header -->
 
@@ -102,10 +100,9 @@
                       <div id="alcohol" class="tab-pane fade">
                             {{ FindIngredientController::showIngredientList($alcohol) }} 
                       </div> 
-                      
                </div><!-- Close tab-content    -->
           </div><!-- Close Modal Body -->
-
+          
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-default" onclick="loadDoc()" data-dismiss="modal">Add</button>

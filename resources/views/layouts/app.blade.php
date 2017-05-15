@@ -1,5 +1,5 @@
 <!-- Base Layout of the website -->
-
+<?php  if(session_status() == PHP_SESSION_NONE){session_start();}?>
 <!DOCTYPE HTML>
 <head>
 
@@ -57,9 +57,9 @@
 		<!-- Navbar  -->
 		<div class="menuContainer">
 			<a href="/" class="menuButton">Home</a>
-			<a href="/ingredients" class="menuButton">Ingredients</a>
-			<a href="/findrecipes" class="menuButton">Find Recipes</a>
-			<a href="/createrecipe" class="menuButton">Add Recipes</a>
+			<a href="/recipes" class="menuButton">Recipes</a>
+			<a href="/findrecipes" class="menuButton">Search</a>
+			<a href="/createrecipe" class="menuButton">Create</a>
 		</div>
 		<!-- Navbar End -->
 
@@ -92,80 +92,9 @@
 <!-- End Body/Page Div -->
 
 <!-- Scripts -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- <script type="text/javascript" src='//code.jquery.com/jquery-1.10.2.min.js'></script> -->
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script> -->
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#searchbox').selectize({
-			valueField: 'url',
-			labelField: 'name',
-			searchField: ['name'],
-			maxOptions: 10,
-			options: [],
-			create: false,
-			optgroups: [
-				{value: 'ingredients', label: 'ingredients'},
-				{value: 'category', label: 'Categories'}
-			],
-			optgroupField: 'class',
-			optgroupOrder: ['ingredients','category'],
-			load: function(query, callback) {
-				if (!query.length) return callback();
-					$.ajax({
-						url: root+'/api/search',
-						type: 'GET',
-						dataType: 'json',
-						data: {
-							q: query
-						},
-						error: function() {
-							callback();
-						},
-						success: function(res) {
-							callback(res.data);
-						}
-					});
-				},
-			onChange: function(){
-				window.location = this.items[0];
-			}
-		});
-	});
-</script>
-<!-- <script type="text/javascript">
-		var root = '{{url("/")}}';
-</script> -->
 
-<!-- <script>
-function loadDoc() {
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById("demo").innerHTML = this.responseText;
-		}
-	};
-	xhttp.open("POST", "", true);
-	xhttp.send();
-}
-</script>
-<script>
-function showHint(str) {
-		if (str.length == 0) {
-				document.getElementById("txtHint").innerHTML = "";
-				return;
-		} else {
-				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = function() {
-						if (this.readyState == 4 && this.status == 200) {
-								document.getElementById("txtHint").innerHTML = this.responseText;
-						}
-				};
-				xmlhttp.open("GET", "gethint?" +str, true);
-				xmlhttp.send();
-		}
-}
-</script> -->
+@section('bodyend')
+	<!-- @show -->
 </body>
 </html>

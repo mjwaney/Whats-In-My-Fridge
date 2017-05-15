@@ -23,10 +23,12 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 */
 
-//Default
+//Ingredients
 Route::get('/ingredients', function () {
 	return view('ingredients');
 });
+
+Route::resource('/ingredients', 'IngredientsListController');
 
 Route::get('/recipes', function () {
 	return view('recipes_default');
@@ -53,7 +55,14 @@ Route::resource('findrecipes', 'FindIngredientController');
 Route::post('findrecipes', 
 	['as' => 'recipe_query', 'uses' => 'FindIngredientController@queryRecipes']);
 
+// Selectize Search
+Route::get('createrecipe/api/search', 'SearchController@index');
 
+// Selectize getSearch results
+// Route::get('createrecipe/api/results', 'SearchController@results');
+Route::post('ingList', 'SearchController@results');
+Route::post('ingList',['as'=>'postIngList','uses'=>'SearchController@results']);
+Route::get('ingList',['as'=>'getIngList','uses'=>'SearchController@results']);
 /*
 |--------------------------------------------------------------------------
 | Register, Login & Activation Pages
@@ -117,9 +126,6 @@ Route::post('intervention-resizeImage',['as'=>'intervention.postresizeimage','us
 Route::post('intervention-resize','FileController@postResizeImage');
 
 Route::post('add_ingredients',['as'=>'add_ingredients','uses'=>'CreateRecipeController@store']);
-
-// Search
-Route::get('createrecipe/api/search', 'SearchController@index');
 
 // Test
 Route::get('/test', function () {

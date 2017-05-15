@@ -11,23 +11,6 @@ use App\Http\Requests;
 class SearchController extends Controller
 {
 
-   // public function appendValue($data, $type, $element)
-   // {
-   //    // operate on the item passed by reference, adding the element and type
-   //    foreach ($data as $key => & $item) {
-   //       $item[$element] = $type;
-   //    }
-   //    return $data;     
-   // }
-
-   // public function appendURL($data, $prefix)
-   // {
-   //    // operate on the item passed by reference, adding the url based on slug
-   //    foreach ($data as $key => & $item) {
-   //       $item['url'] = url($prefix.'/'.$item['slug']);
-   //    }
-   //    return $data;     
-   // }
 
     public function index()
     {
@@ -37,6 +20,7 @@ class SearchController extends Controller
     	// If the input is empty, return an error response
     	if(!$query && $query == '') return Response::json(array(), 400);
 
+      //Match the query to database ingredients
     	$ingredients = ingredient::where('name','like','%'.$query.'%')
                ->orderBy('name','asc')
                ->take(5)
@@ -47,19 +31,50 @@ class SearchController extends Controller
                ->take(5)
                ->get(array('category'))->toArray();
 
-    	// Normalize data
-         // $ingredients   = $this->appendURL($ingredients, 'ingredients');
-	// $categories   = $this->appendURL($categories, 'categories');
-
-    	// Add type of data to each item of each set of results
-	// $ingredients = $this->appendValue($ingredients, 'ingredients', 'class');
-         // $categories = $this->appendValue($categories, 'category', 'class');
-
     	// Merge all data into one array
     	$data = array_merge($ingredients, $categories);
 
     	return Response::json(array(
     		'data'=>$data
     	));
+    }
+
+    public function results(Request $request)
+    {
+             if(session_status() == PHP_SESSION_NONE)
+             { 
+                 session_start();
+             } 
+              // dd($request->all());
+              // dd($_POST['ing']);
+              $ing = $_POST['ing'];
+              // $ing = $_POST['ingsubmit'];
+              // $ing = json_decode($ing);
+              // dd("This is: " . $ing);
+
+              if(!isset($_SESSION['list']))
+              {
+                  $_SESSION['list'] = array();
+              }
+              $_SESSION['list'][] = $ing;
+        // var_dump($_SESSION['list']);
+        // dd($_SESSION['list']);
+
+
+              // return back();
+      // $value = $request->input('data');
+
+      // dd($_POST);
+
+      
+
+      return back()
+            ->with($_SESSION['list']);
+      //       ->with('value',$value);
+    }
+
+    public function getIngList()
+    {
+        return view('getIngList');
     }
 }

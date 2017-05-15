@@ -12,9 +12,9 @@
    var root = '{{url("/createrecipe")}}';
 </script>
 <script>
+var list = [];
 $(document).ready(function()
 {
-   var list = [];
 
    $('#searchbox').selectize({
       valueField: 'name',
@@ -58,10 +58,41 @@ $(document).ready(function()
       onItemAdd(value, $item)
       {
          list.push(value);
+         window.value = value;
+         document.getElementById("ingpanel").innerHTML += '<li class="list-group-item"><form action="" method="get">' + value + '<input type="submit" class="close" data-dismiss="list-group" aria-hidden="true" name="' + value + '" value="&times;">';  
 
-         document.getElementById("ingpanel").innerHTML += '<li class="list-group-item"><form action="" method="get">' + value + '<input type="submit" class="close" data-dismiss="list-group" aria-hidden="true" name="' + value + '" value="&times;">';
+         list.forEach(outputHidden);
+
+         function outputHidden(item, index)
+         {
+            document.getElementById("ingpanel").innerHTML += '<input type="hidden" name="ing" value="' + item + '">';
+         }
          
       }
+   });
+});
+</script>
+<script>
+$(function () 
+{
+   $('#ingList').on('submit', function (e) 
+   {
+      e.preventDefault();
+
+       $.ajax
+       ({
+            type: 'post',
+            url: 'ingList',
+            // contentType: 'application/json',
+            // dataType: 'json',
+            data: {value: value},
+            // async: false,
+            // data: $('form').serialize(),
+            success: function (res) 
+            {
+               alert('Ingredients Added');
+            },
+      });
    });
 });
 </script>
@@ -70,7 +101,6 @@ $(document).ready(function()
    <div class="panel-heading">Create Recipe</div>  
    <div class="panel-body"><!-- Panel Body-->
 
-      <!-- Add Ingredients (uses session and modal) -->
       <div class="form-group">
          <div class="col-lg-7 col-lg-offset-3">
             <div class="panel panel-default"><!-- Panel -->
@@ -81,12 +111,11 @@ $(document).ready(function()
             <div class="panel-body"><!-- Panel Body-->
                {{ CreateRecipeController::ingredientSession() }}
 
-               {!! Form::open(array('route' => 'add_ingredients', 'class' => 'form')) !!}
-                  <div id="ingpanel"></div>
+               <!-- {!! Form::open(array('id' => 'ingList')) !!} -->
+               {!! Form::open(array('id' => 'ingList', 'name' => 'ing', 'route' => 'postIngList')) !!}
+                  <div id="ingpanel"></div><br>
+                  {{ Form::submit('Add Ingredients', array('class' => 'btn btn-default')) }}
                {!! Form::close() !!}
-
-               <!-- Add Ingredients (uses session and modal) -->
-               @include('partials.modal') 
             </div>
             </div>
          </div>
@@ -94,12 +123,8 @@ $(document).ready(function()
 
       <!-- Image upload -->
       @include('partials.resizeImage') 
-      {{Session::get('imagename')}}
-      <!-- Image upload -->
 
       {!! Form::open(array('route' => 'recipe_store', 'class' => 'form')) !!}{{csrf_field()}}
-        <!-- {!! Form::open(array('route' => 'intervention.postresizeimage','files'=>true)) !!} -->
-
       <!-- Title Input -->
       <div class="form-group">
          <label for="title" class="col-lg-3 control-label">Title</label>
@@ -203,4 +228,9 @@ $(document).ready(function()
       {!! Form::close() !!}
    </div><!-- Panel Body-->
 </div><!-- Panel -->
+@endsection
+
+@section('bodyend')
+   <!-- Add Ingredients (uses session and modal) -->
+   @include('partials.modal') 
 @endsection

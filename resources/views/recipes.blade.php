@@ -4,6 +4,9 @@
 <div class="panel panel-default">
     <div class="panel-heading"> 
         @isset($recipe) {{$recipe->name}} @endisset
+        <a href="#" class="btn btn-default pull-right">
+          <span class="glyphicon glyphicon-star-empty "></span>
+        </a><br><br>
     </div>
     @isset($recipe)
     <div class="panel-body">
@@ -20,7 +23,6 @@
     @isset($recipe)
     <div class="panel-heading">Instructions</div>
     <div class="panel-body">{{$recipe->instructions}}</div>
-    <a href="#" class="btn btn-default">Save Recipe</a>
 </div>
     @endisset
     @endsection
