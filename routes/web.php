@@ -172,3 +172,8 @@ Route::get('/viewEmail', function() {
 	dd(Config::get('mail'));
 });
 
+Route::get('/about', function () {
+	return view('about');
+});
+
+

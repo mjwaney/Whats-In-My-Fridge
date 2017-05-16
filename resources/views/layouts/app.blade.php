@@ -36,11 +36,11 @@
 
 			<!-- Check if logged in -->
 			@if (Auth::check())
-				<a href="{{ '/account' }}" class="headerButton headerLogin">Account</a>
-				<a href="{{ '/logout' }}" class="headerButton headerLogin">Logout</a>
+				<a href="/account" class="headerButton headerLogin">Account</a>
+				<a href="/logout" class="headerButton headerLogin">Logout</a>
 			@else
-				<a href="{{ '/login' }}" class="headerButton headerLogin">Login</a>
-				<a href="{{ '/register' }}" class="headerButton headerLogin">Register</a>
+				<a href="/login" class="headerButton headerLogin">Login</a>
+				<a href="/register" class="headerButton headerLogin">Register</a>
 			@endif
 			<!-- Check end -->
 
@@ -59,7 +59,10 @@
 			<a href="/" class="menuButton">Home</a>
 			<a href="/recipes" class="menuButton">Recipes</a>
 			<a href="/findrecipes" class="menuButton">Search</a>
-			<a href="/createrecipe" class="menuButton">Create</a>
+			@if (Auth::check())
+				<a href="/createrecipe" class="menuButton">Create</a>
+			@endif
+			<a href="/about" class="menuButton">About</a>
 		</div>
 		<!-- Navbar End -->
 

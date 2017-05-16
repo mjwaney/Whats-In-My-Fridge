@@ -82,7 +82,17 @@ a:active {
 	color: #5C4032;
 }
 
-/* Index */
+a:active.menuButton {
+	color: #333;
+	text-decoration: none;
+}
+
+
+/*
+--------------------------------------
+| Index
+--------------------------------------
+*/
 
 .indexContainer {
 	position: fixed;
@@ -295,6 +305,10 @@ h1.center {
 	min-width: 100px;
 }
 
+
+/* Right */
+
+
 /*
 --------------------------------------
 | Register
@@ -336,5 +350,4 @@ h1.center {
 }
 
 
-/* Right */
 
