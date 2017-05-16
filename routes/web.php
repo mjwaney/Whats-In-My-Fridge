@@ -51,6 +51,7 @@ Route::get('findrecipes', function () {
 });
 
 Route::resource('findrecipes', 'FindIngredientController');
+// Route::resource('/account', 'FindIngredientController');
 
 Route::post('findrecipes', 
 	['as' => 'recipe_query', 'uses' => 'FindIngredientController@queryRecipes']);
@@ -63,6 +64,17 @@ Route::get('createrecipe/api/search', 'SearchController@index');
 Route::post('ingList', 'SearchController@results');
 Route::post('ingList',['as'=>'postIngList','uses'=>'SearchController@results']);
 Route::get('ingList',['as'=>'getIngList','uses'=>'SearchController@results']);
+
+/*
+|--------------------------------------------------------------------------
+| Favorite
+|--------------------------------------------------------------------------
+*/
+
+// Route::post('addToFavorites', 'FavoriteController@toggleFavorite');
+// Route::post('addToFavorites',['as'=>'postFavorite','uses'=>'FavoriteController@toggleFavorite']);
+// Route::get('addToFavorites',['as'=>'getFavorite','uses'=>'FavoriteController@toggleFavorite']);
+
 /*
 |--------------------------------------------------------------------------
 | Register, Login & Activation Pages

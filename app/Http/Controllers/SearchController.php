@@ -10,8 +10,6 @@ use App\Http\Requests;
 
 class SearchController extends Controller
 {
-
-
     public function index()
     {
     	// Retrieve the user's input and escape it
@@ -45,20 +43,16 @@ class SearchController extends Controller
              { 
                  session_start();
              } 
-              // dd($request->all());
-              // dd($_POST['ing']);
               $ing = $_POST['ing'];
-              // $ing = $_POST['ingsubmit'];
-              // $ing = json_decode($ing);
-              // dd("This is: " . $ing);
 
               if(!isset($_SESSION['list']))
               {
                   $_SESSION['list'] = array();
               }
+              
               $_SESSION['list'][] = $ing;
-        // var_dump($_SESSION['list']);
-        // dd($_SESSION['list']);
+              var_dump($_SESSION['list']);
+              dd($_SESSION['list']);
 
 
               // return back();

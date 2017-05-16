@@ -85,9 +85,9 @@ $(function ()
             url: 'ingList',
             // contentType: 'application/json',
             // dataType: 'json',
-            data: {value: value},
-            // async: false,
-            // data: $('form').serialize(),
+            data: {'value': value},
+            async: false,
+            data: $('form').serialize(),
             success: function (res) 
             {
                alert('Ingredients Added');
@@ -137,7 +137,7 @@ $(function ()
       <div class="form-group">
          <label for="author" class="col-lg-3 control-label">Author</label>
          <div class="col-lg-7">
-            {{ Form::text('author', '', array('class' => 'form-control', 'placeholder' => 'Author Name', 'required' => 'required')) }}<br><br>
+            {{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}<br><br>
          </div>
       </div>
 
