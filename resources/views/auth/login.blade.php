@@ -65,6 +65,14 @@
 				</a>
 			</td>
 		</tr>
+
+		<tr>
+			<td>
+				<a style="display:flex;justify-content:center;" class="" href="/register">
+					Don't have an account yet?
+				</a>
+			</td>
+		</tr>
 		
 	</table>
 </form>

@@ -37,7 +37,7 @@ Route::get('/recipes', function () {
 Route::resource('recipes', 'RecipesController');
 
 //Add Recipe
-Route::get('createrecipe', function () {
+Route::get('/createrecipe', function () {
 	return view('createrecipe');
 });
 
