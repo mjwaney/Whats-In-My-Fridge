@@ -9,9 +9,13 @@
 		<ul class="list-group">
 		@foreach($rec as $key=>$r)
 			<li class="list-group-item">
-				<a href="#" class="btn btn-default pull-right">
-					<span class="glyphicon glyphicon-star-empty "></span>
-				</a>
+				@if (Auth::check())
+					{!!Form::open(array('id' => 'favRecipe', 'name' => 'fav', 'route' => 'postFavorite')) !!}
+					<button type="submit" name="fav" class="btn btn-default pull-right" id="ad" value="{{ $r->id }}">
+					{{ $r->favoritesCount }}&nbsp;<span class="glyphicon glyphicon-star-empty "></span>
+					</button>
+					{!! Form::close() !!}
+				@endif
 				<span class="pull-right">{{$r->created_at->diffForHumans()}}&nbsp;&nbsp;</span><a color="blue" href="/recipes/{{ $r->id }}">{{  $r->name }}</a><br><img src="{{ $r->image }}">
 			</li><br> 	
 		@endforeach  

@@ -1,5 +1,6 @@
 <?php 
 	use App\Http\Controllers\FindIngredientController; 
+	use App\Recipe;
 ?>
 
 @extends('layouts.app')
@@ -8,44 +9,43 @@
 
 @section('p1')
 	<h1 class="center">Profile</h1>
-	<table border="0" style="padding-left: 50px;">
-		<tr>
-			<td>Username:</td>
-			<td>{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}</td>
-		</tr>
-		<tr>
-			<td>Email:</td>
-			<td>{{ isset(Auth::user()->name) ? Auth::user()->email : Auth::user()->email }}</td>
-		</tr>
-		<tr>
-			<td>Member since:&nbsp;</td>
-			<td>{{ isset(Auth::user()->name) ? Auth::user()->created_at : Auth::user()->email }}</td>
-		</tr>
-		<tr>
-			<td>Favorites:</td>
-			<td>@isset(Auth::user()->name) {{ Auth::user()->favorite(Recipe::class) }} @endisset </td>
-		</tr>
-	</table>
-	{!! Form::open(array('route' => 'recipe_query', 'class' => 'form'))  !!}
-	<div class="panel panel-default"><!-- Panel -->
-		<div class="panel-heading">Add Ingredients</div>  
-			<div class="panel-body"><!-- Panel Body-->
-				<div class="form-group">
-					{{ FindIngredientController::ingredientSession() }}
-					@include('partials.selectize') 
-					<ul class="list-group">
-								<!-- <input type="submit" class="btn btn-default" name="find" value="Find Recipe"> -->
-				</div><!-- Close Form-Group-->
-			</div><!-- Close Panel Body-->
-	</div> <!-- Close Panel -->
-{!! Form::close() !!}
+	<div class="panel panel-default">
+		<div class="panel-heading clearfix"> <h2 class="center">User Info</h2></div>
+		<div class="panel-body">
+			<table border="0" style="padding-left: 50px;">
+				<tr>
+					<td>Username:</td>
+					<td>{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td>{{ isset(Auth::user()->name) ? Auth::user()->email : Auth::user()->email }}</td>
+				</tr>
+				<tr>
+					<td>Member since:&nbsp;</td>
+					<td>{{ isset(Auth::user()->name) ? Auth::user()->created_at : Auth::user()->email }}</td>
+				</tr>
+			</table><br><br>
+		</div>
+	</div>
+
+	@isset(Auth::user()->name) 
+	<div class="panel panel-default">
+		<div class="panel-heading clearfix"> <h2 class="center">Favorites</h2></div>
+		@foreach(Auth::user()->favorite(Recipe::class) as $fav)
+		<div class="panel-body">
+			<a href="recipes/{{ $fav->id }}" >{{ $fav->name }}</a> <br>
+			<img src="{{ $fav->image }}"> 
+		</div>@endforeach
+	</div>@endisset<br><br>
 	<?php
-		$user = Auth::user();
-		echo '<pre>';
+		// $user = Auth::user();
+		// echo '<pre>';
 		// print_r($user);
-		echo '</pre>';
+		// echo '</pre>';
 	?>
 @endsection
 
-@section('bodyend')
+@section('p2')
+	@include('partials.selectize') 
 @endsection

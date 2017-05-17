@@ -11,11 +11,13 @@ class FavoriteController extends Controller
 {
     public function toggleFavorite(Recipe $recipe, Request $request)
     {
-           $fav = $_GET['fav'];
+           $fav = $_POST['fav'];
     	$fav = Recipe::find($fav);
     	$fav->toggleFavorite();
 
-    	return back();
+            // dd($fav);
+
+    	return back()->with(compact($fav));
     }
 
     public function favCount(Request $request)

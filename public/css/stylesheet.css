@@ -295,6 +295,14 @@ h1.center {
 	padding-left: 10px;
 }
 
+h2.center {
+	width: 100%;
+	font-family: fourHand;
+	font-size: 20px;
+	color: #5C4032;
+	padding-left: 10px;
+}
+
 .contentImage {
 	width: 500px;
 	margin: 0px auto 10px;

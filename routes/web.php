@@ -57,7 +57,7 @@ Route::post('findrecipes',
 	['as' => 'recipe_query', 'uses' => 'FindIngredientController@queryRecipes']);
 
 // Selectize Search
-Route::get('createrecipe/api/search', 'SearchController@index');
+Route::get('/api/search', 'SearchController@index');
 
 // Selectize getSearch results
 // Route::get('createrecipe/api/results', 'SearchController@results');
@@ -71,9 +71,9 @@ Route::get('ingList',['as'=>'getIngList','uses'=>'SearchController@results']);
 |--------------------------------------------------------------------------
 */
 
-// Route::post('addToFavorites', 'FavoriteController@toggleFavorite');
-// Route::post('addToFavorites',['as'=>'postFavorite','uses'=>'FavoriteController@toggleFavorite']);
-// Route::get('addToFavorites',['as'=>'getFavorite','uses'=>'FavoriteController@toggleFavorite']);
+Route::post('addToFavorites', 'FavoriteController@toggleFavorite');
+Route::post('addToFavorites',['as'=>'postFavorite','uses'=>'FavoriteController@toggleFavorite']);
+Route::get('addToFavorites',['as'=>'getFavorite','uses'=>'FavoriteController@toggleFavorite']);
 
 /*
 |--------------------------------------------------------------------------

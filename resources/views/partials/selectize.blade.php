@@ -5,7 +5,8 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js"></script>
 <script type="text/javascript">
-   var root = '{{url("/createrecipe")}}';
+   var url = $(location).attr('href');
+   var root = url;
 </script>
 <script>
 var list = [];
@@ -29,7 +30,7 @@ $(document).ready(function()
       {
          if (!query.length) return callback();
          $.ajax({
-            url: root+'/api/search?q=xxxx',
+            url: '/api/search?q=xxxx',
             type: 'GET',
             dataType: 'json',
             data: 

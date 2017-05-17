@@ -58,7 +58,7 @@
 		<div class="menuContainer">
 			<a href="/" class="menuButton">Home</a>
 			<a href="/recipes" class="menuButton">Recipes</a>
-			<a href="/findrecipe" class="menuButton">Search</a>
+			<a href="/findrecipes" class="menuButton">Search</a>
 			@if (Auth::check())
 				<a href="/createrecipe" class="menuButton">Create</a>
 			@else
