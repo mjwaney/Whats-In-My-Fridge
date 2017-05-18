@@ -1,5 +1,44 @@
 <?php use App\Http\Controllers\FindIngredientController; ?>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js"></script>
+<script type="text/javascript">
+   var url = $(location).attr('href');
+   var root = url;
+</script>
+<script>
+$(function () 
+{
+   $('#modalAdd').on('submit', function (e) 
+   {
+      e.preventDefault();
 
+      var modalAdd = [];
+      var modalAdd = $('input[class=addIngredient]:checked').map(function(){
+         return $(this).val();
+      }).get();
+
+      alert(modalAdd);
+
+      $.each(modalAdd, function( index, value ) {
+       document.getElementById("ingpanel").innerHTML += '<li class="list-group-item"><form action="" method="get">' + value + '<input type="submit" class="close" data-dismiss="list-group" aria-hidden="true" name="' + value + '" value="&times;">';  
+       });
+       $.ajax
+       ({
+            type: 'post',
+            url: 'ingList',
+            // contentType: 'application/json',
+            // dataType: 'json',
+            data: {'modalAdd': modalAdd},
+            async: false,
+            data: $('form').serialize(),
+            success: function (res) 
+            {
+               alert('Ingredients Added');
+            },
+      });
+   });
+});
+</script>
 <!-- Modal Start -->  
 <div id="myModal2" class="modal fade"  data-backdrop="true">
   <div class="modal-dialog"><!-- Modal Dialog -->
@@ -9,7 +48,7 @@
         <h4 class="modal-title">Add Ingredients</h4>
       </div><!-- Close Modal Header -->
 
-        <form action="" method="get" >
+        <form id="modalAdd" action="" method="get" >
           <div class="modal-body"><!-- Modal Body -->
                 {{ csrf_field() }}
                       <ul class="nav nav-tabs">
@@ -85,7 +124,6 @@
                             {{ FindIngredientController::showIngredientList($beverages) }} 
                       </div> 
                       <div id="soups" class="tab-pane fade">
-
                             {{ FindIngredientController::showIngredientList($soups) }} 
                       </div> 
                       <div id="dairyAlternatives" class="tab-pane fade">
@@ -100,16 +138,15 @@
                       <div id="alcohol" class="tab-pane fade">
                             {{ FindIngredientController::showIngredientList($alcohol) }} 
                       </div> 
-               </div><!-- Close tab-content    -->
+               </div><!-- Close tab-content-->
           </div><!-- Close Modal Body -->
           
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-default" onclick="loadDoc()" data-dismiss="modal">Add</button>
-            <!-- <input type="submit" class="btn btn-default" name="submit" value="Add"> -->
+            <!-- <button type="button" class="btn btn-default" onclick="loadDoc()" data-dismiss="modal">Add</button> -->
+            <button type="submit" name="fav" class="btn btn-default">Add</button>
           </div><!-- Close Modal Footer -->
       </form>
-
     </div><!-- Close Modal Content -->
   </div><!-- Close Modal Dialog -->
-</div><!-- Close Modal Start -->
+</div>

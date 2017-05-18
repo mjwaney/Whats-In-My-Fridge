@@ -7,35 +7,35 @@
 		var root = '{{url("/")}}';
  </script>   
  <script type="text/javascript"> 
-	$(function()
-	{
+$(function()
+{
 
 	 $('#ad').on('click', function (e)
 	 {
-			// e.preventDefault();
+		// e.preventDefault();
 
-			var value = $(this).attr('value');
-			// alert(value);
+		var value = $(this).attr('value');
+		// alert(value);
 
-			 $.ajax
-			 ({
-						type: 'post',
-						url: 'addToFavorites',
-						// contentType: 'application/json',
-						// dataType: 'json',
-						// contentType: 'charset=UTF-8',
-						data: { 'value': value },
-						async: false,
-						data: $('form').serialize(),
-						success: function (res) 
-						{
-							// $(this).attr('value') = ;
-							 alert('Recipe Added to favorites');
-						},
-					});
+		 $.ajax
+		 ({
+			type: 'post',
+			url: 'addToFavorites',
+			// contentType: 'application/json',
+			// dataType: 'json',
+			// contentType: 'charset=UTF-8',
+			data: { 'value': value },
+			async: false,
+			data: $('form').serialize(),
+			success: function (res) 
+			{
+				// $(this).attr('value') = ;
+				 alert('Recipe Added to favorites');
+			},
+		});
 
-			});
-	 });
+	});
+});
 </script>
 <div class="panel panel-default">
 	<div class="panel-heading clearfix"> 
@@ -67,6 +67,5 @@
 		<div class="panel-heading">Instructions</div>
 		<div class="panel-body">{{$recipe->instructions}}</div>
 </div>
-		@endisset
-
-	 @endsection
+@endisset
+@endsection

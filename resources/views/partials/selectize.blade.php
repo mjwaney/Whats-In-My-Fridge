@@ -92,10 +92,11 @@ $(function ()
    });
 });
 </script>
-<div class="form-group">
-   <div class="col-lg-7 col-lg-offset-3">
-      <div class="panel panel-default"><!-- Panel -->
-      <div class="panel-heading">Add Ingredients<a data-toggle="modal" href="#myModal2"><i class="fa fa-plus pull-right"></i></a></div>
+
+
+
+<div class="panel panel-default"><!-- Panel -->
+   <div class="panel-heading">Add Ingredients<a data-toggle="modal" href="#myModal2"><i class="fa fa-plus pull-right"></i></a></div>
       <div class="panel-body">
          <select id="searchbox" name="q" placeholder="Search ingredients..." class="form-control"></select>
       </div> 
@@ -108,6 +109,4 @@ $(function ()
             {{ Form::submit('Add Ingredients', array('class' => 'btn btn-default')) }}
          {!! Form::close() !!}
       </div>
-      </div>
-   </div>
-</div><br><br>
+</div>

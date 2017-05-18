@@ -2,7 +2,14 @@
 	use App\Http\Controllers\FindIngredientController; 
 	use App\Recipe;
 ?>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#toggleFav").click(function(){
+	    $("#favoriteList").toggle();
+	});
+});	
+</script>
 @extends('layouts.app')
 
 @section('title','Profile')
@@ -28,24 +35,29 @@
 			</table><br><br>
 		</div>
 	</div>
+	@include('partials.selectize') 
 
 	@isset(Auth::user()->name) 
 	<div class="panel panel-default">
-		<div class="panel-heading clearfix"> <h2 class="center">Favorites</h2></div>
-		@foreach(Auth::user()->favorite(Recipe::class) as $fav)
-		<div class="panel-body">
-			<a href="recipes/{{ $fav->id }}" >{{ $fav->name }}</a> <br>
-			<img src="{{ $fav->image }}"> 
-		</div>@endforeach
-	</div>@endisset<br><br>
+		<div class="panel-heading clearfix"><table width="100%"><tr><td><h2 class="center">Favorites</h2></td>
+		<td><button class="btn btn-default glyphicon glyphicon-chevron-down pull-right" type="button" id="toggleFav"></button></td>
+		</tr></table>
+		</div>
+			<div class="panel-body">
+				<ul class="list-group" id="favoriteList">
+				@foreach(Auth::user()->favorite(Recipe::class) as $fav)
+				<li class="list-group-item">
+					<div class="panel-body">
+						<a href="recipes/{{ $fav->id }}" >{{ $fav->name }}</a> <br>
+						<img src="{{ $fav->image }}"> 
+					</div>
+				</li>@endforeach
+			</ul>
+		</div>@endisset<br><br>
 	<?php
 		// $user = Auth::user();
 		// echo '<pre>';
 		// print_r($user);
 		// echo '</pre>';
 	?>
-@endsection
-
-@section('p2')
-	@include('partials.selectize') 
 @endsection

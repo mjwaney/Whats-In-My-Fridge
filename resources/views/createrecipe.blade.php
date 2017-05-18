@@ -15,25 +15,25 @@
 
       {!! Form::open(array('route' => 'recipe_store', 'class' => 'form')) !!}{{csrf_field()}}
       <!-- Title Input -->
-      <div class="form-group">
+<!--       <div class="form-group">
          <label for="title" class="col-lg-3 control-label">Title</label>
-         <div class="col-lg-7">
+         <div class="col-lg-7"> -->
             {{ Form::text('title', '', array('class' => 'form-control', 'placeholder' => 'Recipe Title', 'required' => 'required')) }}<br><br>
-         </div>
-      </div>
+         <!-- </div>
+      </div> -->
 
       <!--  Author Input -->
-      <div class="form-group">
+<!--       <div class="form-group">
          <label for="author" class="col-lg-3 control-label">Author</label>
-         <div class="col-lg-7">
+         <div class="col-lg-7"> -->
             {{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}<br><br>
-         </div>
-      </div>
+         <!-- </div>
+      </div> -->
 
       <!-- Type of Recipe -->
-      <div class="form-group">
+ <!--      <div class="form-group">
          <label for="type" class="col-lg-3 control-label">Type</label>
-         <div class="col-lg-7">
+         <div class="col-lg-7"> -->
             <div class="checkbox">
                <table>
                   <tr>
@@ -58,21 +58,21 @@
                   </tr>
                </table>
             </div><br><br>
-         </div>
-      </div>
+      <!--    </div>
+      </div> -->
 
       <!-- Serving Size -->
-      <div class="form-group">
+  <!--     <div class="form-group">
          <label for="serving_size" class="col-lg-3 control-label">Serving Size</label>
-         <div class="col-lg-7">
+         <div class="col-lg-7"> -->
             {{ Form::select('serving_size', ['1 Person', '1-2 Persons', '3-4 Persons', '5-8 Persons', 'More'], 2) }}<br><br>
-         </div>
-      </div>
+         <!-- </div>
+      </div> -->
 
       <!-- Kitchen Origin -->
-      <div class="form-group">
+    <!--   <div class="form-group">
          <label for="kitchen" class="col-lg-3 control-label">Kitchen</label>
-         <div class="col-lg-7">
+         <div class="col-lg-7"> -->
          <table class="kitchen"><tr>
                <td>{{ Form::radio('kitchen', 'african', true) }} African</td>
                <td>{{ Form::radio('kitchen', 'american') }} American</td>
@@ -96,27 +96,27 @@
                <td>{{ Form::radio('kitchen', 'thai') }} Thai</td>
                <td>{{ Form::radio('kitchen', 'turkish') }} Turkish</td>
          </tr></table><br><br>
-         </div>
-      </div>
+         <!-- </div>
+      </div> -->
 
       <!-- Instructions input --><br><br>
-      <div class="form-group">
+    <!--   <div class="form-group">
          <label for="instructions" class="col-lg-3 control-label" >Instructions</label>
-         <div class="col-lg-7">
+         <div class="col-lg-7"> -->
             <textarea class="form-control" name="instructions" rows="3" id="instructions" placeholder="Instructions on how to prepare your recipe"></textarea>
             <span class="help-block"></span>
-         </div>
-      </div>
+         <!-- </div>
+      </div> -->
 
-      <div class="form-group">
+      <!-- <div class="form-group">
          <label class="col-lg-3 control-label" ></label>
-         <div class="col-lg-7">
+         <div class="col-lg-7"> -->
             {{ Form::submit('Submit Recipe', array('class' => 'btn btn-default')) }}
-         </div>
-      </div>
+         <!-- </div>
+      </div> -->
       {!! Form::close() !!}
-   </div><!-- Panel Body-->
-</div><!-- Panel -->
+   <!-- </div> Panel Body -->
+<!-- </div>Panel -->
 @endsection
 
 @section('bodyend')
