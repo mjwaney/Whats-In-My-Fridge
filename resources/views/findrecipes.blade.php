@@ -16,8 +16,8 @@
 
 @section('p2')
 	<div class="panel panel-default"><!-- Panel -->
-		<div class="panel-heading">
-			Search Results 
+		<div class="panel-heading"><h2 class="center">
+			Search Results </h2>
 		</div>  
 			<div class="panel-body"><!-- Panel Body-->
 				<div class="form-group">

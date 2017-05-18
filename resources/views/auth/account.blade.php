@@ -43,8 +43,8 @@ $(document).ready(function(){
 		<td><button class="btn btn-default glyphicon glyphicon-chevron-down pull-right" type="button" id="toggleFav"></button></td>
 		</tr></table>
 		</div>
-			<div class="panel-body">
-				<ul class="list-group" id="favoriteList">
+			<div class="panel-body" id="favoriteList">
+				<ul class="list-group">
 				@foreach(Auth::user()->favorite(Recipe::class) as $fav)
 				<li class="list-group-item">
 					<div class="panel-body">

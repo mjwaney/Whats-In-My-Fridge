@@ -16,16 +16,17 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.min.css">
 	<!-- Stylesheets end -->
 
-	<!-- <script type="text/javascript">
-		$.ajaxSetup({
-			headers: {
-				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			}
-		});
-	</script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$('#carouselHacked').carousel();
+});
+</script>
 	<div class="page">
 
 		<!-- Header Logo, Login/Register and Account/Logout -->
@@ -46,10 +47,31 @@
 
 			<div class="headerButton headerOptions"></div>
 		</div>
-		<!-- Header Logo etc end -->
+		
+		<!-- Carousel Header Logo etc end -->
+		<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			
+			<!-- Header Image -->
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+			    	<div class="active item"><img src="/images/headerImage.jpg"></div>
+				<div class="item"><img src="/images/headerImage2.jpg"></div>
+				<div class="item"><img src="/images/headerImage3.jpg"></div>
+			</div>
 
-		<!-- Header Image -->
-		<img src="/images/headerImage.jpg" class="headerImage" />
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+			</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">
+			</a>
+		</div><!-- End Carousel -->
+
 		<br />
 		<br />
 		<!-- Header Image end -->

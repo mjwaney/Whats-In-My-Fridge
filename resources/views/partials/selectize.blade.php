@@ -56,7 +56,7 @@ $(document).ready(function()
       {
          list.push(value);
          window.value = value;
-         document.getElementById("ingpanel").innerHTML += '<li class="list-group-item"><form action="" method="get">' + value + '<input type="submit" class="close" data-dismiss="list-group" aria-hidden="true" name="' + value + '" value="&times;">';  
+         document.getElementById("ingpanel").innerHTML += '<li class="list-group-item"><form action="" method="get">' + value + '</li>';  
 
          list.forEach(outputHidden);
 
@@ -86,17 +86,23 @@ $(function ()
             data: $('form').serialize(),
             success: function (res) 
             {
-               alert('Ingredients Added');
+               // alert('Ingredients Added');
             },
       });
    });
 });
 </script>
-
-
+<script>
+$(document).ready(function(){
+        
+   $("ul").on('click', 'li', function(){
+       $(this).remove();
+   });
+});   
+</script>
 
 <div class="panel panel-default"><!-- Panel -->
-   <div class="panel-heading">Add Ingredients<a data-toggle="modal" href="#myModal2"><i class="fa fa-plus pull-right"></i></a></div>
+   <div class="panel-heading"><h2 class="center">Add Ingredients</h2><a data-toggle="modal" href="#myModal2"><i class="fa fa-plus pull-right"></i></a></div>
       <div class="panel-body">
          <select id="searchbox" name="q" placeholder="Search ingredients..." class="form-control"></select>
       </div> 
@@ -105,7 +111,8 @@ $(function ()
 
          <!-- {!! Form::open(array('id' => 'ingList')) !!} -->
          {!! Form::open(array('id' => 'ingList', 'name' => 'ing', 'route' => 'postIngList')) !!}
-            <div id="ingpanel"></div><br>
+            <ul>
+            <div id="ingpanel"></div><br></ul>
             {{ Form::submit('Add Ingredients', array('class' => 'btn btn-default')) }}
          {!! Form::close() !!}
       </div>

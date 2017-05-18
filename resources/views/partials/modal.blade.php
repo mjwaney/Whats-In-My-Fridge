@@ -17,10 +17,10 @@ $(function ()
          return $(this).val();
       }).get();
 
-      alert(modalAdd);
+      // alert(modalAdd);
 
       $.each(modalAdd, function( index, value ) {
-       document.getElementById("ingpanel").innerHTML += '<li class="list-group-item"><form action="" method="get">' + value + '<input type="submit" class="close" data-dismiss="list-group" aria-hidden="true" name="' + value + '" value="&times;">';  
+       document.getElementById("ingpanel").innerHTML += '<li class="list-group-item"><form action="" method="get">' + value + '</li>';  
        });
        $.ajax
        ({
@@ -33,7 +33,7 @@ $(function ()
             data: $('form').serialize(),
             success: function (res) 
             {
-               alert('Ingredients Added');
+               // alert('Ingredients Added');
             },
       });
    });
@@ -45,7 +45,7 @@ $(function ()
     <div class="modal-content"><!-- Modal Content -->
       <div class="modal-header"><!-- Modal Header -->
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Add Ingredients</h4>
+        <h2 class="modal-title center">Add Ingredients</h2>
       </div><!-- Close Modal Header -->
 
         <form id="modalAdd" action="" method="get" >

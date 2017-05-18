@@ -107,7 +107,7 @@ class FindIngredientController extends Controller
         {
             $_SESSION['contents'] = array();
         }
-        
+
         //Checked if x to close option has been pressed for any list item and remove it
         // contents array = ingredients, key = index, a = value
         foreach($_SESSION['contents'] as $key => $a)
