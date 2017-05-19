@@ -89,9 +89,9 @@ $(document).ready(function()
 			<a href="/about" class="menuButton">About</a>
 		</div>
 		<!-- Navbar End -->
-
+	
+		@section('fullwidth') @show  
 	<div class="content">
-
 	<!-- Column Left -->
 	<div class="column left">
 		@section('left') @show

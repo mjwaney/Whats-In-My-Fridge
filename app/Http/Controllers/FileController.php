@@ -22,7 +22,7 @@ class FileController extends Controller
         $imagename = time().'.'.$photo->getClientOriginalExtension(); 
     
         $destinationPath = public_path('thumbnails');
-        $thumb_img = Image::make($photo->getRealPath())->resize(200, 200, function($constraint)
+        $thumb_img = Image::make($photo->getRealPath())->resize(400, 250, function($constraint)
 	{
 	    $constraint->aspectRatio();
 	});
