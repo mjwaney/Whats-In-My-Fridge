@@ -46,14 +46,14 @@ Route::resource('createrecipe', 'CreateRecipeController');
 Route::post('createrecipe',['as'=>'recipe_store','uses'=>'CreateRecipeController@store']);
 
 //Find Recipes
-Route::get('findrecipes', function () {
+Route::get('findrecipe', function () {
 	return view('findrecipes');
 });
 
-Route::resource('findrecipes', 'FindIngredientController');
+Route::resource('findrecipe', 'FindIngredientController');
 // Route::resource('/account', 'FindIngredientController');
 
-Route::post('findrecipes', 
+Route::post('findrecipe', 
 	['as' => 'recipe_query', 'uses' => 'FindIngredientController@queryRecipes']);
 
 // Selectize Search
