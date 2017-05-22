@@ -63,8 +63,11 @@ Route::get('findrecipes', function () {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Route::resource('findrecipe', 'FindIngredientController');
 =======
+=======
+>>>>>>> 48825b2... Update Version 0.9
 
 
 Route::resource('findrecipes', 'FindIngredientController');
