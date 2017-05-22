@@ -3,20 +3,10 @@
 	src: url('../fonts/fourHand.ttf');
 }
 
-body {
-	display: flex;
-	justify-content: center;
-	background: #DDD;
-	font-family: fourHand;
-	font-size: 20px;
-	overflow: auto;
-#	border: 1px solid black;
-}
-
 .page {
-	position: fixed;
+	/*position: fixed;*/
 	top: 0;
-	width: 80%;
+	width: 100%;
 	min-width: 700px;
 	height: 100%;
 	background: #FFF;
@@ -121,6 +111,13 @@ a:active.menuButton {
 	height: 50px;
 	overflow: hidden;
 	background-color: #5C4032;
+
+	background: #35251c; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(#704d3c, #35251c); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#704d3c, #35251c); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#704d3c, #35251c); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#704d3c, #35251c); /* Standard syntax */
+
 	font-size: 20px;
 	color: #EEE;
 	font-family: fourHand;
@@ -295,6 +292,48 @@ h1.center {
 	padding-left: 10px;
 }
 
+h2.center {
+	width: 100%;
+	font-family: fourHand;
+	font-size: 20px;
+	color: #5C4032;
+	padding-left: 10px;
+}
+
+h2.white {
+	width: 100%;
+	font-family: fourHand;
+	font-size: 20px;
+	color: white;
+	padding-left: 10px;
+	margin-bottom: 10px;
+    	margin-top: 10px;
+}
+
+h3.center {
+	width: 100%;
+	font-family: fourHand;
+	font-size: 15px;
+	color: #5C4032;
+	padding-left: 10px;
+	min-width: 0px;
+}
+
+h3.timestamp {
+	width: 100%;
+	font-size: 20px;
+	color: #5C4032;
+	padding-bottom: 15px;
+	position: absolute; 
+	bottom: 0;
+}
+
+.categoryTab{
+	font-family: fourHand;
+	font-size: 15px;
+	color: #5C4032;
+}
+
 .contentImage {
 	width: 500px;
 	margin: 0px auto 10px;
@@ -349,5 +388,230 @@ h1.center {
 	box-shadow: inset 0px 0px 0px 1px #CCC;
 }
 
+/*
+--------------------------------------
+| Carousel
+--------------------------------------
+*/
+
+.carousel-inner .item {
+	height: 200px;
+}
+
+/*
+inspired from http://codepen.io/Rowno/pen/Afykb 
+*/
+.carousel-fade .carousel-inner .item {
+	opacity: 0;
+	transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .active {
+ 	opacity: 1;
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+	left: 0;
+	opacity: 0;
+	z-index: 1;
+}
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+	opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+	z-index: 2;
+}
+
+/*
+WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+now override the 3.3 new styles for modern browsers & apply opacity
+*/
+@media all and (transform-3d), (-webkit-transform-3d) {
+	.carousel-fade .carousel-inner > .item.next,
+	.carousel-fade .carousel-inner > .item.active.right {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		width: 100%!important;
+	}
+	.carousel-fade .carousel-inner > .item.prev,
+	.carousel-fade .carousel-inner > .item.active.left {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 0, 0);
+		        transform: translate3d(0, 0, 0);
+		width: 100%!important;
+	}
+	.carousel-fade .carousel-inner > .item.next.left,
+	.carousel-fade .carousel-inner > .item.prev.right,
+	.carousel-fade .carousel-inner > .item.active {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 0, 0);
+		        transform: translate3d(0, 0, 0);
+	}
+}
 
 
+/*
+--------------------------------------
+| List/Grid View
+--------------------------------------
+*/
+
+.glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    height: 220px;
+}
+
+.item.list-group-item
+{
+    float: none;
+    /*width: 50%;*/
+    /*background-color: #fff;*/
+    margin-bottom: 10px;
+    /*height: 150px;*/
+    margin-left: 15px;
+    padding: 5px;
+}
+.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+{
+    background: #5c4032;
+}
+
+.item.list-group-item .list-group-image
+{
+    margin-right: 10px;
+    height: 62px !important;
+    width: 100px !important;
+}
+.thumbnail>.linkImg>.list-group-image
+{
+	float: left;
+    margin-right: 10px;
+    height: 125px;
+    width: 200;
+}
+
+#ad
+{
+	position: absolute; 
+	bottom: 25px;
+	right: 25px;
+
+}
+
+.item.list-group-item .thumbnail
+{
+    margin-bottom: 0px;
+    height: 120px;
+}
+.item.list-group-item .caption
+{
+    padding: 9px 9px 0px 9px;
+}
+.item.list-group-item
+{
+    background: #eeeeee;
+}
+
+.item.list-group-item:before, .item.list-group-item:after
+{
+    display: table;
+    content: " ";
+}
+
+.item.list-group-item img
+{
+    float: left;
+}
+
+.item.list-group-item .timestamp
+{
+    padding-top: 50px !important;
+}
+
+.item.list-group-item:after
+{
+    clear: both;
+}
+.list-group-item-text
+{
+    margin: 0 0 11px;
+}
+
+/*
+--------------------------------------
+| Bootstrap Panel Overrides
+--------------------------------------
+*/
+.panel-heading{
+	background-color: #5c4032 !important;
+
+	background: #35251c; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(#704d3c, #35251c); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#704d3c, #35251c); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#704d3c, #35251c); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#704d3c, #35251c); /* Standard syntax */
+	height: 45px !important;
+	padding: 5px 5px !important;
+}
+
+.well-sm{
+	border-color: #5c4032 !important;
+	background-color: white !important;
+}
+
+/*
+--------------------------------------
+| Other
+--------------------------------------
+*/
+strong{
+	color: white;
+}
+
+#selectizeTable{
+}
+
+.selectizeCell{
+	/*border: 1px solid black;*/
+	min-width: 600px;
+}
+
+.selectizeCell2{
+	/*border: 1px solid black;*/
+	max-width: 100px;
+	margin: 0px 10px;
+}
+
+.modalTable{
+	padding: 5px;
+}
+
+li.active{
+	/*background-color: #5c4032;*/
+	text-decoration: underline;
+}
+
+.clear{
+	clear:both;
+}
+
+.typeTable{
+	table-layout: fixed;
+	width: 500px;
+}
+
+.kitchen td{
+	/*border:1px solid black;*/
+	width: 150px;
+}

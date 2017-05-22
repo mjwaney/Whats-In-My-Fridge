@@ -1,4 +1,5 @@
 <?php 
+	use App\Http\Controllers\FindRecipeController; 
 	use App\Http\Controllers\FindIngredientController; 
 ?>
 
@@ -7,43 +8,21 @@
 @section('title', 'Find Recipes') 
 
 @section('left')
-	&nbsp
+	&nbsp;
 @endsection
 
 @section('p1')
-{!! Form::open(array('route' => 'recipe_query', 'class' => 'form'))  !!}
-	<div class="panel panel-default"><!-- Panel -->
-		<div class="panel-heading">Find recipes </div>  
-			<div class="panel-body"><!-- Panel Body-->
-				<div class="form-group">
-					{{ FindIngredientController::ingredientSession() }}
-					@include('partials.selectize') 
-					<ul class="list-group">
-								<!-- <input type="submit" class="btn btn-default" name="find" value="Find Recipe"> -->
-				</div><!-- Close Form-Group-->
-			</div><!-- Close Panel Body-->
-	</div> <!-- Close Panel -->
-{!! Form::close() !!}
+	@include('partials.selectize') 
 @endsection
 
 @section('p2')
-	<div class="panel panel-default"><!-- Panel -->
-		<div class="panel-heading">Search Results </div>  
+	<div class="panel panel-default" id="searchresults" style="display:none;"><!-- Panel -->
+		<div class="panel-heading"><h2 class="white">
+			Search Results </h2>
+		</div>  
 			<div class="panel-body"><!-- Panel Body-->
-				<div class="form-group">
-					<ul>
-						@isset($recipeResult)
-							@foreach($recipeResult as $r)
-								<li class="list-group-item">
-									<span class="badge">85</span><a color="blue" href="/recipes/{{ $r->id }}">{{ $r->name }}</a>
-								</li><br>   
-							@endforeach
-						@endisset
-					</ul>
+				<div class="form-group" id="results">
 				</div>
 			</div>
 	</div>
-@endsection
-@section('bodyend')
-	@include('partials.modal')
 @endsection

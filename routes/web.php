@@ -41,23 +41,39 @@ Route::get('/createrecipe', function () {
 	return view('createrecipe');
 });
 
+// Route::post('/createrecipe', function () {
+// 	return view('welcome');
+// });
+
 Route::resource('createrecipe', 'CreateRecipeController');
 
-Route::post('createrecipe',['as'=>'recipe_store','uses'=>'CreateRecipeController@store']);
+// Route::post('createrecipe',['as'=>'recipe_store','uses'=>'CreateRecipeController@store']);
+
+// Route::post('createrecipe', ['as'=>'storeRecipe','uses'=>'CreateRecipeController@store']);
+
+Route::post('storeRecipe', 'CreateRecipeController@store');
+Route::post('storeRecipe',['as'=>'postStore','uses'=>'CreateRecipeController@store']);
+Route::get('storeRecipe',['as'=>'getStore','uses'=>'CreateRecipeController@store']);
 
 //Find Recipes
 Route::get('findrecipe', function () {
 	return view('findrecipes');
 });
 
+<<<<<<< HEAD
 Route::resource('findrecipe', 'FindIngredientController');
+=======
+
+
+Route::resource('findrecipes', 'FindIngredientController');
+>>>>>>> origin/master
 // Route::resource('/account', 'FindIngredientController');
 
 Route::post('findrecipe', 
 	['as' => 'recipe_query', 'uses' => 'FindIngredientController@queryRecipes']);
-
+Route::get('search', 'FindRecipeController@search');
 // Selectize Search
-Route::get('createrecipe/api/search', 'SearchController@index');
+Route::get('/api/search', 'SearchController@index');
 
 // Selectize getSearch results
 // Route::get('createrecipe/api/results', 'SearchController@results');
@@ -71,9 +87,9 @@ Route::get('ingList',['as'=>'getIngList','uses'=>'SearchController@results']);
 |--------------------------------------------------------------------------
 */
 
-// Route::post('addToFavorites', 'FavoriteController@toggleFavorite');
-// Route::post('addToFavorites',['as'=>'postFavorite','uses'=>'FavoriteController@toggleFavorite']);
-// Route::get('addToFavorites',['as'=>'getFavorite','uses'=>'FavoriteController@toggleFavorite']);
+Route::post('addToFavorites', 'FavoriteController@toggleFavorite');
+Route::post('addToFavorites',['as'=>'postFavorite','uses'=>'FavoriteController@toggleFavorite']);
+Route::get('addToFavorites',['as'=>'getFavorite','uses'=>'FavoriteController@toggleFavorite']);
 
 /*
 |--------------------------------------------------------------------------
