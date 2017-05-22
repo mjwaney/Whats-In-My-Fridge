@@ -18,7 +18,7 @@ class RecipesController extends Controller
         $rec = Recipe::all()->sortByDesc('date_added');
         return view('recipes_default', compact('rec'));
     }
-       
+     
     /**
 
      * Show the form for creating a new resource.

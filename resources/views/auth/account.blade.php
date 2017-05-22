@@ -2,14 +2,8 @@
 	use App\Http\Controllers\FindIngredientController; 
 	use App\Recipe;
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-	$("#toggleFav").click(function(){
-	    $("#favoriteList").toggle();
-	});
-});	
-</script>
+
+@section('scripts') {!! Html::script('js/user/toggle.js') !!} @endsection
 @extends('layouts.app')
 
 @section('title','Profile')
@@ -17,8 +11,8 @@ $(document).ready(function(){
 @section('p1')
 	<h1 class="center">Profile</h1>
 	<div class="panel panel-default">
-		<div class="panel-heading clearfix"> <h2 class="center">User Info</h2></div>
-		<div class="panel-body">
+		<div class="panel-heading clearfix" id="toggleUser"><h2 class="white">User Info</h2></div>
+		<div class="panel-body" id="userinfo" style="display:none;">
 			<table border="0" style="padding-left: 50px;">
 				<tr>
 					<td>Username:</td>
@@ -35,15 +29,17 @@ $(document).ready(function(){
 			</table><br><br>
 		</div>
 	</div>
-	@include('partials.selectize') 
+	<div class="panel panel-default">
+		<div class="panel-heading clearfix" id="toggleIngredients"><h2 class="white">Your Ingredients</h2></div>
+		<div class="panel-body" id="ingredientsList" style="display:none;">
+			@include('partials.selectize')<br><br>
+		</div>
+	</div>
 
 	@isset(Auth::user()->name) 
 	<div class="panel panel-default">
-		<div class="panel-heading clearfix"><table width="100%"><tr><td><h2 class="center">Favorites</h2></td>
-		<td><button class="btn btn-default glyphicon glyphicon-chevron-down pull-right" type="button" id="toggleFav"></button></td>
-		</tr></table>
-		</div>
-			<div class="panel-body" id="favoriteList">
+	<div class="panel-heading clearfix" id="toggleFav"><h2 class="white">Favorites</h2></div>
+			<div class="panel-body" id="favoriteList" style="display:none;">
 				<ul class="list-group">
 				@foreach(Auth::user()->favorite(Recipe::class) as $fav)
 				<li class="list-group-item">
@@ -54,10 +50,4 @@ $(document).ready(function(){
 				</li>@endforeach
 			</ul>
 		</div>@endisset<br><br>
-	<?php
-		// $user = Auth::user();
-		// echo '<pre>';
-		// print_r($user);
-		// echo '</pre>';
-	?>
 @endsection

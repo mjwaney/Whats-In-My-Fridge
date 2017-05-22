@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label for="title" class="col-lg-3 control-label">Image</label>
+    <!-- <label for="title" class="col-lg-3 control-label">Image</label> -->
     <div class="col-lg-7">
         @if (count($errors) > 0)
         <div class="alert alert-danger" id="im">
@@ -23,11 +23,6 @@
         {!! Form::close() !!}
     </div>
 </div>
-<!-- $(".pager-next a.active").click(function(event) {
-    if ($(this).text() != "1") {
-        event.preventDefault();
-    }           
-}); -->
 
 <script>
 $(function () 
@@ -44,7 +39,6 @@ $(function ()
             url: 'intervention-resize',
             data: formData,
             async: false,
-            // data: $('form').serialize(),
             success: function () 
             {
                alert('Picture Uploaded');

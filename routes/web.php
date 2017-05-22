@@ -41,21 +41,33 @@ Route::get('/createrecipe', function () {
 	return view('createrecipe');
 });
 
+// Route::post('/createrecipe', function () {
+// 	return view('welcome');
+// });
+
 Route::resource('createrecipe', 'CreateRecipeController');
 
-Route::post('createrecipe',['as'=>'recipe_store','uses'=>'CreateRecipeController@store']);
+// Route::post('createrecipe',['as'=>'recipe_store','uses'=>'CreateRecipeController@store']);
+
+// Route::post('createrecipe', ['as'=>'storeRecipe','uses'=>'CreateRecipeController@store']);
+
+Route::post('storeRecipe', 'CreateRecipeController@store');
+Route::post('storeRecipe',['as'=>'postStore','uses'=>'CreateRecipeController@store']);
+Route::get('storeRecipe',['as'=>'getStore','uses'=>'CreateRecipeController@store']);
 
 //Find Recipes
 Route::get('findrecipes', function () {
 	return view('findrecipes');
 });
 
+
+
 Route::resource('findrecipes', 'FindIngredientController');
 // Route::resource('/account', 'FindIngredientController');
 
 Route::post('findrecipes', 
 	['as' => 'recipe_query', 'uses' => 'FindIngredientController@queryRecipes']);
-
+Route::get('search', 'FindRecipeController@search');
 // Selectize Search
 Route::get('/api/search', 'SearchController@index');
 

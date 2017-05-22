@@ -39,17 +39,16 @@ $(function()
 </script>
 <div class="panel panel-default">
 	<div class="panel-heading clearfix"> 
-		@isset($recipe) {{$recipe->name}}
+		@isset($recipe) <h2 class="white">{{$recipe->name}}</h2>
 		@if (Auth::check())
 			{!!Form::open(array('id' => 'favRecipe', 'name' => 'fav', 'route' => 'postFavorite')) !!}
-			<button type="submit" name="fav" class="btn btn-default pull-right" id="ad" value="{{ $recipe->id }}">
+			<button type="submit" name="fav" class="btn btn-default pull-right" id="fav" value="{{ $recipe->id }}">
 			{{ $recipe->favoritesCount }}&nbsp;<span class="glyphicon glyphicon-star-empty "></span>
 			</button>
 			{!! Form::close() !!}
 		@endif
 		@endisset
 	</div>
-
 
 		@isset($recipe)
 		<div class="panel-body">
@@ -64,7 +63,7 @@ $(function()
 
 		@section('p2')  
 		@isset($recipe)
-		<div class="panel-heading">Instructions</div>
+		<div class="panel-heading"><h2 class="white">Instructions</h2></div>
 		<div class="panel-body">{{$recipe->instructions}}</div>
 </div>
 @endisset

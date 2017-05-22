@@ -156,10 +156,10 @@ class FindIngredientController extends Controller
     public static function showIngredientList($category)
     {
           $n = 0;     
-          echo '<table class="ingredientstable"><tr>'; 
+          echo '<br><table class="ingredientstable"><tr>'; 
           foreach($category as $key=>$cat)
           {
-              echo '<td><input type="checkbox" class="addIngredient" name="fridgecontents[]" value="' . $category[$key]->name . '"> ' . $category[$key]->name . '</td>';
+              echo '<td class="modalTable"><input type="checkbox" class="addIngredient" name="fridgecontents[]" value="' . $category[$key]->name . '"> ' . $category[$key]->name . '</td>';
               
               $n++;
 

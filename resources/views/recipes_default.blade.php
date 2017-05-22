@@ -13,7 +13,8 @@ $(document).ready(function() {
 <!-- Container -->
 <div class="container">
 	<div class="well well-sm">
-		<strong>Display</strong>
+		<!-- <strong class="pull-right">Display</strong> -->
+		<!-- <h2 class="white">Recipes</h2> -->
 		<div class="btn-group">
 			<a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
 			</span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
@@ -24,25 +25,15 @@ $(document).ready(function() {
 	<div id="products" class="row list-group">
 		
 		@foreach($rec as $key=>$r)
-		<div class="item  col-xs-4 col-lg-4">
+		<div class="item col-xs-4 col-lg-4">
 			<div class="thumbnail">
 				<a class="linkImg" href="recipes/{{ $r->id }}"><img class="group list-group-image" src="{{ $r->image }}" alt="" /></a>
 				<div class="caption">
-					<h1 class="group inner list-group-item-heading center">{{$r->name}}&nbsp;<br></h1>
-					<h2 class="center">Author:&nbsp;{{$r->author}}</h2>
+					<h2 class="group inner list-group-item-heading center">{{$r->name}}&nbsp;<br></h1>
+					<h3 class="center">Author:&nbsp;{{$r->author}}</h2>
 					<p class="group inner list-group-item-text">
-						<h3 class="center">
-						@isset($rec->ingredients)
-							Ingredients:@foreach($rec->ingredients as $r)  {{$r->name}} @endforeach
-						@endisset
-						</h3>
-					<!-- </p> -->
-					<div class="row">
-						<div class="col-xs-12 col-md-6">
-							<p class="center">Added {{$r->created_at->diffForHumans()}}
-							<!-- </p> -->
-						</div>
-						<div class="col-xs-12 col-md-6">
+					<div class="row clear">
+						<h3 class="timestamp center">Added {{$r->created_at->diffForHumans()}}</h3>
 							@if (Auth::check())
 								{!!Form::open(array('id' => 'favRecipe', 'name' => 'fav', 'route' => 'postFavorite')) !!}
 								<button type="submit" name="fav" class="btn btn-default pull-right" id="ad" value="{{ $r->id }}">
@@ -50,7 +41,6 @@ $(document).ready(function() {
 								</button>
 								{!! Form::close() !!}
 							@endif
-						</div>
 					</div>
 				</div>
 			</div>

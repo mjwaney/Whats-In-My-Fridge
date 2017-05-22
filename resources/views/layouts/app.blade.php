@@ -16,10 +16,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.min.css">
 	<!-- Stylesheets end -->
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
 
+</head>
 <body>
 <script type="text/javascript">
 $(document).ready(function()
@@ -72,15 +70,15 @@ $(document).ready(function()
 			</a>
 		</div><!-- End Carousel -->
 
-		<br />
+		<!-- <br /> -->
 		<br />
 		<!-- Header Image end -->
 
 		<!-- Navbar  -->
 		<div class="menuContainer">
 			<a href="/" class="menuButton">Home</a>
-			<a href="/recipes" class="menuButton">Recipes</a>
 			<a href="/findrecipes" class="menuButton">Search</a>
+			<a href="/recipes" class="menuButton">Recipes</a>
 			@if (Auth::check())
 				<a href="/createrecipe" class="menuButton">Create</a>
 			@else
@@ -119,9 +117,16 @@ $(document).ready(function()
 <!-- End Body/Page Div -->
 
 <!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-@section('bodyend')
-	<!-- @show -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }	});
+</script>
+<script src="http://localhost:8000/js/user/toggle.js"></script><!-- Toggles Script -->
+<script src="http://localhost:8000/js/user/selectize.js"></script><!-- Selectize Script -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js"></script>	
+@section('bodyend') @show
 </body>
 </html>
