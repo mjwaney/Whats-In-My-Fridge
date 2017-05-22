@@ -403,6 +403,7 @@ class FindIngredientController extends Controller
     {
           $n = 0;     
 <<<<<<< HEAD
+<<<<<<< HEAD
           echo '<br><table class="ingredientstable"><tr>'; 
           foreach($category as $key=>$cat)
           {
@@ -413,6 +414,12 @@ class FindIngredientController extends Controller
           {
               echo '<td><input type="checkbox" class="addIngredient" name="fridgecontents[]" value="' . $category[$key]->name . '"> ' . $category[$key]->name . '</td>';
 >>>>>>> parent of 3860279... Password reset
+=======
+          echo '<br><table class="ingredientstable"><tr>'; 
+          foreach($category as $key=>$cat)
+          {
+              echo '<td class="modalTable"><input type="checkbox" class="addIngredient" name="fridgecontents[]" value="' . $category[$key]->name . '"> ' . $category[$key]->name . '</td>';
+>>>>>>> 48825b2... Update Version 0.9
               
               $n++;
 

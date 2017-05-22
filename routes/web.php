@@ -62,6 +62,7 @@ Route::get('findrecipes', function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Route::resource('findrecipe', 'FindIngredientController');
 =======
 
@@ -69,6 +70,10 @@ Route::resource('findrecipe', 'FindIngredientController');
 Route::resource('findrecipes', 'FindIngredientController');
 >>>>>>> origin/master
 =======
+=======
+
+
+>>>>>>> 48825b2... Update Version 0.9
 Route::resource('findrecipes', 'FindIngredientController');
 >>>>>>> parent of 3860279... Password reset
 // Route::resource('/account', 'FindIngredientController');
