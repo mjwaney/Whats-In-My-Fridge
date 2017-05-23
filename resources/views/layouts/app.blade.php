@@ -1,8 +1,5 @@
 <!-- Base Layout of the website -->
-<?php
-	if(session_status() == PHP_SESSION_NONE){session_start();}
-?>
-
+<?php  if(session_status() == PHP_SESSION_NONE){session_start();}?>
 <!DOCTYPE HTML>
 <head>
 
