@@ -39,26 +39,32 @@ class SearchController extends Controller
 
     public function results(Request $request)
     {
-             // if(session_status() == PHP_SESSION_NONE)
-             // { 
-             //     session_start();
-             // } 
-             //  $ing = $_POST;
-             //  // dd($ing);
+             if(session_status() == PHP_SESSION_NONE)
+             { 
+                 session_start();
+             } 
+              $ing = $_POST['ing'];
 
-             //  if(!isset($_SESSION['list']))
-             //  {
-             //      $_SESSION['list'] = array();
-             //  }
+              if(!isset($_SESSION['list']))
+              {
+                  $_SESSION['list'] = array();
+              }
               
-             //  $_SESSION['list'][] = $ing;
-             //  var_dump($_SESSION['list']);
+              $_SESSION['list'][] = $ing;
+              var_dump($_SESSION['list']);
+              dd($_SESSION['list']);
+
+
+              // return back();
+      // $value = $request->input('data');
+
+      // dd($_POST);
+
       
-             //    // dd('got here');
-             //    return back()
-             //          ->with($_SESSION['list']);
-                          // ->with('success','Ingredients added succesfully');
-                //       ->with('value',$value);
+
+      return back()
+            ->with($_SESSION['list']);
+      //       ->with('value',$value);
     }
 
     public function getIngList()

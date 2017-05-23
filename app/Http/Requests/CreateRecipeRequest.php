@@ -23,10 +23,9 @@ class CreateRecipeRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
             'name' => 'required',
-            'type' => 'required_without_all:type',
+            'type' => 'required',
             'instructions' => 'required',
           ];
         ];

@@ -13,6 +13,10 @@
 		<tr>
 			<td>
 				<input class="registerInput" id="email" type="email" name="email" value="{{ old('email') }}" placeholder="E-Mail Address" required autofocus>
+			</td>
+		</tr>
+		<tr>
+			<td>
 				@if ($errors->has('email'))
 					<span class="">
 						<strong>{{ $errors->first('email') }}</strong>
@@ -24,6 +28,10 @@
 		<tr>
 			<td>
 				<input class="registerInput" id="password" type="password" name="password" placeholder="Password" required>
+			</td>
+		</tr>
+		<tr>
+			<td>
 				@if ($errors->has('password'))
 					<span class="">
 						<strong>{{ $errors->first('password') }}</strong>
@@ -37,6 +45,16 @@
 				<button type="submit" class="registerSubmit">
 					Login
 				</button>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				@if ($errors->has('password'))
+					<span class="">
+						<strong>{{ $errors->first('password') }}</strong>
+					</span>
+				@endif
 			</td>
 		</tr>
 

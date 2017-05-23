@@ -2,12 +2,9 @@
 
 @section('title','Reset password')
 
-@section('content-left')
-	&nbsp
-@endsection
-
 @section('p1')
 	<div class="panel-heading"><h1 class="center" style="padding-left: 5vw;">Reset Password</h1></div>
+
 	<div class="panel-body">
 		@if (session('status'))
 			<div class="alert alert-success">
@@ -17,6 +14,7 @@
 
 		<form class="form-horizontal" style="display:flex;justify-content:center;" role="form" method="POST" action="{{ route('password.email') }}">
 			{{ csrf_field() }}
+
 			<table border="0">
 
 				<tr>
@@ -47,21 +45,13 @@
 				<tr>
 					<td></td>
 					<td>
-						<div class="form-group">
-							<!-- <div class="col-md-6 col-md-offset-4"> -->
-								<button type="submit" class="registerSubmit" style="margin-left: 30px;">
-									Send Password Reset Link
-								</button>
-							<!-- </div> -->
-						</div>
+						<button type="submit" class="registerSubmit" style="margin-left: 30px;">
+							Send Password Reset Link
+						</button>
 					</td>
 				</tr>
 
 			</table>
 		</form>
 	</div>
-@endsection
-
-@section('content-right')
-	&nbsp
 @endsection
