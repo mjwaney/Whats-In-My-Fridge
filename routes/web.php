@@ -56,10 +56,11 @@ Route::post('storeRecipe',['as'=>'postStore','uses'=>'CreateRecipeController@sto
 Route::get('storeRecipe',['as'=>'getStore','uses'=>'CreateRecipeController@store']);
 
 //Find Recipes
-Route::get('findrecipe', function () {
+Route::get('findrecipes', function () {
 	return view('findrecipes');
 });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 Route::resource('findrecipe', 'FindIngredientController');
 =======
@@ -67,9 +68,12 @@ Route::resource('findrecipe', 'FindIngredientController');
 
 Route::resource('findrecipes', 'FindIngredientController');
 >>>>>>> origin/master
+=======
+Route::resource('findrecipes', 'FindIngredientController');
+>>>>>>> parent of 3860279... Password reset
 // Route::resource('/account', 'FindIngredientController');
 
-Route::post('findrecipe', 
+Route::post('findrecipes', 
 	['as' => 'recipe_query', 'uses' => 'FindIngredientController@queryRecipes']);
 Route::get('search', 'FindRecipeController@search');
 // Selectize Search

@@ -9,11 +9,12 @@ use \App\Recipe;
 
 if(session_status() == PHP_SESSION_NONE)
 { 
-	session_start();
+    session_start();
 }
 
 class FindIngredientController extends Controller
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	/**
 	 * Display a listing of the resource.
@@ -253,6 +254,8 @@ class FindIngredientController extends Controller
 		//
 	}
 =======
+=======
+>>>>>>> parent of 3860279... Password reset
     /**
      * Display a listing of the resource.
      *
@@ -346,7 +349,11 @@ class FindIngredientController extends Controller
         {
             $_SESSION['contents'] = array();
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> parent of 3860279... Password reset
         //Checked if x to close option has been pressed for any list item and remove it
         // contents array = ingredients, key = index, a = value
         foreach($_SESSION['contents'] as $key => $a)
@@ -395,10 +402,17 @@ class FindIngredientController extends Controller
     public static function showIngredientList($category)
     {
           $n = 0;     
+<<<<<<< HEAD
           echo '<br><table class="ingredientstable"><tr>'; 
           foreach($category as $key=>$cat)
           {
               echo '<td class="modalTable"><input type="checkbox" class="addIngredient" name="fridgecontents[]" value="' . $category[$key]->name . '"> ' . $category[$key]->name . '</td>';
+=======
+          echo '<table class="ingredientstable"><tr>'; 
+          foreach($category as $key=>$cat)
+          {
+              echo '<td><input type="checkbox" class="addIngredient" name="fridgecontents[]" value="' . $category[$key]->name . '"> ' . $category[$key]->name . '</td>';
+>>>>>>> parent of 3860279... Password reset
               
               $n++;
 
@@ -490,5 +504,8 @@ class FindIngredientController extends Controller
       {
           //
       }
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 3860279... Password reset
 }
