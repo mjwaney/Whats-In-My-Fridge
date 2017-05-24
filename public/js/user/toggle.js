@@ -21,7 +21,7 @@ $(document).ready(function(){
 	    $("#userinfo").toggle();
 	});
 
-	$("#toggleIngredients").click(function(){
-	    $("#ingredientsList").toggle();
+	$("#toggleIng").click(function(){
+	    $("#ingList").toggle();
 	});
 });	

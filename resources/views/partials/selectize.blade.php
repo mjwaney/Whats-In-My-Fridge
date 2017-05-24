@@ -21,5 +21,5 @@
 </div>
 
 @section('bodyend')
-	 @include('partials.modal') 
+	 @include('partials.modal')  	
 @endsection

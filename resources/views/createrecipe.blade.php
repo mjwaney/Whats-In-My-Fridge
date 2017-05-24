@@ -1,9 +1,6 @@
-<?php 
-	 use App\Http\Controllers\FindIngredientController; 
-	 use App\Http\Controllers\CreateRecipeController; 
-?>
-
-@section('scripts') {!! Html::script('js/user/toggle.js') !!} @endsection
+@section('scripts') 
+{!! Html::script('js/user/toggle.js') !!} 
+@endsection
 
 @extends('layouts.app')
 @section('title', 'Create Recipe')
@@ -11,8 +8,7 @@
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
-<h1 class="center">Add a Recipe</h1><h2 class="center">Author: {{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}</h2><br>
+<h1 class="center">Add a Recipe - {{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}</h2><br>
 <br>
 
 <!-- Add Ingredients -->
@@ -36,8 +32,6 @@
 	<!-- Title Input -->
 	{{ Form::text('title', '', array('class' => 'form-control', 'placeholder' => 'Recipe Title', 'required' => 'required')) }}<br><br>
 
-
-
 	<!-- Type of Recipe -->
 	<div >
 	<table class="typeTable">
@@ -47,7 +41,7 @@
 			<td class="setType"><h3 class="center"> {{ Form::checkbox('type', 'lunch', null)}} Lunch</h3></td>
 		</tr>
 		<tr>
-			<td class="setType"><h3 class="center">{{ Form::checkbox('type', 'dinner', null, ['class' => 'setType']) }} Dinner</h3></td></td>
+			<td class="setType"><h3 class="center">{{ Form::checkbox('type', 'dinner', null, ['class' => 'setType']) }} Dinner</h3></td>
 			<td class="setType"><h3 class="center">{{ Form::checkbox('type', 'dessert', null, ['class' => 'setType']) }} Dessert</h3></td>
 			<td class="setType"><h3 class="center">{{ Form::checkbox('type', 'sidedish', null, ['class' => 'setType']) }} Side Dish</h3></td>
 		</tr>
@@ -70,12 +64,12 @@
 	<!-- Kitchen Origin -->
 	<table class="kitchen">
 		<tr>
-			<td><h3 class="center">{{ Form::radio('kitchen', 'african', true) }} African</h2></h3></td>
-			<td><h3 class="center">{{ Form::radio('kitchen', 'greek') }} Greek</h3></td></td>
+			<td><h3 class="center">{{ Form::radio('kitchen', 'african', true) }} African</h3></td>
+			<td><h3 class="center">{{ Form::radio('kitchen', 'greek') }} Greek</h3></td>
 			<td><h3 class="center">{{ Form::radio('kitchen', 'russian') }} Russian</h3></td>
 		</tr>
 		<tr>
-			<td><h3 class="center">{{ Form::radio('kitchen', 'american') }} American</h2></td>
+			<td><h3 class="center">{{ Form::radio('kitchen', 'american') }} American</h3></td>
 			<td><h3 class="center">{{ Form::radio('kitchen', 'indonesian') }} Indonesian</h3></td>
 			<td><h3 class="center">{{ Form::radio('kitchen', 'south_american') }} South-American</h3></td>
 		</tr>
@@ -92,7 +86,7 @@
 		<tr>
 			<td><h3 class="center">{{ Form::radio('kitchen', 'french') }} French</h3></td>
 			<td><h3 class="center">{{ Form::radio('kitchen', 'middle_eastern') }} Middle-Eastern</h3></td>
-			<td><h3 class="center">{{ Form::radio('kitchen', 'other') }} Other</h2></td>
+			<td><h3 class="center">{{ Form::radio('kitchen', 'other') }} Other</h3></td>
 		</tr>
 	</table><br><br>
 
@@ -100,7 +94,7 @@
 	<textarea class="form-control" name="instructions" rows="5" id="instructions" placeholder="Instructions on how to prepare your recipe"></textarea>
 	<span class="help-block"></span>
 	<!-- <button type="submit" id="submitRecipe">Submit</button> -->
-	{{ Form::button('Submit Recipe', array('id'=>'submitRecipe',  'class' => 'btn btn-default')) }}
+	{{ Form::submit('Submit Recipe', array('id'=>'submitRecipe',  'class' => 'btn btn-default')) }}
 
 {!! Form::close() !!}
 @endsection

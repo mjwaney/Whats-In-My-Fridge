@@ -2,6 +2,10 @@
 
 @section('title','Login')
 
+@section('content-left')
+	TestLeft
+@endsection
+
 @section('content')
 <div class="container">
 	<div class="row">
@@ -75,4 +79,8 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('content-right')
+	TestRight
 @endsection

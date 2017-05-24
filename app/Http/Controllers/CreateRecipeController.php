@@ -56,7 +56,7 @@ class CreateRecipeController extends Controller
     
       public static function store(Request $request)
       {
-          //Insert Recipe into table
+
           $recipe = new Recipe;
           $recipe->name = $request->input('title');
           $recipe->image = $_SESSION['imageUpload'];
@@ -70,23 +70,13 @@ class CreateRecipeController extends Controller
           $recipe->save();
               
           //Attach Ingredients to Recipe
-          $contents = $_SESSION['contents2'];
+          $value = $request->input('ing');
 
-          foreach($contents as $cont)
+          foreach($value as $val)
           {         
-              $ing = ingredient::all()->where('name', '=', $cont);
+              $ing = ingredient::all()->where('name', '=', $val);
               $recipe->ingredients()->attach($ing);
           }
-
-          // var_dump($_SESSION['list']);
-          $contents2 = $_SESSION["list"];
-
-          foreach($contents2 as $cont2)
-          {         
-              $ing = ingredient::all()->where('name', '=', $cont2);
-              $recipe->ingredients()->attach($ing);
-          }
-          unset($_SESSION['list']);
 
           return back();
       }

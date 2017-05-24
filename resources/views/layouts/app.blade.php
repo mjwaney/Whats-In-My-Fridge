@@ -48,12 +48,6 @@ $(document).ready(function()
 		
 		<!-- Carousel Header Logo etc end -->
 		<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-			</ol>
 			
 			<!-- Header Image -->
 			<!-- Wrapper for slides -->
@@ -125,8 +119,6 @@ $(document).ready(function()
 </script>
 <script src="http://localhost:8000/js/user/toggle.js"></script><!-- Toggles Script -->
 <script src="http://localhost:8000/js/user/selectize.js"></script><!-- Selectize Script -->
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js"></script>	
 @section('bodyend') @show
 </body>
 </html>
