@@ -56,7 +56,7 @@ class CreateRecipeController extends Controller
     
       public static function store(Request $request)
       {
-
+   
           $recipe = new Recipe;
           $recipe->name = $request->input('title');
           $recipe->image = $_SESSION['imageUpload'];

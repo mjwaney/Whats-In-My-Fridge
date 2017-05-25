@@ -24,4 +24,8 @@ $(document).ready(function(){
 	$("#toggleIng").click(function(){
 	    $("#ingList").toggle();
 	});
+
+	$("#toggleUserRecipes").click(function(){
+	    $("#userRecipeList").toggle();
+	});
 });	

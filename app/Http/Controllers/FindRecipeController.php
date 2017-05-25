@@ -16,24 +16,46 @@ class FindRecipeController extends Controller
 	{	
 		//get user input(ingredients) from selectize/modal
 		$value = $request->input('ing');
-		$recipes = array();
+
+		if(!isset($_SESSION['fridge']))
+		{
+			$_SESSION['fridge'] = array();
+		}
+		$_SESSION['fridge'][] = $value;
+		$fridge = $_SESSION['fridge'];
 
 		// foreach ingredient in the array (as $val) ->where('ingredient_id', '=', $id)
 		foreach($value as $val)
 		{         
+			//get the corresponding ingredient
 			$ingr = Ingredient::where('name', '=', $val)->get();
-			
+
+			//check recipes that have the given ingredient
 			$data = Recipe::whereHas('ingredients', function ($query) use($val) {
 			    $query->where('name', '=', $val);
 			})->get();
 
-			// $data = array_merge($data, $ing);
+			$desired_object = $data->filter(function($item) {
+			    return $item->id;
+			})->first();
+
+			$id = $desired_object->id;
+
+			//get all the missing ingredients
+			$noning = Ingredient::where('name', '!=', $val)
+			->whereHas('recipes', function ($query) use($id) {
+			    $query->where('id', '=', $id);
+			})->get();
 
 		}
+
 		return Response::json(array(
     			'data'=>$data,
-    			'ingr'=>$ingr
+    			'ingr'=>$ingr,
+    			'noning'=>$noning
 		));
-		// return view('findrecipes', compact('rec'));
+		return view('findrecipes', compact('rec'));
 	}	
+
+
 }
