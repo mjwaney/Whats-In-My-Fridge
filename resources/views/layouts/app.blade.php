@@ -43,7 +43,7 @@ $(document).ready(function()
 			@endif
 			<!-- Check end -->
 
-			<div class="headerButton headerOptions"></div>
+			<!-- <div class="headerButton headerOptions"></div> -->
 		</div>
 		
 		<!-- Carousel Header Logo etc end -->
@@ -52,9 +52,10 @@ $(document).ready(function()
 			<!-- Header Image -->
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
-			    	<div class="active item"><img src="/images/headerImage.jpg"></div>
+			    	<div class="active item"><img src="/images/headerImage1.jpg"></div>
 				<div class="item"><img src="/images/headerImage2.jpg"></div>
 				<div class="item"><img src="/images/headerImage3.jpg"></div>
+				<div class="item"><img src="/images/headerImage4.jpg"></div>
 			</div>
 
 			<!-- Left and right controls -->

@@ -11,7 +11,7 @@ $(document).ready(function() {
 </script>
 
 <!-- Container -->
-<div class="container">
+<div class="container" style="padding-top: 25px;">
 	<div class="well well-sm">
 		<!-- <strong class="pull-right">Display</strong> -->
 		<!-- <h2 class="white">Recipes</h2> -->

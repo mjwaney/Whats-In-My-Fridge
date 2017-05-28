@@ -99,9 +99,7 @@ Route::get('/activationmail', function () {
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('register/verify/{token}', 'Auth\RegisterController@verify'); 
-
-Auth::routes();
+Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
 
 
 /*
@@ -184,8 +182,12 @@ Route::get('/viewEmail', function() {
 	dd(Config::get('mail'));
 });
 
+// About page
 Route::get('/about', function () {
 	return view('about');
 });
 
+Auth::routes();
 
+// Link from mail for user activation
+Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');

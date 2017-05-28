@@ -2,12 +2,8 @@
 
 @section('title','Reset password')
 
-@section('content-left')
-	&nbsp
-@endsection
-
 @section('p1')
-	<div class="panel-heading"><h1 class="center" style="padding-left: 5vw;">Reset Password</h1></div>
+	<h1 class="center" style="padding-left: 5vw;">Reset Password</h1>
 	<div class="panel-body">
 		@if (session('status'))
 			<div class="alert alert-success">
@@ -60,8 +56,4 @@
 			</table>
 		</form>
 	</div>
-@endsection
-
-@section('content-right')
-	&nbsp
 @endsection
