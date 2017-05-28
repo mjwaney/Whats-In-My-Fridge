@@ -2,10 +2,6 @@
 
 @section('title', 'Find Recipes') 
 
-@section('left')
-	&nbsp;
-@endsection
-
 @section('p1')
 	@include('partials.selectize') 
 @endsection

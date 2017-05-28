@@ -1,5 +1,6 @@
 <?php
 use \App\ingredient;
+use App\Http\Controllers\FindIngredientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,26 +42,17 @@ Route::get('/createrecipe', function () {
 	return view('createrecipe');
 });
 
-// Route::post('/createrecipe', function () {
-// 	return view('welcome');
-// });
-
+//Create Recipe
 Route::resource('createrecipe', 'CreateRecipeController');
 
-// Route::post('createrecipe',['as'=>'recipe_store','uses'=>'CreateRecipeController@store']);
-
-// Route::post('createrecipe', ['as'=>'storeRecipe','uses'=>'CreateRecipeController@store']);
-
-Route::post('storeRecipe', 'CreateRecipeController@store');
+// Route::post('storeRecipe', 'CreateRecipeController@store');
 Route::post('storeRecipe',['as'=>'postStore','uses'=>'CreateRecipeController@store']);
-Route::get('storeRecipe',['as'=>'getStore','uses'=>'CreateRecipeController@store']);
+// Route::get('storeRecipe',['as'=>'getStore','uses'=>'CreateRecipeController@store']);
 
 //Find Recipes
 Route::get('findrecipes', function () {
 	return view('findrecipes');
 });
-
-
 
 Route::resource('findrecipes', 'FindIngredientController');
 // Route::resource('/account', 'FindIngredientController');
@@ -68,11 +60,11 @@ Route::resource('findrecipes', 'FindIngredientController');
 Route::post('findrecipes', 
 	['as' => 'recipe_query', 'uses' => 'FindIngredientController@queryRecipes']);
 Route::get('search', 'FindRecipeController@search');
+
 // Selectize Search
 Route::get('/api/search', 'SearchController@index');
 
 // Selectize getSearch results
-// Route::get('createrecipe/api/results', 'SearchController@results');
 Route::post('ingList', 'SearchController@results');
 Route::post('ingList',['as'=>'postIngList','uses'=>'SearchController@results']);
 Route::get('ingList',['as'=>'getIngList','uses'=>'SearchController@results']);
@@ -100,7 +92,6 @@ Route::get('/activationmail', function () {
 Route::get('/home', 'HomeController@index');
 
 Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
-
 
 /*
 |--------------------------------------------------------------------------
@@ -131,9 +122,7 @@ Route::get('uploadIngredients', function(){
 
 		Ingredient::create($inserted_data);
 	}
-	// print_r($rowData);
 });
-
 
 /*
 |--------------------------------------------------------------------------
@@ -149,33 +138,25 @@ Route::post('intervention-resize','FileController@postResizeImage');
 
 Route::post('add_ingredients',['as'=>'add_ingredients','uses'=>'CreateRecipeController@store']);
 
-// Test
-Route::get('/test', function () {
-	// return view('test');
-});
-
-
 /*
 |--------------------------------------------------------------------------
 | Sander edit
 |--------------------------------------------------------------------------
 */
 
-// View account, redirect if nog logged in
-Route::get('/account', function () {
-	if (Auth::check()) {
-		return view('auth.account');
-	}
-	else {
-		return redirect()->to('/');
-	}
-});
+Route::resource('/account', 'AccountController');
+
+// Route::post('storeFridge', 'AccountController@store');
+Route::post('storeFridge',['as'=>'postFridge','uses'=>'AccountController@blah']);
+Route::get('storeFridge',['as'=>'getFridge','uses'=>'AccountController@store']);
 
 // Route for logout button
 Route::get('/logout', function () {
 	Auth::logout();
 	return redirect()->to('/');
 });
+
+
 
 // View password reset mail
 Route::get('/viewEmail', function() {
@@ -187,7 +168,10 @@ Route::get('/about', function () {
 	return view('about');
 });
 
+<<<<<<< HEAD
 Auth::routes();
 
 // Link from mail for user activation
 Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');
+=======
+>>>>>>> origin/master

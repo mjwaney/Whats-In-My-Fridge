@@ -41,4 +41,10 @@ class User extends Authenticatable
         $this->email_token = null;
         $this->save();
     }
+
+    public function ingredients()
+    {
+        return $this->belongsToMany('App\ingredient')
+            ->withTimestamps();
+    }
 }

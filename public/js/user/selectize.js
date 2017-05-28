@@ -7,9 +7,11 @@ var search = [];
 var selectizeAdd = [];
 var modalAdd = [];
 
-// ||||||||||||||||||||||||||||||||||||||||||
-// | Selectize Plugin
-// |||||||||||||||||||||||||||||||||||||||||| 
+/*
+|--------------------------------------------------------------------------
+| Selectize Plugin
+|--------------------------------------------------------------------------
+*/
 $(document).ready(function()
 {
 	 $('#searchbox').selectize({
@@ -59,9 +61,11 @@ $(document).ready(function()
 	 });
 });
 
-// ||||||||||||||||||||||||||||||||||||||||||
-// | Remove Clicked List Items
-// |||||||||||||||||||||||||||||||||||||||||| 
+/*
+|--------------------------------------------------------------------------
+| Remove Clicked List Items
+|--------------------------------------------------------------------------
+*/
 
 $(document).ready(function(){
 
@@ -71,9 +75,11 @@ $(document).ready(function(){
 	 });
 });   
 
-// ||||||||||||||||||||||||||||||||||||||||||
-// | Post Modal&orSelectize Ingredients
-// ||||||||||||||||||||||||||||||||||||||||||
+/*
+|--------------------------------------------------------------------------
+| Post Modal &or Selectize Ingredients
+|--------------------------------------------------------------------------
+*/
 
 $(document).ready(function()
 {
@@ -122,18 +128,74 @@ $(document).ready(function()
  	});
 });
 
+/*
+|--------------------------------------------------------------------------
+| Post Modal &or Selectize Ingredients to User Fridge
+|--------------------------------------------------------------------------
+*/
 
-// ||||||||||||||||||||||||||||||
-// | Dynamic Search Results 
-// ||||||||||||||||||||||||||||||
+$(document).ready(function()
+{
+	$("#accountIngredients").on('submit', function(e)
+ 	{
+ 		e.preventDefault();
+
+ 		$(".phrase").each(function()
+ 		{ 			
+ 			var phrase = '';
+ 			$(this).find('li').each(function()
+ 			{
+ 				window.phrases.push($(this).text());
+ 			});
+ 		});
+ 		unique = window.phrases.filter(function(elem, index, self) {
+ 		    return index == self.indexOf(elem);
+ 		})
+
+ 		var ings = [];
+
+ 		$.each(unique, function( index, value ) {
+ 			ingObj = new Object();
+ 			ingObj.name = 'ing[]';
+ 			ingObj.value = value;
+ 			ings.push(ingObj);
+ 		 });
+
+ 		// alert(ings);
+ 		// var ings2 = $.param(ings);
+
+ 		// formData = formData + '&' + ings2;
+		// alert(ings2);
+ 		// alert(formData);
+		$.ajax
+		({
+		    type: 'get',
+		    url: 'storeFridge',
+		    data: ings,
+		    async: false,
+		    success: function () 
+		    {
+		       alert('Ingredients have been stored');
+		    }
+		});
+ 	});
+});
+
+/*
+|--------------------------------------------------------------------------
+| Dynamic Search Results 
+|--------------------------------------------------------------------------
+*/
 
 $(document).ready(function()
 {	
+	//Add to the ingpanel id when there's a change
 	$( "#ingpanel" ).on('DOMSubtreeModified', function() {
+
+		//Get the list items
 		$(".phrase").each(function()
 		{ 	
 			var phrase = '';
-			//get the list items
 			$(this).find('li').each(function()
 			{	
 				//push its text to the global variable
@@ -176,13 +238,17 @@ $(document).ready(function()
 		    	    var output= "<ul>";
 
 		    	    for (i=0; i < result.data.length; i++){
-		    	        output += '<li class="list-group-item"><a href="recipes/' + result.data[i].id + '"><h2 class="center">' + result.data[i].name + '</h2><br><img src="' + result.data[i].image + '"><br>';
+		    	        output += '<li class="list-group-item"><a class="center" href="recipes/' + result.data[i].id + '"></a><h2 class="center">' + result.data[i].name + '</h2><br><img src="' + result.data[i].image + '"><br>';
 		    	        
 		    	        for (n=0; n < result.ingr.length; n++){
 		    	        		output += '<li class="list-group-item"><h2 class="center">Uses: ' + result.ingr[n].name +'</h2>';
 		    	        }
+		    	        output += '<li class="list-group-item"><h2 class="center">Missing: ';
+		    	        for (l=0; l < result.noning.length; l++){
+		    	        		output += result.noning[l].name + ', ';
+		    	        }
 		    	    }
-		    	    output += "</li></ul>";
+		    	    output += "</h2></li></ul>";
 
 		    	    document.getElementById("results").innerHTML += output;
 		    	    $("#searchresults").toggle();

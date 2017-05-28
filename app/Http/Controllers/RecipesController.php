@@ -16,7 +16,8 @@ class RecipesController extends Controller
     public function index(Recipe $recipe)
     {   
         $rec = Recipe::all()->sortByDesc('date_added');
-        return view('recipes_default', compact('rec'));
+
+        return view('recipes_default', compact('rec', 'userRec'));
     }
      
     /**
