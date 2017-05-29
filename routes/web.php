@@ -29,7 +29,7 @@ Route::get('/ingredients', function () {
 	return view('ingredients');
 });
 
-Route::resource('/ingredients', 'IngredientsListController');
+// Route::resource('/ingredients', 'IngredientsListController');
 
 Route::get('/recipes', function () {
 	return view('recipes_default');
@@ -91,7 +91,9 @@ Route::get('/activationmail', function () {
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('register/verify/{token}', 'Auth\RegisterController@verify');
+Route::get('register/verify/{token}', 'Auth\RegisterController@verify'); 
+
+Auth::routes();
 
 /*
 |--------------------------------------------------------------------------
@@ -150,6 +152,16 @@ Route::resource('/account', 'AccountController');
 Route::post('storeFridge',['as'=>'postFridge','uses'=>'AccountController@blah']);
 Route::get('storeFridge',['as'=>'getFridge','uses'=>'AccountController@store']);
 
+
+Route::get('removeFridge', 'AccountController@remove');
+Route::post('removeFridge', 'AccountController@remove');
+
+Route::get('removeRecipe', 'AccountController@removeRecipe');
+Route::post('removeRecipe', 'AccountController@removeRecipe');
+
+Route::get('datePicker', 'AccountController@addDate');
+Route::post('datePicker', 'AccountController@addDate');
+
 // Route for logout button
 Route::get('/logout', function () {
 	Auth::logout();
@@ -168,10 +180,3 @@ Route::get('/about', function () {
 	return view('about');
 });
 
-<<<<<<< HEAD
-Auth::routes();
-
-// Link from mail for user activation
-Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');
-=======
->>>>>>> origin/master

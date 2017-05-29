@@ -2,8 +2,20 @@
 <?php  if(session_status() == PHP_SESSION_NONE){session_start();}?>
 <!DOCTYPE HTML>
 <head>
+	<!-- Scripts (needs to be cleaned up one day) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }	});
+	</script>
+	<script src="http://localhost:8000/js/user/toggle.js"></script><!-- Toggles Script -->
+	<script src="http://localhost:8000/js/user/selectize.js"></script><!-- Selectize Script -->
+	<script src="http://localhost:8000/js/user/account.js"></script><!-- Account Scripts -->
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.js" data-modules="effect effect-bounce effect-blind effect-bounce effect-clip effect-drop effect-fold effect-slide"></script>
+	
 
-@section('scripts') @show
 	<title>@yield('title') - What's In My Fridge?</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- <meta name="csrf-token" content="{{ csrf_token() }}" /> -->
@@ -15,18 +27,9 @@
 	<link href="/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" >
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.min.css">
 	<!-- Stylesheets end -->
-
-
 </head>
 <body>
-<script type="text/javascript">
-$(document).ready(function()
-{
-	$('#carouselHacked').carousel();
-});
-</script>
 	<div class="page">
-
 		<!-- Header Logo, Login/Register and Account/Logout -->
 		<div class="headerContainer">
 			<div class="headerLogo">
@@ -111,15 +114,7 @@ $(document).ready(function()
 </div>
 <!-- End Body/Page Div -->
 
-<!-- Scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-	$.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }	});
-</script>
-<script src="http://localhost:8000/js/user/toggle.js"></script><!-- Toggles Script -->
-<script src="http://localhost:8000/js/user/selectize.js"></script><!-- Selectize Script -->
+
 @section('bodyend') @show
 </body>
 </html>

@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Image;
 
+/*
+|----------------------------------------------------------------------------------------------------------
+| File Controlle: handles the resizing of images
+|----------------------------------------------------------------------------------------------------------
+*/
 class FileController extends Controller
 {
     public function getResizeImage()

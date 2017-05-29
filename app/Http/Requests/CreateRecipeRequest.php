@@ -28,6 +28,7 @@ class CreateRecipeRequest extends FormRequest
             'name' => 'required',
             'type' => 'required_without_all:type',
             'instructions' => 'required',
+            'rating' => 'required',
           ];
         ];
     }

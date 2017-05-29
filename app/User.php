@@ -6,6 +6,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use ChristianKuri\LaravelFavorite\Traits\Favoriteability;
 
+/*
+|----------------------------------------------------------------------------------------------------------
+| User Model one to one relationship with SocialLoginProfile, many to many with Ingredient
+|----------------------------------------------------------------------------------------------------------
+*/
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -45,6 +51,7 @@ class User extends Authenticatable
     public function ingredients()
     {
         return $this->belongsToMany('App\ingredient')
-            ->withTimestamps();
+            ->withTimestamps()
+                ->withPivot('expiration_date');//add pivot row for Ingredient - User relations
     }
 }

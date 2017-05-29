@@ -18,6 +18,7 @@ if(session_status() == PHP_SESSION_NONE)
     session_start();
 }
 
+
 class CreateRecipeController extends Controller
 {
       public function index(Recipe $recipe, Ingredient $ingredient)
@@ -53,7 +54,12 @@ class CreateRecipeController extends Controller
       {
              //
       }
-    
+      
+      /**
+       * Gets input fields and stores the results in a recipe to the database
+       *@param User input as request
+       * @return back
+       */
       public static function store(Request $request)
       {
    
@@ -64,6 +70,7 @@ class CreateRecipeController extends Controller
           $recipe->type = $request->input('type');
           $recipe->kitchen = $request->input('kitchen');
           $recipe->serving_size = $request->input('serving_size');
+          $recipe->difficulty = $request->input('difficulty');
           $recipe->instructions = $request->input('instructions');
           $carbon = new Carbon();
           $recipe->date_added = $carbon::now();
@@ -83,59 +90,11 @@ class CreateRecipeController extends Controller
 
       public static function clear()
       {
-          //Clear session if 'Clear All' is pressed
-          if(isset($_GET['clear2']))
-          {
-              unset($_SESSION['contents2']);
-          }
-          return back(); 
+          //
       }   
      
       public static function ingredientSession()
       {
-             
-          if(session_status() == PHP_SESSION_NONE)
-          {
-              session_start();
-          }
-
-          //Start a new session if necessary
-          if(!isset($_SESSION['contents2']))
-          {
-              $_SESSION['contents2'] = array();
-          }
-
-          //Checked if x to close option has been pressed for any list item and remove it
-          foreach($_SESSION['contents2'] as $key => $a)
-          {
-              if(isset($_GET[$key]))
-              {
-                  unset($_SESSION['contents2'][$key]);
-                  $_SESSION['contents2'] = array_values($_SESSION['contents2'] );
-              }  
-          }
-          $c2 = $_SESSION['contents2'];
-
-          //Echo out the list that is in the session if any
-          foreach($_SESSION['contents2'] as $key => $a)
-          {
-              echo '<li class="list-group-item"><form action="" method="get">' . $a . '<input type="submit" class="close" data-dismiss="list-group" aria-hidden="true" name="' . $key . '" value="&times;"></form></li>';
-          }
-
-          //Get submitted content from the modal with the ingredients list
-          if(isset($_GET['submit']))
-          {
-              $arr = $_GET['fridgecontents'];
-
-              foreach($arr as $key => $a)
-              {
-                  //Push the contents to the session array
-                  array_push($_SESSION['contents2'], $a);
-
-                  //Add the new item(s) to the list
-                  echo '<li class="list-group-item"><form action="" method="get">' . $a . '<input type="submit" class="close" data-dismiss="list-group" aria-hidden="true" name="' . $key . '" value="&times;"></form></li>';
-              }
-              echo '<br>';
-          }
+          //
       }
 }

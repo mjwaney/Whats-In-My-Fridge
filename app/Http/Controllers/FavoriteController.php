@@ -7,8 +7,19 @@ use Auth;
 
 use Illuminate\Http\Request;
 
+/*
+|----------------------------------------------------------------------------------------------------------
+| Favorite Controller handles favoriting recipes
+|----------------------------------------------------------------------------------------------------------
+*/
 class FavoriteController extends Controller
 {
+
+    /**
+     * Toggles recipes being saved or not
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function toggleFavorite(Recipe $recipe, Request $request)
     {
            $fav = $_POST['fav'];
@@ -20,6 +31,11 @@ class FavoriteController extends Controller
     	return back()->with(compact($fav));
     }
 
+    /**
+     * Keeps track of how many times a recipe has been favorited
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function favCount(Request $request)
     {
         $fav = Recipe::all();

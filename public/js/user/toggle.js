@@ -28,4 +28,8 @@ $(document).ready(function(){
 	$("#toggleUserRecipes").click(function(){
 	    $("#userRecipeList").toggle();
 	});
+
+	$("#toggleFridgeRec").click(function(){
+	    $("#fridgeRecList").toggle();
+	});
 });	

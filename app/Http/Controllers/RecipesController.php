@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use DB;
 use \App\Recipe;
 
+/*
+|----------------------------------------------------------------------------------------------------------
+| Recipe Controller: handles the recipe default view
+|----------------------------------------------------------------------------------------------------------
+*/
 class RecipesController extends Controller
 {
     /**

@@ -3,6 +3,8 @@
 	src: url('../fonts/fourHand.ttf');
 }
 
+
+
 .page {
 	/*position: fixed;*/
 	top: 0;
@@ -149,7 +151,7 @@ a:active.menuButton {
 .headerOptions {
 	width: 50px;
 	overflow: hidden;
-	background: #5C4032 url("../images/optionsWhite.png") no-repeat;
+	background: url("../images/optionsWhite.png") no-repeat;
 }
 
 .headerOptions:hover {
@@ -616,12 +618,74 @@ li.active{
 	width: 150px;
 }
 
+/*
+--------------------------------------
+| Datepicker
+--------------------------------------
+*/
+
 .date{
 	font-size: 8px;
+}
+
+.ui-datepicker{
+
+	text-align: center;
+	background-color: white;
+	padding: 5px;
+	width: 200px;
+	margin: 5px auto 0;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+}
+
+.ui-datepicker-title {
+	text-align: center;
+}
+
+.ui-datepicker table {
+	width: 100%;
+}
+
+.ui-datepicker tbody td {
+	border-bottom: 1px solid #5C4032;
+}
+
+.ui-datepicker-header {
+	color: #e0e0e0;
+	font-weight: bold;
+	line-height: 30px;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+	border-color: #111;
+}
+
+.ui-datepicker a {
+	text-decoration: none;
+}
+
+.ui-datepicker th {
+	text-transform: uppercase;
+	font-size: 6pt;
+	padding: 5px 0;
+	color: #666666;
+	text-shadow: 1px 0px 0px #fff;
+	filter: dropshadow(color=#fff, offx=1, offy=0);
 }
 
 .fridgetable{
 	max-width: 200px !important;
 	padding: 10px 5px;
 	/*border: 1px solid black;*/
+}
+
+#uploadImage:hover{
+	background-color: white;
+}
+
+.fh{
+	/*border: 1px solid black;*/
+	font-family: 'fourHand';
+	font-size: 20px;
 }

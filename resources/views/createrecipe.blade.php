@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Create Recipe')
 @section('p1')
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <h1 class="center">Add a Recipe - {{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}</h2><br>
@@ -26,65 +25,23 @@
 
 	<!-- Title Input -->
 	<h2 class="center">Title</h2>
-	{{ Form::text('title', '', array('class' => 'form-control', 'placeholder' => 'Recipe Title', 'required' => 'required')) }}<br><br>
+	{{ Form::text('title', '', array('class' => 'form-control', 'placeholder' => 'Recipe Title', 'required' => 'required')) }}<br>
 
-	<!-- Type of Recipe -->
-	<div >
-	<table class="typeTable"><h2 class="center">Type</h2>
-		<tr>
-			<td class="setType">{{ Form::checkbox('type', 'snack', null) }} Snack</td>
-			<td class="setType"> {{ Form::checkbox('type', 'breakfast', null) }} Breakfast</td>
-			<td class="setType"> {{ Form::checkbox('type', 'lunch', null)}} Lunch</td>
-		</tr>
-		<tr>
-			<td class="setType">{{ Form::checkbox('type', 'dinner', null, ['class' => 'setType']) }} Dinner</td>
-			<td class="setType">{{ Form::checkbox('type', 'dessert', null, ['class' => 'setType']) }} Dessert</td>
-			<td class="setType">{{ Form::checkbox('type', 'sidedish', null, ['class' => 'setType']) }} Side Dish</td>
-		</tr>
-		<tr>
-			<td class="setType">{{ Form::checkbox('type', 'fastfood', null, ['class' => 'setType']) }} Fast Food</td>
-			<td class="setType">{{ Form::checkbox('type', 'vegan', null, ['class' => 'setType']) }} Vegan</td>
-			<td class="setType">{{ Form::checkbox('type', 'lowfat', null, ['class' => 'setType']) }} Low Fat</td>
-		</tr>
-		<tr>
-			<td class="setType">{{ Form::checkbox('type', 'lowcarb', null, ['class' => 'setType']) }} Low Carb</td>
-			<td class="setType">{{ Form::checkbox('type', 'vegetarian', null, ['class' => 'setType']) }} Vegetarian</td>
-			<td class="setType">{{ Form::checkbox('type', 'glutenfree', null, ['class' => 'setType']) }} Gluten Free</td>
-		 </tr>
-	</table>
-	</div><br><br>
+	<!-- Type of Recipe --><h2 class="center">Type</h2>
+	{{ Form::select('type', ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Appetizer', 'Snack', 'Fast Food', 'Side Dish', 'Fast Food', 'Vegetarian', 'Vegan', 'Low Fat', 'Low Carb', 'Gluten Free'], 0, ['class' => 'form-control']) }}
+	<br>
 
 	<!-- Serving Size --><h2 class="center">Serving Size</h2>
-	{{ Form::select('serving_size', ['1 Person', '1-2 Persons', '3-4 Persons', '5-8 Persons', 'More'], 2) }}<br><br>
+	{{ Form::select('serving_size', ['1 Person', '1-2 Persons', '3-4 Persons', '5-8 Persons', 'More'], 2, ['class' => 'form-control']) }}
+	<br>
 
-	<!-- Kitchen Origin -->
-	<table class="kitchen"><h2 class="center">Kitchen</h2>
-		<tr>
-			<td>{{ Form::radio('kitchen', 'african', true) }} African</td>
-			<td>{{ Form::radio('kitchen', 'greek') }} Greek</td>
-			<td>{{ Form::radio('kitchen', 'russian') }} Russian</td>
-		</tr>
-		<tr>
-			<td>{{ Form::radio('kitchen', 'american') }} American</td>
-			<td>{{ Form::radio('kitchen', 'indonesian') }} Indonesian</td>
-			<td>{{ Form::radio('kitchen', 'south_american') }} South-American</td>
-		</tr>
-		<tr>
-			<td>{{ Form::radio('kitchen', 'british') }} British</td>
-			<td>{{ Form::radio('kitchen', 'italian') }} Italian</td>
-			<td>{{ Form::radio('kitchen', 'thai') }} Thai</td>
-		</tr>
-		<tr>
-			<td>{{ Form::radio('kitchen', 'chinese') }} Chinese</td>
-			<td>{{ Form::radio('kitchen', 'japanese') }} Japanese</td>
-			<td>{{ Form::radio('kitchen', 'turkish') }} Turkish</td>
-		</tr>
-		<tr>
-			<td>{{ Form::radio('kitchen', 'french') }} French</td>
-			<td>{{ Form::radio('kitchen', 'middle_eastern') }} Middle-Eastern</td>
-			<td>{{ Form::radio('kitchen', 'other') }} Other</td>
-		</tr>
-	</table><br><br>
+	<!-- Kitchen -->
+	<h2 class="center">Kitchen</h2>
+	{{ Form::select('kitchen', ['Other', 'African', 'American', 'British', 'Chinese', 'French', 'Greek', 'Indonesian', 'Italian', 'Japanese', 'Middle-Eastern', 'Russian', 'South-American', 'Thai', 'Turkish', ''], 0, ['class' => 'form-control']) }}<br> 
+
+	<!-- Recipe Difficulty -->
+	<h2 class="center">Recipe Difficulty</h2>
+	{{ Form::select('difficulty', ['1', '2', '3', '4', '5'], 2, ['class' => 'form-control']) }}<br> 
 
 	<!-- Recipe Instructions -->
 	<h2 class="center">Instructions</h2>
@@ -95,3 +52,13 @@
 
 {!! Form::close() !!}
 @endsection
+
+<!-- <script>
+var logID = 'log',
+  log = $('<div id="'+logID+'"></div>');
+$('body').append(log);
+  $('[type*="radio"]').change(function () {
+    var me = $(this);
+    log.html(me.attr('value'));
+  });
+</script> -->

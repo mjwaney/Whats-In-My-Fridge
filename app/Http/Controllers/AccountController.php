@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Input;
 use Response;
 use \App\ingredient;
 use \App\Recipe;
+use \App\User;
+use ChristianKuri\LaravelFavorite\Traits\Favoriteable;
 use Carbon\Carbon;
 
 class AccountController extends Controller
@@ -18,12 +20,23 @@ class AccountController extends Controller
     {
     	if (Auth::check()) {
 
-    		$author = Auth::user()->name;
+                    $author = Auth::user()->name;
 
-    		$userRec = Recipe::all()->where('author', '=', $author)->sortByDesc('date_added');
-    		$userIng = Ingredient::whereHas('users', function ($query) use($author) {
-			    $query->where('name', '=', $author);
-			})->get();
+                    $userRec = Recipe::all()->where('author', '=', $author)->sortByDesc('date_added');
+                    $userIng = Ingredient::whereHas('users', function ($query) use($author) {
+                        $query->where('name', '=', $author);
+                    })->get();
+
+                                                    
+                    $user = Auth::user();
+                    $userIng = $user->ingredients;
+                    $ingDate = array();
+
+                    foreach($userIng as $ing)
+                    {
+                        $ingDate[] = $ing->pivot->expiration_date;
+                    }
+
 	        $rec = Recipe::all()->sortByDesc('date_added');
 	        $ingredients = ingredient::all()->sortBy('name');
 	        $dairy = ingredient::all()->where('category', 'Dairy')->sortBy('name');
@@ -47,7 +60,7 @@ class AccountController extends Controller
 	        $sauce = ingredient::all()->where('category', 'Sauce')->sortBy('name');
 	        $alcohol = ingredient::all()->where('category', 'Alcohol')->sortBy('name');
 	                
-	        return view('auth.account', compact('rec', 'userRec', 'userIng', 'ingredients', 'dairy', 'meats',  'vegetables', 'fruits', 'spices', 'fish', 'bakingGrains', 'oils', 'seafood', 'addedSweeteners', 'seasonings', 'nuts', 'condiments', 'desertSnacks', 'beverages', 'soups', 'dairyAlternatives', 'peas', 'sauce', 'alcohol'));
+	        return view('auth.account', compact('rec', 'userRec', 'userIng', 'ingDate', 'ingredients', 'dairy', 'meats',  'vegetables', 'fruits', 'spices', 'fish', 'bakingGrains', 'oils', 'seafood', 'addedSweeteners', 'seasonings', 'nuts', 'condiments', 'desertSnacks', 'beverages', 'soups', 'dairyAlternatives', 'peas', 'sauce', 'alcohol'));
 	}
 	else 
 	{
@@ -61,10 +74,6 @@ class AccountController extends Controller
 
     public function store(Request $request, Ingredient $ingredient, Recipe $recipe)
     {
-    	var_dump('----------------------');
-    	var_dump(Auth::user()->name);
-    	var_dump('----------------------');
-
     	$user = Auth::user();
 
     	//Attach Ingredients to Account
@@ -78,5 +87,41 @@ class AccountController extends Controller
 
     	return back();
     }
-}
 
+    public function remove(Request $request)
+    {
+    	$user = Auth::user();
+
+    	$value = $request->input('ing');
+    	$ing = ingredient::all()->where('name', '=', $value[0]);
+
+    	$user->ingredients()->detach($ing);
+
+    }
+
+    public function addDate(Request $request, Ingredient $ingredient)
+    {
+        $name = $request->input('ingName');
+        $user = Auth::User();
+        $date = $request->input('ingDate');
+        $ingredients = ingredient::all()->where('name', '=', $name);
+
+        foreach($ingredients as $ing)
+        {
+            $id = $ing->id;
+        }
+        Auth::User()->ingredients()->updateExistingPivot($id, ['expiration_date' => $date]);
+    }
+
+    public function removeRecipe(Request $request, Recipe $recipe)
+    {
+
+        $name = $request->input('ing');
+
+        $recipe = Recipe::all()->where('name', '=', $name[0])->first();
+        $user = User::all();
+        $recipe->removeFavorite($user);
+
+        $recipe->delete();  
+    }
+}

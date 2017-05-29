@@ -233,12 +233,23 @@ $(document).ready(function()
 		    success: function (res) 
 		    {
 
-		    	    var result = $.parseJSON(res);
+		    	    
 		    	    // alert(JSON.stringify(res));
+		    	    // var result = [];
+		    	    // result.push(entry);
+		    	    // $result = $(result).unwrap();
+		    	    // result = [].concat.apply([], result);
+		    	    // var result = res.slice(1, -1);
+
+		    	    result = $.parseJSON(res);
+		    	    // alert('checkpoint');
+		    	    // alert(JSON.stringify(result.data));
+		    	    // alert(JSON.stringify(result.data).slice(1, -1));
+
 		    	    var output= "<ul>";
 
 		    	    for (i=0; i < result.data.length; i++){
-		    	        output += '<li class="list-group-item"><a class="center" href="recipes/' + result.data[i].id + '"></a><h2 class="center">' + result.data[i].name + '</h2><br><img src="' + result.data[i].image + '"><br>';
+		    	        output += '<li class="list-group-item"><a class="center" href="recipes/' + result.data[i].id + '"><h2 class="center">' + result.data[i].name + '</h2><br><img src="' + result.data[i].image + '"></a><br>';
 		    	        
 		    	        for (n=0; n < result.ingr.length; n++){
 		    	        		output += '<li class="list-group-item"><h2 class="center">Uses: ' + result.ingr[n].name +'</h2>';
@@ -247,8 +258,9 @@ $(document).ready(function()
 		    	        for (l=0; l < result.noning.length; l++){
 		    	        		output += result.noning[l].name + ', ';
 		    	        }
+		    	        output += "</h2>";
 		    	    }
-		    	    output += "</h2></li></ul>";
+		    	    output += "</li></ul>";
 
 		    	    document.getElementById("results").innerHTML += output;
 		    	    $("#searchresults").toggle();

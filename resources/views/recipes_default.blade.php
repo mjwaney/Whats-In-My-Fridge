@@ -2,7 +2,6 @@
 @section('title', 'Recipes')
 
 @section('fullwidth')
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
@@ -11,7 +10,7 @@ $(document).ready(function() {
 </script>
 
 <!-- Container -->
-<div class="container" style="padding-top: 25px;">
+<div class="container">
 	<div class="well well-sm">
 		<!-- <strong class="pull-right">Display</strong> -->
 		<!-- <h2 class="white">Recipes</h2> -->
@@ -37,7 +36,7 @@ $(document).ready(function() {
 							@if (Auth::check())
 								{!!Form::open(array('id' => 'favRecipe', 'name' => 'fav', 'route' => 'postFavorite')) !!}
 								<button type="submit" name="fav" class="btn btn-default pull-right" id="ad" value="{{ $r->id }}">
-								{{ $r->favoritesCount }}&nbsp;<span class="glyphicon glyphicon-star-empty "></span>
+								{{ $r->favoritesCount }}&nbsp;<span class="glyphicon glyphicon-cutlery"></span>
 								</button>
 								{!! Form::close() !!}
 							@endif

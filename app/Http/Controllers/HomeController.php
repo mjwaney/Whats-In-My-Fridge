@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/*
+|----------------------------------------------------------------------------------------------------------
+| Home Controller: handles home view
+|----------------------------------------------------------------------------------------------------------
+*/
 class HomeController extends Controller
 {
     /**

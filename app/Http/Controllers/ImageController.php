@@ -4,81 +4,64 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/*
+|----------------------------------------------------------------------------------------------------------
+| Image Controller: handles image uploads
+|----------------------------------------------------------------------------------------------------------
+*/
 class ImageController extends Controller
 {
-    	/**
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
 
-     * Show the form for creating a new resource.
+	public function resizeImage()
+	{
+		return view('resizeImage');
+	}
 
-     *
+	/**
+	 * Gets the uploaded Image and saves it
+	 *
+	 * @return image name
+	 */
 
-     * @return \Illuminate\Http\Response
+	public function resizeImagePost(Request $request)
+	{
+		$this->validate($request, [
+			'title' => 'required',
+			'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+		]);
 
-     */
+		$image = $request->file('image');
 
-    public function resizeImage()
+		$input['imagename'] = time().'.'.$image->getClientOriginalExtension();
 
-    {
+	 	$destinationPath = public_path('/thumbnail');
 
-    	return view('resizeImage');
+		$img = Image::make($image->getRealPath());
 
-    }
+		$img->resize(100, 100, function ($constraint) {
 
-
-    /**
-
-     * Show the form for creating a new resource.
-
-     *
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function resizeImagePost(Request $request)
-
-    {
-
-	    $this->validate($request, [
-
-	    	'title' => 'required',
-
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
-        ]);
-
-
-        $image = $request->file('image');
-
-        $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-
-     
-   
-
-        $destinationPath = public_path('/thumbnail');
-
-        $img = Image::make($image->getRealPath());
-
-        $img->resize(100, 100, function ($constraint) {
-
-		    $constraint->aspectRatio();
+			$constraint->aspectRatio();
 
 		})->save($destinationPath.'/'.$input['imagename']);
 
+		$destinationPath = public_path('/images');
 
-        $destinationPath = public_path('/images');
-
-        $image->move($destinationPath, $input['imagename']);
-
-
-        $this->postImage->add($input);
+		$image->move($destinationPath, $input['imagename']);
 
 
-        return back()
+		$this->postImage->add($input);
 
-        	->with('success','Image Upload successful')
 
-        	->with('imageName',$input['imagename']);
+		return back()
 
-    }
+			->with('success','Image Upload successful')
+
+			->with('imageName',$input['imagename']);
+
+	}
 }

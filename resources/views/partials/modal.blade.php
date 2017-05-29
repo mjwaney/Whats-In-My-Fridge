@@ -1,7 +1,6 @@
 <?php 
 use App\Http\Controllers\FindIngredientController; 
 ?>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js"></script>
 <script type="text/javascript">
    var url = $(location).attr('href');
