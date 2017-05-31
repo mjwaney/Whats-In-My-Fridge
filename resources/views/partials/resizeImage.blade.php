@@ -18,7 +18,7 @@
             <img src="{{asset('thumbnails/'.Session::get('imagename')) }}" />
         @endif
         {!! Form::open(array('name' => 'img', 'route' => 'intervention.postresizeimage','files'=>true, 'id'=>'imageform')) !!}
-        {!! Form::file('photo', array('class' => 'form-control', 'class' => 'bnt btn-default', 'id' => 'uploadImage')) !!}<br>
+        {!! Form::file('photo', array('class' => 'form-control ', 'class' => 'bnt btn-default', 'id' => 'uploadImage')) !!}<br>
         <button type="submit" id="imagebutton" class="btn btn-default">Upload Image</button><br><br>
         {!! Form::close() !!}
     </div>

@@ -175,7 +175,6 @@ Route::get('/viewEmail', function() {
 	dd(Config::get('mail'));
 });
 
-// About page
 Route::get('/about', function () {
 	return view('about');
 });

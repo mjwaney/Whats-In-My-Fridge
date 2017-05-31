@@ -28,7 +28,6 @@ class FindRecipeController extends Controller
 		//get user input(ingredients) from selectize/modal
 		$value = $request->input('ing');
 		// dd($value);
-
 		
 		foreach($value as $key => $val)
 		{
@@ -45,45 +44,27 @@ class FindRecipeController extends Controller
 				});
 			}
 			
-		
-		// dd('blag');
-// $query->orWhere('name', '=', $val);
-
-		// dd($query);
-
-		// $data = Recipe::whereHas('ingredients', function ($query) {
-		//     $query;
-		// })->get();
-
-      			// $ingr = "blah";
-			//get the corresponding ingredient
 			$ingr = Ingredient::where('name', $val)->get();
-			// var_dump($ingr);
-			//check recipes that have the given ingredient
-			// $recipes = Recipe::whereHas('ingredients', function ($query) use($ingr) {
-			//     $query->whereIn('id', $ingr->toArray());
-			// })->get();
-			// $recipes->toArray();
+
 			// Missing Ingredients part
-			// $desired_object = $data->filter(function($item) {
-			//     return $item->id;
-			// })->first();
+			$desired_object = $data->get()->filter(function($item) {
+			    return $item->id;
+			})->first();
 			// $data->push($data);
-			// $id = $desired_object->id;
+			$id = $desired_object->id;
 
 			// get all the missing ingredients
+			$noning = Ingredient::where('name', '!=', $val)
+				->whereHas('recipes', function ($query) use($id) {
+				    $query->where('id', '=', $id);
+				})->get();
 			
-		}
+		}//End foreach
 
-		// $noning = Ingredient::where('name', '!=', $val)
-		// 	->whereHas('recipes', function ($query) use($id) {
-		// 	    $query->where('id', '=', $id);
-		// 	})->get();
-			
-			$noning = "2";
+		// $noning = "2";
 		$data = $data->get();
+		$data->unique();
 
-			// var_dump($data);
 		return Response::json(array(
 			'data'=>$data,
 			'ingr'=>$ingr,

@@ -46,16 +46,15 @@ $(document).ready(function()
 	    	    var output= "<ul>";
 
 	    	    for (i=0; i < result.data.length; i++){
-	    	        output += '<li class="list-group-item"><a class="center" href="recipes/' + result.data[i].id + '"><h2 class="center">' + result.data[i].name + '</h2><br><img src="' + result.data[i].image + '"></a><br>';
+	    	        output += '<li class="list-group-item"><a class="center" href="recipes/' + result.data[i].id + '">' + result.data[i].name + '<br><img src="' + result.data[i].image + '"></a><br>';
 	    	        
 	    	        for (n=0; n < result.ingr.length; n++){
-	    	        		output += '<li class="list-group-item"><h2 class="center">Uses: ' + result.ingr[n].name +'</h2>';
+	    	        		output += '<li class="list-group-item">Uses: ' + result.ingr[n].name;
 	    	        }
-	    	        output += '<li class="list-group-item"><h2 class="center">Missing: ';
+	    	        output += '<li class="list-group-item">Missing: ';
 	    	        for (l=0; l < result.noning.length; l++){
 	    	        		output += result.noning[l].name + ', ';
 	    	        }
-	    	        output += "</h2>";
 	    	    }
 	    	    output += "</li></ul>";
 
