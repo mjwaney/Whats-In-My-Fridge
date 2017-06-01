@@ -8,9 +8,9 @@
 	<script type="text/javascript">
 		$.ajaxSetup({ headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }	});
 	</script>
-	<script src="http://localhost:8000/js/user/toggle.js"></script><!-- Toggles Script -->
-	<script src="http://localhost:8000/js/user/selectize.js"></script><!-- Selectize Script -->
-	<script src="http://localhost:8000/js/user/account.js"></script><!-- Account Scripts -->
+	<script src="js/user/toggle.js"></script><!-- Toggles Script -->
+	<script src="js/user/selectize.js"></script><!-- Selectize Script -->
+	<script src="js/user/account.js"></script><!-- Account Scripts -->
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.js" data-modules="effect effect-bounce effect-blind effect-bounce effect-clip effect-drop effect-fold effect-slide"></script>
